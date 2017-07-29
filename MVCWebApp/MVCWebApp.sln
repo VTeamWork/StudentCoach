@@ -25,6 +25,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "AdminBSBMaterialDesign-mast
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "43331"
+		SlnRelativePath = "AdminBSBMaterialDesign-master\"
 	EndProjectSection
 EndProject
 Global

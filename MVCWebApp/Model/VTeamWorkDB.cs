@@ -10,6 +10,22 @@ namespace Model
         public VTeamWorkDB()
             : base("name=VTeamWorkDB")
         {
+
+         
+            Database.SetInitializer<VTeamWorkDB>(new CreateDatabaseIfNotExists<VTeamWorkDB>());
+            // Database.SetInitializer<UserDbContext>(new MigrateDatabaseToLatestVersion<this, Configuration>());
+        }
+        public void InitializeDatabase(VTeamWorkDB context)
+        {
+            if (context.Database.Exists())
+            {
+                if (!context.Database.CompatibleWithModel(true))
+                {
+                    context.Database.Delete();
+                }
+            }
+            context.Database.Create();
+            context.Database.ExecuteSqlCommand("CREATE TABLE GLOBAL_DATA([KEY] VARCHAR(50), [VALUE] VARCHAR(250))");
         }
 
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }

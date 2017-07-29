@@ -2537,7 +2537,10 @@ section.content {
 .btn-default:hover,
 .btn-default:active,
 .btn-default:focus {
-  background-color: #fff !important; }
+  background-color: #F44336 !important; 
+  color:white;
+
+}
 
 .btn-group,
 .btn-group-vertical {
@@ -7720,7 +7723,7 @@ fieldset[disabled] .form-control {
 
 /* Login Page ================================== */
 .login-page {
-  background-color: #00BCD4;
+  background-color: #F44336;
   padding-left: 0;
   max-width: 360px;
   margin: 5% auto;

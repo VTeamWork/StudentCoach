@@ -13,6 +13,13 @@ namespace VteamWork
         protected void Page_Load(object sender, EventArgs e)
         {
             VTeamWorkDB db = new VTeamWorkDB();
+            List<tbl_USER> users = db.tbl_USER.ToList();
+            if (Session["userinfo"]==null)
+            {
+                Response.Redirect("~/Login.aspx");
+            }
+
+          
         }
     }
 }

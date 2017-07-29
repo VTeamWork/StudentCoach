@@ -17,7 +17,8 @@
                             <i class="material-icons">person</i>
                         </span>
                         <div class="form-line">
-                            <input type="text" class="form-control" name="username" placeholder="Username" required autofocus>
+                            <%--<input type="text" class="form-control" name="username" placeholder="Username" required autofocus>--%>
+                            <asp:TextBox runat="server" ID="USER_NAME" CssClass="form-control" required="required" autofocus=""></asp:TextBox>
                         </div>
                     </div>
                     <div class="input-group">

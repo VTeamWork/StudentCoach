@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.UI;
 using Model;
 using System.Web.UI.WebControls;
+using VteamWork.Helper;
+using Model.DataResponse;
 
 namespace VteamWork
 {
@@ -17,9 +19,13 @@ namespace VteamWork
 
         protected void Login_Click(object sender, EventArgs e)
         {
-            Session["userinfo"] = new tbl_USER();
+           
+            Response resp =  LoginHelper.Auth(LoginHelper.BindData(this));
+            if(!resp.IsError)
+            {
+                Session["userinfo"] = resp.data;
             Response.Redirect("/");
-
+            }
         }
     }
 }

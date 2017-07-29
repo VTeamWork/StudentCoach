@@ -11,26 +11,35 @@ namespace VteamWork.Helper
     {
         public static VTeamWorkDB db = new VTeamWorkDB();
 
-        public static tbl_USER BindData(Object Page)
+        public static object BindData<T>(Object Page)
         {
-            tbl_USER userinfo = new tbl_USER();
-            foreach (PropertyInfo oPropertyInfo in userinfo.GetType().GetProperties())
+           // Type objinput = typeof(T);
+            T objinput = (T)Activator.CreateInstance(typeof(T)); 
+            //T objinput = T.GetType().;
+            foreach (PropertyInfo oPropertyInfo in objinput.GetType().GetProperties())
             {
                 //Check the method is not static
                 if (!oPropertyInfo.GetGetMethod().IsStatic)
                 {
                     //Check this property can write
-                    if (Page.GetType().GetMember(oPropertyInfo.Name) != null)
+                    if (Page.GetType().GetProperty(oPropertyInfo.Name) != null)
                     {
-                       
-                            //Update the properties on this object
-                            userinfo.GetType().GetProperty(oPropertyInfo.Name).SetValue(userinfo, Page.GetType().GetProperty(oPropertyInfo.Name).GetValue(Page, null), null);
-                        
+
+                        //Update the properties on this object
+                        var obj = Page.GetType().GetProperty(oPropertyInfo.Name).GetValue(Page, null);
+                        //Page.GetType().GetProperty(oPropertyInfo.Name).GetValue(Page, null).GetType().GetProperty("Text").GetValue(Page.GetType().GetProperty(oPropertyInfo.Name).GetValue(Page, null), null)
+                        if(obj.GetType().GetProperty("Text")!=null)
+                            objinput.GetType().GetProperty(oPropertyInfo.Name).SetValue(objinput, obj.GetType().GetProperty("Text").GetValue(obj,null), null);
+                        //else if (obj.GetType().GetProperty("checked") != null)
+                        //        userinfo.GetType().GetProperty(oPropertyInfo.Name).SetValue(userinfo, obj.GetType().GetProperty("checked").GetValue(obj, null), null);
+                        //else if (obj.GetType().GetProperty("SelectedValue") != null)
+                        //    userinfo.GetType().GetProperty(oPropertyInfo.Name).SetValue(userinfo, obj.GetType().GetProperty("checked").GetValue(obj, null), null);
+
                     }
                 }
             }
 
-            return userinfo;
+            return objinput;
         }
         
     }

@@ -20,7 +20,7 @@ namespace VteamWork
         protected void Login_Click(object sender, EventArgs e)
         {
            
-            Response resp =  LoginHelper.Auth(LoginHelper.BindData(this));
+            Response resp =  LoginHelper.Auth((tbl_USER)LoginHelper.BindData<tbl_USER>(this));
             if(!resp.IsError)
             {
                 Session["userinfo"] = resp.data;

@@ -18,7 +18,7 @@
                         </span>
                         <div class="form-line">
                             <%--<input type="text" class="form-control" name="username" placeholder="Username" required autofocus>--%>
-                            <asp:TextBox runat="server" ID="USER_NAME" CssClass="form-control" required="required" autofocus=""></asp:TextBox>
+                            <asp:TextBox runat="server" ID="USER_NAME" CssClass="form-control" required="required" placeholder="Username" autofocus=""></asp:TextBox>
                         </div>
                     </div>
                     <div class="input-group">
@@ -26,7 +26,8 @@
                             <i class="material-icons">lock</i>
                         </span>
                         <div class="form-line">
-                            <input type="password" class="form-control" name="password" placeholder="Password" required>
+                            <asp:TextBox ID="PASSWORD" runat="server" CssClass="form-control" TextMode="Password" placeholder="password" required="required"></asp:TextBox>
+                           <%-- <input type="password" class="form-control" name="password" placeholder="password" required>--%>
                         </div>
                     </div>
                     <div class="row">

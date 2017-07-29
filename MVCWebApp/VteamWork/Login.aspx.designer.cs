@@ -28,7 +28,7 @@ namespace VteamWork {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        public global::System.Web.UI.WebControls.TextBox USER_NAME { get; set; }
+        protected global::System.Web.UI.WebControls.TextBox USER_NAME;
         
         /// <summary>
         /// PASSWORD control.
@@ -37,6 +37,6 @@ namespace VteamWork {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        public global::System.Web.UI.WebControls.TextBox PASSWORD { get; set; }
+        protected global::System.Web.UI.WebControls.TextBox PASSWORD;
     }
 }

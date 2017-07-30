@@ -13,5 +13,10 @@ namespace VteamWork
         {
 
         }
+
+        protected void btnResetPassword_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

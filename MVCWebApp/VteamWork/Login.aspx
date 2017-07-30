@@ -18,7 +18,7 @@
                         </span>
                         <div class="form-line">
                             <%--<input type="text" class="form-control" name="username" placeholder="Username" required autofocus>--%>
-                            <asp:TextBox runat="server" ID="USER_NAME" CssClass="form-control" required="required" placeholder="Username" autofocus=""></asp:TextBox>
+                            <asp:TextBox runat="server" ID="LOGIN_ID" CssClass="form-control" required="required" placeholder="Username" autofocus=""></asp:TextBox>
                         </div>
                     </div>
                     <div class="input-group">

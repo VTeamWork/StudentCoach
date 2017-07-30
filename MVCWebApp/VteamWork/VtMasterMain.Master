@@ -37,7 +37,10 @@
             <small>Web Pannel</small>
         </div>
     <asp:ContentPlaceHolder
-        ID="LoginFormPlaceHolder" runat="server"></asp:ContentPlaceHolder>
+        ID="LoginFormPlaceHolder" runat="server">
+
+
+    </asp:ContentPlaceHolder>
     </div>
     
 
@@ -55,6 +58,8 @@
 
     <!-- Custom Js -->
     <script src="js/admin.js"></script>
+
+    <script src="js/pages/examples/sign-up.js"></script>
     <script src="js/pages/examples/sign-in.js"></script>
 </body>
 

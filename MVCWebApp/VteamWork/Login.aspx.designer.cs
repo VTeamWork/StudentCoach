@@ -22,13 +22,13 @@ namespace VteamWork {
         protected global::System.Web.UI.HtmlControls.HtmlForm sign_in;
         
         /// <summary>
-        /// USER_NAME control.
+        /// LOGIN_ID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox USER_NAME;
+        public global::System.Web.UI.WebControls.TextBox LOGIN_ID { get; set; }
         
         /// <summary>
         /// PASSWORD control.
@@ -37,6 +37,6 @@ namespace VteamWork {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox PASSWORD;
+        public global::System.Web.UI.WebControls.TextBox PASSWORD { get; set; }
     }
 }

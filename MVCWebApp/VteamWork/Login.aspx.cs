@@ -14,7 +14,15 @@ namespace VteamWork
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(ErrorAlert.InnerText.Trim()))
+            {
+                ErrorAlert.Style.Add("display", "none");
+            }
+            else
+            {
+                ErrorAlert.Style.Add("display", "block");
 
+            }
         }
 
         protected void Login_Click(object sender, EventArgs e)
@@ -25,6 +33,11 @@ namespace VteamWork
             {
                 Session["userinfo"] = resp.data;
             Response.Redirect("/");
+            }
+            else
+            {
+
+                ErrorAlert.InnerText = resp.Message;
             }
         }
     }

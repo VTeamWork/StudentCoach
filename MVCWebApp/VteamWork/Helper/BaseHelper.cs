@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using Model;
 using System.Reflection;
+using Model.DataResponse;
 
 namespace VteamWork.Helper
 {
@@ -41,6 +42,16 @@ namespace VteamWork.Helper
 
             return objinput;
         }
-        
+     
+        public static void ShowAlert(Response resp,Object obj)
+        {
+            var Alert = obj.GetType().GetProperty("Alert");
+            if (Alert!=null)
+            {
+
+                Alert.GetType().GetProperty("InnerText").SetValue(Alert, "<div></div>");
+            }
+           
+        }   
     }
 }

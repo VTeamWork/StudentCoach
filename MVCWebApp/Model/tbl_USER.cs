@@ -19,7 +19,7 @@ namespace Model
         public int USER_ID { get; set; }
 
         [StringLength(50)]
-        public string USER_NAME { get; set; }
+        public string FIRST_NAME { get; set; }
 
         [StringLength(50)]
         public string LOGIN_ID { get; set; }
@@ -108,5 +108,8 @@ namespace Model
         public virtual ICollection<tbl_USER_ROLE> tbl_USER_ROLE { get; set; }
 
         public virtual tbl_USER_TYPE tbl_USER_TYPE { get; set; }
+
+        [StringLength(50)]
+        public string LAST_NAME { get; set; }
     }
 }

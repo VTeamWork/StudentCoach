@@ -10,42 +10,33 @@
 namespace VteamWork {
     
     
-    public partial class Login {
+    public partial class ResetPassword {
         
         /// <summary>
-        /// sign_in control.
+        /// forgot_password control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        public global::System.Web.UI.HtmlControls.HtmlForm sign_in {get;set;}
+        protected global::System.Web.UI.HtmlControls.HtmlForm forgot_password;
         
         /// <summary>
-        /// Alert control.
+        /// EMAIL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        public global::System.Web.UI.HtmlControls.HtmlGenericControl Alert {get;set;}
+        protected global::System.Web.UI.WebControls.TextBox EMAIL;
         
         /// <summary>
-        /// LOGIN_ID control.
+        /// btnResetPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        public global::System.Web.UI.WebControls.TextBox LOGIN_ID { get; set; }
-        
-        /// <summary>
-        /// PASSWORD control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        public global::System.Web.UI.WebControls.TextBox PASSWORD {get;set;}
+        protected global::System.Web.UI.WebControls.Button btnResetPassword;
     }
 }

@@ -3,11 +3,11 @@
   <title>Sign In </title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="LoginFormPlaceHolder" runat="server">
-    <div class="login-box">
-        <div class="logo">
+    <div >
+       <%-- <div class="logo">
             <a href="javascript:void(0);">VTeamWork</a>
             <small>Web Pannel</small>
-        </div>
+        </div>--%>
         <div class="card">
             <div class="body">
                 <form id="sign_in" method="POST" runat="server">
@@ -20,7 +20,7 @@
                         </span>
                         <div class="form-line">
                             <%--<input type="text" class="form-control" name="username" placeholder="Username" required autofocus>--%>
-                            <asp:TextBox runat="server" ID="USER_NAME" CssClass="form-control" required="required" placeholder="Username" autofocus=""></asp:TextBox>
+                            <asp:TextBox runat="server" ID="LOGIN_ID" CssClass="form-control" required="required" placeholder="Username" autofocus=""></asp:TextBox>
                         </div>
                     </div>
                     <div class="input-group">
@@ -44,10 +44,10 @@
                     </div>
                     <div class="row m-t-15 m-b--20">
                         <div class="col-xs-6">
-                            <a href="sign-up.html">Register Now!</a>
+                            <a href="SignUp.aspx">Register Now!</a>
                         </div>
                         <div class="col-xs-6 align-right">
-                            <a href="forgot-password.html">Forgot Password?</a>
+                            <a href="ResetPassword.aspx">Forgot Password?</a>
                         </div>
                     </div>
                 </form>

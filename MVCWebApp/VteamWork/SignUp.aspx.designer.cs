@@ -10,35 +10,44 @@
 namespace VteamWork {
     
     
-    public partial class Login {
+    public partial class SignUp {
         
         /// <summary>
-        /// sign_in control.
+        /// sign_up control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        public global::System.Web.UI.HtmlControls.HtmlForm sign_in {get;set;}
+        protected global::System.Web.UI.HtmlControls.HtmlForm sign_up {get;set;}
         
         /// <summary>
-        /// Alert control.
+        /// FIRST_NAME control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        public global::System.Web.UI.HtmlControls.HtmlGenericControl Alert {get;set;}
-        
+        public global::System.Web.UI.WebControls.TextBox FIRST_NAME {get;set;}
+
         /// <summary>
-        /// LOGIN_ID control.
+        /// LAST_NAME control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        public global::System.Web.UI.WebControls.TextBox LOGIN_ID { get; set; }
-        
+        public global::System.Web.UI.WebControls.TextBox LAST_NAME {get;set;}
+
+        /// <summary>
+        /// EMAIL control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        public global::System.Web.UI.WebControls.TextBox EMAIL {get;set;}
+
         /// <summary>
         /// PASSWORD control.
         /// </summary>
@@ -47,5 +56,23 @@ namespace VteamWork {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         public global::System.Web.UI.WebControls.TextBox PASSWORD {get;set;}
+        
+        /// <summary>
+        /// CONFIRM_PASSWORD control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox CONFIRM_PASSWORD {get;set;}
+
+        /// <summary>
+        /// CHK_ISSTUDENT control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        public global::System.Web.UI.WebControls.CheckBox CHK_ISSTUDENT {get;set;}
     }
 }

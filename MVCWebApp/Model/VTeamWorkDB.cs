@@ -255,7 +255,11 @@ namespace Model
                 .IsUnicode(false);
 
             modelBuilder.Entity<tbl_USER>()
-                .Property(e => e.USER_NAME)
+                .Property(e => e.FIRST_NAME)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<tbl_USER>()
+                .Property(e => e.LAST_NAME)
                 .IsUnicode(false);
 
             modelBuilder.Entity<tbl_USER>()

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Reflection;
 
 namespace VteamWork.Helper
 {
@@ -11,7 +12,7 @@ namespace VteamWork.Helper
     {
         public static Response Auth(tbl_USER user = null)
         {
-            var userinfo = db.tbl_USER.Where(c => c.USER_NAME == user.USER_NAME && c.PASSWORD == user.PASSWORD && c.IS_ACTIVE=="1" && c.IS_DELETED=="0").FirstOrDefault();
+            var userinfo = db.tbl_USER.Where(c => c.LOGIN_ID == user.LOGIN_ID && c.PASSWORD == user.PASSWORD && c.IS_ACTIVE=="1" && c.IS_DELETED=="0").FirstOrDefault();
             if (userinfo!=null)
             {
 
@@ -23,6 +24,8 @@ namespace VteamWork.Helper
             }
             
         }
+
+       
 
     }
 }

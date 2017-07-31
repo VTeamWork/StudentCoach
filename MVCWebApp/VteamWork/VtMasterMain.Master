@@ -1,6 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 
+
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">  
@@ -24,13 +25,23 @@
     <link href="css/style.css" rel="stylesheet">
     <asp:ContentPlaceHolder ID="header" runat="server">
 
-
+           
     </asp:ContentPlaceHolder>
 </head>
 
 <body class="login-page">
+
+    <div class="login-box">
+      <div class="logo">
+            <a href="javascript:void(0);">VTeamWork</a>
+            <small>Web Pannel</small>
+        </div>
     <asp:ContentPlaceHolder
-        ID="LoginFormPlaceHolder" runat="server"></asp:ContentPlaceHolder>
+        ID="LoginFormPlaceHolder" runat="server">
+
+
+    </asp:ContentPlaceHolder>
+    </div>
     
 
     <!-- Jquery Core Js -->
@@ -47,6 +58,8 @@
 
     <!-- Custom Js -->
     <script src="js/admin.js"></script>
+
+    <script src="js/pages/examples/sign-up.js"></script>
     <script src="js/pages/examples/sign-in.js"></script>
 </body>
 

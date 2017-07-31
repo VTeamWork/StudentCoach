@@ -61,5 +61,19 @@ namespace VteamWork.Helper
             }
            
         }   
+
+        public static Response Save(object obj)
+        {
+            //string class_name = obj.GetType().Name;
+            //object class_object = db.GetType().GetProperty(class_name).GetType();
+            //MethodInfo method = class_object.GetType().GetMethod("Add");
+            //object[] list = { obj };
+
+            //method.Invoke(class_object.GetType(), list);
+            db.tbl_USER.Add((tbl_USER)obj);
+            db.SaveChanges();
+
+            return new Response() { IsError=false,Message="Success"};
+        }
     }
 }

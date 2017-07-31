@@ -45,12 +45,18 @@ namespace VteamWork.Helper
 
         public static Response Save(object obj)
         {
-            //string class_name = obj.GetType().Name;
-            //object class_object = db.GetType().GetProperty(class_name).GetType();
+            string class_name = obj.GetType().Name;
+            object class_object = db.GetType().GetProperty(class_name).GetType();
             //MethodInfo method = class_object.GetType().GetMethod("Add");
             //object[] list = { obj };
 
             //method.Invoke(class_object.GetType(), list);
+
+
+            //dynamic dbSet = db.GetType().GetProperty(class_name, BindingFlags.Public | BindingFlags.Instance).GetValue(db, null);
+            //dbSet.Add(class_object);
+            //dbSet.GetMethod("Add", BindingFlags.Public | BindingFlags.Instance).Invoke(new object[] { class_object });
+
             db.tbl_USER.Add((tbl_USER)obj);
             db.SaveChanges();
 

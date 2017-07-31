@@ -31,7 +31,7 @@
                         <i class="material-icons">email</i>
                     </span>
                     <div class="form-line">
-                        <asp:TextBox runat="server" ID="EMAIL" CssClass="form-control" required="required" placeholder="Email" autofocus=""></asp:TextBox>
+                        <asp:TextBox runat="server" ID="EMAIL" CssClass="form-control" required="required" TextMode="Email" placeholder="Email" autofocus=""></asp:TextBox>
                     </div>
                 </div>
                 <div class="input-group">
@@ -40,7 +40,7 @@
                     </span>
                     <div class="form-line">
                         <%--<input type="password" class="form-control" name="password" minlength="6" placeholder="Password" required>--%>
-                        <asp:TextBox ID="PASSWORD" runat="server" CssClass="form-control" TextMode="Password" placeholder="password" required="required"></asp:TextBox>
+                        <asp:TextBox ID="PASSWORD" runat="server" CssClass="form-control" TextMode="Password" ClientIDMode="Static" placeholder="password" required="required"></asp:TextBox>
                     </div>
                 </div>
                 <div class="input-group">
@@ -49,7 +49,7 @@
                     </span>
                     <div class="form-line">
                         <%--<input type="password" class="form-control" name="confirm" minlength="6" placeholder="Confirm Password" required>--%>
-                        <asp:TextBox ID="confirm" runat="server" CssClass="form-control" TextMode="Password" placeholder="confirm password" required="required"></asp:TextBox>
+                        <asp:TextBox ID="confirm" runat="server" CssClass="form-control" TextMode="Password" placeholder="confirm password" ClientIDMode="Static" required="required"></asp:TextBox>
                     </div>
                 </div>
 
@@ -57,7 +57,7 @@
                     <asp:CheckBox ID="CHK_ISSTUDENT" runat="server"  CssClass="filled-in chk-col-pink" Text="Is Student"/>
                 </div>
                 <div class="form-group">
-                    <input type="checkbox" name="terms" id="terms" class="filled-in chk-col-pink">
+                    <input type="checkbox" name="terms" id="terms" class="filled-in chk-col-red">
                     <label for="terms">I read and agree to the <a href="javascript:void(0);">terms of usage</a>.</label>
                 </div>
 

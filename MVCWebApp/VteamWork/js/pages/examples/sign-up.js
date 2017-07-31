@@ -4,8 +4,8 @@ $(function () {
             'terms': {
                 required: true
             },
-            'confirm': {
-                equalTo: '[name="PASSWORD"]'
+            'ctl00$LoginFormPlaceHolder$confirm': {
+                equalTo: '[name="ctl00$LoginFormPlaceHolder$PASSWORD"]'
             }
         },
         highlight: function (input) {

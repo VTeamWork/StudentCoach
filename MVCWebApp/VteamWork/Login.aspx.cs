@@ -14,7 +14,7 @@ namespace VteamWork
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+           
         }
 
         protected void Login_Click(object sender, EventArgs e)
@@ -26,6 +26,7 @@ namespace VteamWork
                 Session["userinfo"] = resp.data;
             Response.Redirect("/");
             }
+            LoginHelper.ShowAlert(resp, this.Alert);
         }
     }
 }

@@ -42,6 +42,25 @@ namespace VteamWork.Helper
 
             return objinput;
         }
+     
+        public static void ShowAlert(Response resp,Object obj)
+        {
+      global::System.Web.UI.HtmlControls.HtmlGenericControl Alert = (global::System.Web.UI.HtmlControls.HtmlGenericControl)obj;
+            if (Alert!=null)
+            {
+                Alert.InnerHtml = resp.Message;
+                if (resp.IsError)
+                {
+                    Alert.Style.Add("color", "#fb483a !important");
+                  
+                }
+                else
+                {
+                    Alert.Style.Add("color", "#2b982b");
+                }
+            }
+           
+        }   
 
         public static Response Save(object obj)
         {

@@ -11,9 +11,8 @@ namespace Model
             : base("name=VTeamWorkDB")
         {
 
-         
             Database.SetInitializer<VTeamWorkDB>(new CreateDatabaseIfNotExists<VTeamWorkDB>());
-            // Database.SetInitializer<UserDbContext>(new MigrateDatabaseToLatestVersion<this, Configuration>());
+            // Database.SetInitializer<VTeamWorkDB>(new MigrateDatabaseToLatestVersion<this, System.Configuration>());
         }
         public void InitializeDatabase(VTeamWorkDB context)
         {

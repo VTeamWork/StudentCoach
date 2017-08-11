@@ -8,51 +8,104 @@ using System.Reflection;
 
 namespace VteamWork.Helper
 {
-    public class LoginHelper:BaseHelper
+    public class LoginHelper : BaseHelper
     {
         public static Response Auth(tbl_USER user = null)
         {
-            var userinfo = db.tbl_USER.Where(c => c.LOGIN_ID == user.LOGIN_ID && c.PASSWORD == user.PASSWORD && c.IS_ACTIVE=="1" && c.IS_DELETED=="0").FirstOrDefault();
-            if (userinfo!=null)
+            try
             {
+                var userinfo = db.tbl_USER.Where(c => c.LOGIN_ID == user.LOGIN_ID && c.PASSWORD == user.PASSWORD && c.IS_ACTIVE == "1" && c.IS_DELETED == "0").FirstOrDefault();
+                if (userinfo != null)
+                {
 
-                return new Response { IsError = false, Message = "Success", data = userinfo };
+                    return new Response { IsError = false, Message = "Success", data = userinfo };
+                }
+                else
+                {
+                    return new Response { IsError = true, Message = "Invalid Credentials" };
+                }
             }
-            else
+            catch (Exception e)
             {
-                return new Response { IsError = true, Message = "Error" };
+                return new Response { IsError = true, Message = e.Message };
+
+
             }
-            
+
         }
 
         public static Response GetMenuList(tbl_USER user = null)
         {
-            var menuinfo = db.tbl_MENU_GROUP.ToList();
-            if (menuinfo != null)
+            try
             {
+                var menuinfo = db.tbl_MENU_GROUP.ToList();
+                if (menuinfo != null)
+                {
 
-                return new Response { IsError = false, Message = "Success", data = menuinfo };
+                    return new Response { IsError = false, Message = "Success", data = menuinfo };
+                }
+                else
+                {
+                    return new Response { IsError = true, Message = "Error" };
+                }
             }
-            else
+            catch (Exception e)
             {
-                return new Response { IsError = true, Message = "Error" };
+                return new Response
+                {
+                    IsError = true,
+                    Message = e.Message
+                };
             }
 
         }
 
         public static Response GetPageList(int menu_group_id)
         {
-            var pageinfo = db.tbl_PAGE.Where(c => c.MENU_GROUP_ID== menu_group_id).ToList();
-            if (pageinfo != null)
+            try
             {
+                var pageinfo = db.tbl_PAGE.Where(c => c.MENU_GROUP_ID == menu_group_id).ToList();
+                if (pageinfo != null)
+                {
 
-                return new Response { IsError = false, Message = "Success", data = pageinfo };
+                    return new Response { IsError = false, Message = "Success", data = pageinfo };
+                }
+                else
+                {
+                    return new Response { IsError = true, Message = "Error" };
+                }
             }
-            else
+            catch (Exception e)
             {
-                return new Response { IsError = true, Message = "Error" };
+                return new Response { IsError = true, Message = e.Message };
             }
 
+        }
+
+        internal static void ShowAlert(Response resp, object alert)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static Response GetUserTypeList()
+        {
+            try
+            {
+                var userTYPEinfo = db.tbl_USER_TYPE.Where(c => c.USER_TYPE != "Admin").ToList();
+                if (userTYPEinfo != null)
+                {
+
+                    return new Response { IsError = false, Message = "Success", data = userTYPEinfo };
+                }
+                else
+                {
+                    return new Response { IsError = true, Message = "Error" };
+                }
+            }
+            catch (Exception e)
+            {
+                return new Response { IsError = true, Message = e.Message };
+            }
         }
 
 

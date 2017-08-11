@@ -33,8 +33,8 @@ namespace VteamWork.Helper
                             objinput.GetType().GetProperty(oPropertyInfo.Name).SetValue(objinput, obj.GetType().GetProperty("Text").GetValue(obj,null), null);
                         //else if (obj.GetType().GetProperty("checked") != null)
                         //        userinfo.GetType().GetProperty(oPropertyInfo.Name).SetValue(userinfo, obj.GetType().GetProperty("checked").GetValue(obj, null), null);
-                        //else if (obj.GetType().GetProperty("SelectedValue") != null)
-                        //    userinfo.GetType().GetProperty(oPropertyInfo.Name).SetValue(userinfo, obj.GetType().GetProperty("checked").GetValue(obj, null), null);
+                        else if (obj.GetType().GetProperty("SelectedValue") != null)
+                            objinput.GetType().GetProperty(oPropertyInfo.Name).SetValue(objinput, obj.GetType().GetProperty("Text").GetValue(obj, null), null);
 
                     }
                 }

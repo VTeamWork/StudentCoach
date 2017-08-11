@@ -27,6 +27,7 @@ namespace Model
             context.Database.ExecuteSqlCommand("CREATE TABLE GLOBAL_DATA([KEY] VARCHAR(50), [VALUE] VARCHAR(250))");
         }
 
+        public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<tbl_ANSWER> tbl_ANSWER { get; set; }
         public virtual DbSet<tbl_APPLICATION> tbl_APPLICATION { get; set; }
@@ -44,6 +45,9 @@ namespace Model
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            Database.SetInitializer<VTeamWorkDB>(null);
+            base.OnModelCreating(modelBuilder);
+
             modelBuilder.Entity<tbl_ANSWER>()
                 .Property(e => e.QUESTION_NAME)
                 .IsUnicode(false);
@@ -258,10 +262,6 @@ namespace Model
                 .IsUnicode(false);
 
             modelBuilder.Entity<tbl_USER>()
-                .Property(e => e.LAST_NAME)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<tbl_USER>()
                 .Property(e => e.LOGIN_ID)
                 .IsUnicode(false);
 
@@ -338,6 +338,18 @@ namespace Model
 
             modelBuilder.Entity<tbl_USER>()
                 .Property(e => e.EMPLOYEE_NO)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<tbl_USER>()
+                .Property(e => e.LAST_NAME)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<tbl_USER>()
+                .Property(e => e.COMMENTS)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<tbl_USER>()
+                .Property(e => e.SKYPE_ID)
                 .IsUnicode(false);
 
             modelBuilder.Entity<tbl_USER_ROLE>()

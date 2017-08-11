@@ -99,17 +99,26 @@ namespace Model
 
         public int? TEAM_ID { get; set; }
 
+        [StringLength(50)]
+        public string LAST_NAME { get; set; }
+
+        [StringLength(1000)]
+        public string COMMENTS { get; set; }
+
+        [Column(TypeName = "date")]
+        public DateTime? ENROLL_DATE { get; set; }
+
+        [StringLength(50)]
+        public string SKYPE_ID { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_QUESTION> tbl_QUESTION { get; set; }
 
         public virtual tbl_TEAM tbl_TEAM { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tbl_USER_ROLE> tbl_USER_ROLE { get; set; }
-
         public virtual tbl_USER_TYPE tbl_USER_TYPE { get; set; }
 
-        [StringLength(50)]
-        public string LAST_NAME { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbl_USER_ROLE> tbl_USER_ROLE { get; set; }
     }
 }

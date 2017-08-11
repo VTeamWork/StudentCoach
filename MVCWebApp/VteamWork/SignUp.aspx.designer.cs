@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace VteamWork {
-    
-    
-    public partial class SignUp {
-        
+namespace VteamWork
+{
+
+
+    public partial class SignUp
+    {
+
         /// <summary>
         /// sign_up control.
         /// </summary>
@@ -19,8 +21,8 @@ namespace VteamWork {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm sign_up;
-        
+        public global::System.Web.UI.HtmlControls.HtmlForm sign_up { get; set; }
+
         /// <summary>
         /// FIRST_NAME control.
         /// </summary>
@@ -28,8 +30,8 @@ namespace VteamWork {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox FIRST_NAME;
-        
+        public global::System.Web.UI.WebControls.TextBox FIRST_NAME { get; set; }
+
         /// <summary>
         /// LAST_NAME control.
         /// </summary>
@@ -37,8 +39,8 @@ namespace VteamWork {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox LAST_NAME;
-        
+        public global::System.Web.UI.WebControls.TextBox LAST_NAME { get; set; }
+
         /// <summary>
         /// EMAIL control.
         /// </summary>
@@ -46,8 +48,8 @@ namespace VteamWork {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox EMAIL;
-        
+        public global::System.Web.UI.WebControls.TextBox EMAIL { get; set; }
+
         /// <summary>
         /// PASSWORD control.
         /// </summary>
@@ -55,8 +57,8 @@ namespace VteamWork {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox PASSWORD;
-        
+        public global::System.Web.UI.WebControls.TextBox PASSWORD { get; set; }
+
         /// <summary>
         /// confirm control.
         /// </summary>
@@ -64,15 +66,60 @@ namespace VteamWork {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox confirm;
-        
+        public global::System.Web.UI.WebControls.TextBox confirm { get; set; }
+
         /// <summary>
-        /// CHK_ISSTUDENT control.
+        /// USER_TYPE control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CHK_ISSTUDENT;
+        public global::System.Web.UI.WebControls.DropDownList USER_TYPE { get; set; }
+
+        /// <summary>
+        /// CITY control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        public global::System.Web.UI.WebControls.TextBox CITY { get; set; }
+
+        /// <summary>
+        /// MOBILE_NO control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        public global::System.Web.UI.WebControls.TextBox MOBILE_NO { get; set; }
+
+        /// <summary>
+        /// SKYPE control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        public global::System.Web.UI.WebControls.TextBox SKYPE_ID { get; set; }
+
+        /// <summary>
+        /// ENROL_DATE control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        public global::System.Web.UI.WebControls.TextBox ENROLL_DATE { get; set; }
+
+        /// <summary>
+        /// COMMENTS control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        public global::System.Web.UI.HtmlControls.HtmlTextArea COMMENTS { get; set; }
     }
 }

@@ -146,6 +146,7 @@
     <Content Include="css\themes\theme-yellow.css" />
     <Content Include="css\themes\theme-yellow.min.css" />
     <Content Include="Default.aspx" />
+    <Content Include="FrontPage.html" />
     <Content Include="images\animation-bg.jpg" />
     <Content Include="images\image-gallery\1.jpg" />
     <Content Include="images\image-gallery\10.jpg" />

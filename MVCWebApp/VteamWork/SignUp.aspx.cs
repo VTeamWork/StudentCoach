@@ -14,23 +14,23 @@ namespace VteamWork
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
-            BindList();
+            //if(!IsPostBack)
+            //BindList();
         }
 
-        public void BindList()
-        {
-            Response resp = LoginHelper.GetUserTypeList();
+        //public void BindList()
+        //{
+        //    Response resp = LoginHelper.GetUserTypeList();
 
-            List<tbl_USER_TYPE> List = (List<tbl_USER_TYPE>)resp.data;
-            USER_TYPE.DataSource = List;
-            USER_TYPE.DataTextField = "USER_TYPE";
-            USER_TYPE.DataValueField = "USER_TYPE_ID";
-            USER_TYPE.DataBind();
-            // db were not successfully loaded
-            USER_TYPE.Items.Insert(0, new ListItem("Select User Type", "0"));
+        //    List<tbl_USER_TYPE> List = (List<tbl_USER_TYPE>)resp.data;
+        //    USER_TYPE.DataSource = List;
+        //    USER_TYPE.DataTextField = "USER_TYPE";
+        //    USER_TYPE.DataValueField = "USER_TYPE_ID";
+        //    USER_TYPE.DataBind();
+        //    // db were not successfully loaded
+        //    USER_TYPE.Items.Insert(0, new ListItem("Select User Type", "0"));
 
-        }
+        //}
 
         protected void Rigestered_Click(object sender, EventArgs e)
         {
@@ -41,8 +41,7 @@ namespace VteamWork
             tblUser.UPDATED_ON = DateTime.Now;
             tblUser.IS_ACTIVE = "0";
             tblUser.IS_DELETED = "0";
-            tblUser.USER_TYPE = USER_TYPE.SelectedValue;
-            tblUser.USER_TYPE_ID = Convert.ToInt32( USER_TYPE.SelectedValue);
+           
             tblUser.FIRST_NAME = FIRST_NAME.Text.ToString();
             tblUser.LAST_NAME = LAST_NAME.Text.ToString();
             tblUser.COMMENTS = COMMENTS.Value.ToString();
@@ -52,6 +51,8 @@ namespace VteamWork
             tblUser.MOBILE_NO = MOBILE_NO.Text.ToString() ;
             tblUser.CITY = CITY.Text.ToString();
             tblUser.EMAIL = EMAIL.Text.ToString();
+            tblUser.LOGIN_ID = EMAIL.Text.ToString();
+            tblUser.DEPT_NAME = TimeZ.Value;
 
             Response resp = LoginHelper.Save(tblUser);
             if (!resp.IsError)

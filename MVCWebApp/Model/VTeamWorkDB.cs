@@ -45,8 +45,8 @@ namespace Model
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            Database.SetInitializer<VTeamWorkDB>(null);
-            base.OnModelCreating(modelBuilder);
+            //Database.SetInitializer<VTeamWorkDB>(null);
+            //base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<tbl_ANSWER>()
                 .Property(e => e.QUESTION_NAME)

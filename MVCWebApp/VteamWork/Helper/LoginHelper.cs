@@ -82,10 +82,10 @@ namespace VteamWork.Helper
 
         }
 
-        internal static void ShowAlert(Response resp, object alert)
-        {
-            throw new NotImplementedException();
-        }
+        //internal static void ShowAlert(Response resp, object alert)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         public static Response GetUserTypeList()
         {

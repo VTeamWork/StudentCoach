@@ -21,10 +21,6 @@ namespace VteamWork
         //     int startRowIndex
         //     out int totalRowCount
         //     string sortByExpression
-        public IQueryable<Model.tbl_USER> GetUser()
-        {
-        
-            return LoginHelper.db.tbl_USER.Select(s=>s);
-        }
+     
     }
 }

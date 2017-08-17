@@ -88,10 +88,10 @@ namespace VteamWork.Helper
         public static void SendEmail(string to, string subject, string msg)
         {
 
-            MailMessage msgeme = new MailMessage("talha_476@hotmail.com", to, subject, msg);
+            MailMessage msgeme = new MailMessage("vteamwork@hotmail.com", to, subject, msg);
             SmtpClient smtpclient = new SmtpClient("smtp.live.com", 587);
             smtpclient.EnableSsl = true;
-            smtpclient.Credentials = new NetworkCredential("talha_476@hotmail.com", "Karachi@1234");
+            smtpclient.Credentials = new NetworkCredential("vteamwork@hotmail.com", "Team@123");
             smtpclient.DeliveryMethod = SmtpDeliveryMethod.Network;
             smtpclient.Send(msgeme);
 

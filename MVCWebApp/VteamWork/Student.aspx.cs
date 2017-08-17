@@ -35,15 +35,15 @@ namespace VteamWork
                 LoginHelper.db.SaveChanges();
                 LoginHelper.SendEmail(user.EMAIL, "De-Activate Student", "De Activate");
                 Session["response"] = new Response() { IsError = false, Message = "Success" };
-                Response.Redirect("Default.aspx");
 
             }
             catch (Exception ex)
             {
                 Session["response"] = new Response() { IsError = true, Message = ex.Message };
-                Response.Redirect("Default.aspx");
 
             }
+            Response.Redirect("Default.aspx");
+
         }
 
         protected void ResetPwd_Click(object sender, EventArgs e)

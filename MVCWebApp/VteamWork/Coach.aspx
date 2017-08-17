@@ -41,10 +41,20 @@
 
                                     <asp:DynamicField DataField="MOBILE_NO" />
 
+                                      <asp:TemplateField ItemStyle-Height="20px" HeaderText="Task Date" SortExpression="DATE" HeaderStyle-ForeColor="white">
+                                        <ItemStyle Width="15%" HorizontalAlign="Left" CssClass=" gridRow" Wrap="false" />
+                                        <ItemTemplate>
+                                            <asp:LinkButton ID="lnkRemove" runat="server" CommandArgument='<%# Eval("USER_ID")%>'
+                                                CssClass="btn btn-danger" Text="Deactivate" OnClick="Deactivate_Click"></asp:LinkButton>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+
                                     <asp:TemplateField ItemStyle-Height="20px" HeaderText="Task Date" SortExpression="DATE" HeaderStyle-ForeColor="white">
                                         <ItemStyle Width="15%" HorizontalAlign="Left" CssClass=" gridRow" Wrap="false" />
                                         <ItemTemplate>
-                                            <asp:Button CssClass="btn btn-success" Text="Activate" runat="server" />
+                                            <asp:LinkButton ID="lnk" runat="server" CommandArgument='<%# Eval("USER_ID")%>'
+                                                CssClass="btn btn-primary" Text="Reset Password" OnClick="ResetPwd_Click"></asp:LinkButton>
+
                                         </ItemTemplate>
                                     </asp:TemplateField>
 

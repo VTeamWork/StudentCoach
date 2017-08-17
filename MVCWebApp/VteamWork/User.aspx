@@ -25,7 +25,7 @@
                     </div>
                     <div class="body">
                         <div class="table-responsive">
-                            <asp:GridView runat="server" ID="GridViewDemo2"
+                            <asp:GridView runat="server" ID="GridViewDemo2" DataKeyNames="USER_ID"
                                 ItemType="Model.tbl_USER"
                                 SelectMethod="GetUser"
                                 AutoGenerateColumns="false"
@@ -35,7 +35,6 @@
                                 <Columns>
 
                                     <asp:DynamicField DataField="USER_ID" />
-                                    <asp:DynamicField DataField="USER_ID" />
 
                                     <asp:DynamicField DataField="FIRST_NAME" />
 
@@ -44,10 +43,21 @@
                                     <asp:TemplateField ItemStyle-Height="20px" HeaderText="Task Date" SortExpression="DATE" HeaderStyle-ForeColor="white">
                                         <ItemStyle Width="15%" HorizontalAlign="Left" CssClass=" gridRow" Wrap="false" />
                                         <ItemTemplate>
-                                            <asp:Button CssClass="btn btn-success" Text="Activate" runat="server" />
+                                            <%--<asp:Button CssClass="btn btn-success" Text="Activate Coach" runat="server" OnCommand="ActivateCoach_Click" CommandArgument='<%= USER_ID  %>'  />--%>
+                                             <asp:LinkButton ID="lnkRemove" runat="server" CommandArgument='<%# Eval("USER_ID")%>'
+                                                   CssClass="btn btn-success" Text="Activate Coach" OnClick="ActivateCoach_Click"></asp:LinkButton>
                                         </ItemTemplate>
                                     </asp:TemplateField>
 
+ <asp:TemplateField ItemStyle-Height="20px" HeaderText="Task Date" SortExpression="DATE" HeaderStyle-ForeColor="white">
+                                        <ItemStyle Width="15%" HorizontalAlign="Left" CssClass=" gridRow" Wrap="false" />
+                                        <ItemTemplate>
+                                             <asp:LinkButton ID="lnk" runat="server" CommandArgument='<%# Eval("USER_ID")%>'
+                                                   CssClass="btn btn-success" Text="Activate Student" OnClick="ActivateStu_Click"></asp:LinkButton>
+                                       
+                                                 <%--<asp:Button CssClass="btn btn-success" Text="Activate Student " runat="server"  OnCommand="ActivateStu_Click" CommandArgument='<%= USER_ID  %>' />--%>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
 
 
                                 </Columns>

@@ -5,6 +5,8 @@ using System.Web;
 using Model;
 using System.Reflection;
 using Model.DataResponse;
+using System.Net.Mail;
+using System.Net;
 
 namespace VteamWork.Helper
 {
@@ -48,15 +50,15 @@ namespace VteamWork.Helper
       global::System.Web.UI.HtmlControls.HtmlGenericControl Alert = (global::System.Web.UI.HtmlControls.HtmlGenericControl)obj;
             if (Alert!=null)
             {
-                Alert.InnerHtml = resp.Message;
                 if (resp.IsError)
                 {
-                    Alert.Style.Add("color", "#fb483a !important");
-                  
+
+                    Alert.InnerHtml = "<div class=\"alert alert-danger\">" + resp.Message + "</div>";
                 }
                 else
                 {
-                    Alert.Style.Add("color", "#2b982b");
+                    Alert.InnerHtml = "<div class=\"alert alert-success\">" + resp.Message + "</div>";
+
                 }
             }
            
@@ -80,6 +82,20 @@ namespace VteamWork.Helper
             db.SaveChanges();
 
             return new Response() { IsError=false,Message="Success"};
+        }
+
+
+        public static void SendEmail(string to, string subject, string msg)
+        {
+
+            MailMessage msgeme = new MailMessage("talha_476@hotmail.com", to, subject, msg);
+            SmtpClient smtpclient = new SmtpClient("smtp.live.com", 587);
+            smtpclient.EnableSsl = true;
+            smtpclient.Credentials = new NetworkCredential("talha_476@hotmail.com", "Karachi@1234");
+            smtpclient.DeliveryMethod = SmtpDeliveryMethod.Network;
+            smtpclient.Send(msgeme);
+
+
         }
     }
 }

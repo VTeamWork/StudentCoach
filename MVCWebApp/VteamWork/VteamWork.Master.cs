@@ -29,6 +29,13 @@ namespace VteamWork
                 innerHtml.Text = dynamicMenu(((tbl_USER)Session["userinfo"]));
             }
 
+            if (Session["Response"] != null)
+            {
+                Model.DataResponse.Response resp = (Model.DataResponse.Response)Session["Response"];
+                LoginHelper.ShowAlert(resp, this.Alert);
+                Session["Response"] = null;
+            }
+
         }
             public string dynamicMenu(tbl_USER user)
         {
@@ -57,12 +64,20 @@ namespace VteamWork
                                 List<tbl_PAGE> pageList = (List<tbl_PAGE>)resp.data;
                                 if(pageList.Count>0)
                                 {
-                                    txtHTML += "<ul class=\"ml-menu\"><li>";
-                                    txtHTML += " <a href = \"javascript:void(0);\" class=\"menu-toggle\"><span>" + lst.MENU_GROUP_NAME + "</span></a> ";
-                                    txtHTML += "<ul class=\"ml-menu\">";
+                                    txtHTML += "<ul class=\"ml-menu\" style=\"display:block\"><li>";
+                                    txtHTML += " <a href = \"javascript:void(0);\" class=\"menu-toggle waves-effect waves-block\"><span>" + lst.MENU_GROUP_NAME + "</span></a> ";
+                                    txtHTML += "<ul class=\"ml-menu \" style=\"display:block\">";
                                     foreach (var lst2 in pageList)
                                     {
-                                        txtHTML += "<li><a href = \"" + lst2.PAGE_PATH + "\" > " + lst2.PAGE_NAME + "</a></ li >";
+                                     string currentpage = Request.Url.ToString().Split('/')[Request.Url.ToString().Split('/').Length-1];
+                                        if(currentpage== lst2.PAGE_PATH)
+                                        { txtHTML += "<li class='active' style=\"dislay:block\">"; }
+                                        else
+                                        {
+
+                                            txtHTML += "<li>";
+                                        }
+                                        txtHTML += "<a href = \"" + lst2.PAGE_PATH + "\" > " + lst2.PAGE_NAME + "</a></ li >";
                                      }
                                     txtHTML += "</ul>";
                                     txtHTML += "</li></ul>";

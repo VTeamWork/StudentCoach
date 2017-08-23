@@ -59,7 +59,7 @@ namespace VteamWork
             {
               
             }
-            //LoginHelper.ShowAlert(resp, this.Alert);
+            LoginHelper.ShowAlert(resp, this.Alert);
         }
     }
 }

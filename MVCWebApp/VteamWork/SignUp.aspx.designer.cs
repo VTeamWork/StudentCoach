@@ -22,6 +22,15 @@ namespace VteamWork {
         protected global::System.Web.UI.HtmlControls.HtmlForm sign_up;
         
         /// <summary>
+        /// Alert control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Alert;
+        
+        /// <summary>
         /// FIRST_NAME control.
         /// </summary>
         /// <remarks>

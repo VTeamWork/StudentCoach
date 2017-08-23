@@ -9,6 +9,8 @@
     <div class="card">
         <div class="body">
             <form id="sign_up" method="POST" runat="server">
+                <div class="alert" ID="Alert" runat="server">
+                      </div>
                 <div class="msg">Register a new membership</div>
                 <div class="input-group">
                     <span class="input-group-addon">

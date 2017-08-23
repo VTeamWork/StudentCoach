@@ -19,7 +19,7 @@ namespace VteamWork {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm sign_in;
+        public global::System.Web.UI.HtmlControls.HtmlForm sign_in{get;set;}
         
         /// <summary>
         /// Alert control.
@@ -28,7 +28,7 @@ namespace VteamWork {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Alert;
+        public global::System.Web.UI.HtmlControls.HtmlGenericControl Alert{get{get;set;}st
         
         /// <summary>
         /// LOGIN_ID control.
@@ -37,7 +37,7 @@ namespace VteamWork {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox LOGIN_ID;
+        public global::System.Web.UI.WebControls.TextBox LOGIN_ID{get;set;}
         
         /// <summary>
         /// PASSWORD control.
@@ -46,6 +46,6 @@ namespace VteamWork {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox PASSWORD;
+        public global::System.Web.UI.WebControls.TextBox PASSWORD{get;set;}
     }
 }

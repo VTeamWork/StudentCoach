@@ -113,14 +113,27 @@ input{width:40px !important;height:25px;vertical-align:top;margin-bottom:10px !i
   ga('send', 'pageview');</script> <script>$(document).ready(function(){
 $('.et_pb_contact_form input, .et_pb_contact_form textarea').click(function(){ $(this).val(""); });
 });</script> </head>
+
+<style>
+    html, 
+body {
+    height: 100%;
+}
+    section.container {
+    min-height: inherit !important;
+    height:80% !important;
+}
+ 
+</style>
 <body class="home page-template-default page page-id-267 chrome et-pb-theme-viability 2015 v3 et_divi_builder">
   
      
-           <div class="megamenu"><div class="row"><div class="columns large-12 small-12 mega-links">
-                                                    
-               <ul class="inline-list right">
+           <div class="megamenu"><div class="row" style="width:auto"><div class="columns large-12 small-12 mega-links">
+              
+                                                      <div style="width:50%;display:inline;float:left;padding:20px">  <img src="images/Logo.png" /></div>
+               <ul class="inline-list right" style="margin-top:20px">
 
-                   <li id="menu-item-393" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-393"><b>V-Teamwork</b></li>
+                   <!--<li id="menu-item-393" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-393"><b>V-Teamwork</b></li>-->
             <li id="mmenu-1" class="has-dropdown not-click" data-dropdown="menu-1" data-options="is_hover:true"> 
   
     <a href="Login.aspx"> Sign In </a></li>

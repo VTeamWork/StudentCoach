@@ -28,7 +28,7 @@ namespace VteamWork {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        public global::System.Web.UI.HtmlControls.HtmlGenericControl Alert{get{get;set;}st
+        public global::System.Web.UI.HtmlControls.HtmlGenericControl Alert{get;set;}
         
         /// <summary>
         /// LOGIN_ID control.

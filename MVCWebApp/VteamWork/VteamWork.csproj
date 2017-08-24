@@ -2941,6 +2941,7 @@
     <Content Include="ResetPassword.aspx" />
     <Content Include="SignUp.aspx" />
     <Content Include="Student.aspx" />
+    <Content Include="OldUser.aspx" />
     <Content Include="User.aspx" />
     <Content Include="VteamWork.Master" />
     <Content Include="plugins\bootstrap-colorpicker\css\bootstrap-colorpicker.css.map" />
@@ -3026,6 +3027,13 @@
     </Compile>
     <Compile Include="Student.aspx.designer.cs">
       <DependentUpon>Student.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OldUser.aspx.cs">
+      <DependentUpon>OldUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OldUser.aspx.designer.cs">
+      <DependentUpon>OldUser.aspx</DependentUpon>
     </Compile>
     <Compile Include="User.aspx.cs">
       <DependentUpon>User.aspx</DependentUpon>

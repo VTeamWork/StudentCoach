@@ -29,7 +29,7 @@ namespace VteamWork
                 int ID = Convert.ToInt32(((LinkButton)sender).CommandArgument);
                 var user = LoginHelper.db.tbl_USER.FirstOrDefault(u => u.USER_ID == ID);
                 user.USER_TYPE = "";
-                user.USER_TYPE_ID = null;
+                //user.USER_TYPE_ID = null;
                 user.IS_ACTIVE = "0";
                 LoginHelper.db.SaveChanges();
                 LoginHelper.SendEmail(user.EMAIL, "De-Activate Student", "De Activate");

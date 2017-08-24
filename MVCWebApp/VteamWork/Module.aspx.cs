@@ -38,7 +38,7 @@ namespace VteamWork
                 //LoginHelper.db.SaveChanges();
                 //  LoginHelper.SendEmail(user.EMAIL, "Activate Coach", "Welcome");
 
-                if(ModuleID.Value == null)
+                if(string.IsNullOrEmpty(ModuleID.Value))
                 { 
                  module = new Model.tbl_MODULE();
                     module.MODULE_NAME = ModuleName.Text;

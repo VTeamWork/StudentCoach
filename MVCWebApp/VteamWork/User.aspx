@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <div class="container-fluid">
+      <div class="container-fluid">
         <!-- Basic Examples -->
         <div class="row clearfix">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -29,7 +29,7 @@
                                 ItemType="Model.tbl_USER"
                                 SelectMethod="GetUser"
                                 AutoGenerateColumns="false"
-                                CssClass="dataTable table table-bordered table-striped table-hover js-basic-example">
+                                CssClass="gvv table table-bordered table-striped table-hover">
 
                                 <HeaderStyle />
                                 <Columns>
@@ -70,4 +70,14 @@
             </div>
         </div>
         </div>
+    <script>
+        //$(document.ready(function () {
+        //    $(".gvv").prepend($("<thead></thead>").append($(this).find("tr:first"))).dataTable();
+        //}));
+
+        $(document).ready(function () {
+                $(".gvv").prepend($("<thead></thead>").append($(this).find("tr:first"))).dataTable();
+
+        });
+    </script>
 </asp:Content>

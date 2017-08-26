@@ -46,7 +46,7 @@
 
                         <div class="table-responsive" id="GridDiv" runat="server" visible="false">
                             <asp:GridView runat="server" ID="GridViewDemo2"
-                                ItemType="Model.tbl_USER"
+                                ItemType="Model.tbl_TEAM"
                                 SelectMethod="GetUser"
                                 AutoGenerateColumns="false"
                                 CssClass="dataTable table table-bordered table-striped table-hover js-basic-example">
@@ -54,17 +54,13 @@
                                 <HeaderStyle />
                                 <Columns>
 
-                                    <asp:DynamicField DataField="USER_ID" />
-                                    <asp:DynamicField DataField="USER_ID" />
+                                    <asp:DynamicField DataField="TEAM_NAME" HeaderText="Team Name" />
 
-                                    <asp:DynamicField DataField="FIRST_NAME" />
-
-                                    <asp:DynamicField DataField="MOBILE_NO" />
-
+                                    <asp:DynamicField DataField="TEAM_DESCRITION" HeaderText="Team Description" />
                                     <asp:TemplateField ItemStyle-Height="20px" HeaderText="Action" SortExpression="DATE" HeaderStyle-ForeColor="white">
                                         <ItemStyle Width="15%" HorizontalAlign="Left" CssClass=" gridRow" Wrap="false" />
                                         <ItemTemplate>
-                                            <asp:LinkButton ID="lnkEdit" runat="server" CommandArgument='<%# Eval("USER_ID")%>'
+                                            <asp:LinkButton ID="lnkEdit" runat="server" CommandArgument='<%# Eval("TEAM_ID")%>'
                                                 CssClass="btn btn-primary" Text="Edit" OnClick="lnkEdit_Click"></asp:LinkButton>
                                         </ItemTemplate>
                                     </asp:TemplateField>
@@ -98,9 +94,7 @@
                                 <div class="form-line">
                                    
                                     <asp:ListBox ID="lstStudents" SelectionMode="Multiple"  runat="server" CssClass="form-control show-tick">
-                                        <asp:ListItem>Mustard</asp:ListItem>
-                                        <asp:ListItem>Ketchup</asp:ListItem>
-                                        <asp:ListItem>Relish</asp:ListItem>
+                                
                                     </asp:ListBox>
                                     </div>
                                    </div>

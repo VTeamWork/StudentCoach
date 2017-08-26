@@ -897,6 +897,16 @@
 
     <!-- Demo Js -->
     <script src="js/demo.js"></script>
+ <script>
+        //$(document.ready(function () {
+        //    $(".gvv").prepend($("<thead></thead>").append($(this).find("tr:first"))).dataTable();
+        //}));
+
+        $(document).ready(function () {
+                $(".gvv").prepend($("<thead></thead>").append($(this).find("tr:first"))).dataTable();
+
+        });
+    </script>
 </body>
 
 </html>

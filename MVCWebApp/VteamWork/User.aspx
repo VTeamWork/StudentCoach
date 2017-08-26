@@ -70,14 +70,5 @@
             </div>
         </div>
         </div>
-    <script>
-        //$(document.ready(function () {
-        //    $(".gvv").prepend($("<thead></thead>").append($(this).find("tr:first"))).dataTable();
-        //}));
-
-        $(document).ready(function () {
-                $(".gvv").prepend($("<thead></thead>").append($(this).find("tr:first"))).dataTable();
-
-        });
-    </script>
+   
 </asp:Content>

@@ -2939,6 +2939,7 @@
     <Content Include="plugins\ckeditor\plugins\wsc\dialogs\wsc_ie.js" />
     <Content Include="plugins\ckeditor\plugins\xml\plugin.js" />
     <Content Include="plugins\ckeditor\styles.js" />
+    <Content Include="Question.aspx" />
     <Content Include="ResetPassword.aspx" />
     <Content Include="SignUp.aspx" />
     <Content Include="Team.aspx" />
@@ -3015,6 +3016,13 @@
     </Compile>
     <Compile Include="Module.aspx.designer.cs">
       <DependentUpon>Module.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Question.aspx.cs">
+      <DependentUpon>Question.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Question.aspx.designer.cs">
+      <DependentUpon>Question.aspx</DependentUpon>
     </Compile>
     <Compile Include="ResetPassword.aspx.cs">
       <DependentUpon>ResetPassword.aspx</DependentUpon>

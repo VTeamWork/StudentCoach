@@ -53,6 +53,7 @@
     <!-- Bootstrap Spinner Css -->
     <link href="../../plugins/jquery-spinner/css/bootstrap-spinner.css" rel="stylesheet">
 
+      <script src="plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap Tagsinput Css -->
     <link href="../../plugins/bootstrap-tagsinput/bootstrap-tagsinput.css" rel="stylesheet">
 
@@ -843,7 +844,7 @@
     </section>
 
     <!-- Jquery Core Js -->
-    <script src="plugins/jquery/jquery.min.js"></script>
+  
 
     <!-- Bootstrap Core Js -->
     <script src="plugins/bootstrap/js/bootstrap.js"></script>

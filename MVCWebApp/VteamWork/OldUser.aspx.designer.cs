@@ -10,7 +10,7 @@
 namespace VteamWork {
     
     
-    public partial class User {
+    public partial class OldUser {
         
         /// <summary>
         /// GridViewDemo2 control.

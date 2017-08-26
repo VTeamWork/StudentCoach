@@ -23,7 +23,6 @@
                             </ul>
                         </div>
                         <div class="body">
-                            <form>
                                 <div class="row clearfix">
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                         <div class="form-group form-float">
@@ -47,20 +46,63 @@
                                         <div class="form-group form-float">
                                             <div class="form-line">
                                                 <%--<input type="password" class="form-control">--%>
-                                      <asp:ListBox ID="lstStudents" SelectionMode="Multiple"  runat="server" CssClass="form-control show-tick">
-                                        <asp:ListItem>Mustard</asp:ListItem>
-                                        <asp:ListItem>Ketchup</asp:ListItem>
-                                        <asp:ListItem>Relish</asp:ListItem>
+                                      <asp:ListBox ID="ModuleList" SelectionMode="Single"  runat="server" CssClass="form-control show-tick">
+                                  
                                     </asp:ListBox>           <%-- <label class="form-label">Select Module</label>--%>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                        <button type="button" class="btn btn-primary btn-lg m-l-15 waves-effect">Save</button>
+                                        
+                                        <asp:HiddenField ID="QuestionID" runat="server" />
+                                        
+                                        <asp:Button  OnClick="btnSave_Click" Text="Save" CssClass="form-control btn btn-primary btn-lg m-l-15 waves-effect" runat="server" /> 
+
+                                        <%--<button type="button" class="btn btn-primary btn-lg m-l-15 waves-effect">Save</button>--%>
                                     </div>
                                 </div>
-                            </form>
+
+
                         </div>
+
+
+
+
+
+   <div class="table-responsive">
+                            <asp:GridView runat="server" ID="GridViewDemo2" DataKeyNames="MODULE_ID"
+                                ItemType="Model.tbl_QUESTION"
+                                SelectMethod="GetQuestions"
+                                AutoGenerateColumns="false"
+                                CssClass="gvv table table-bordered table-striped table-hover">
+
+                                <HeaderStyle />
+                                <Columns>
+
+                                    <asp:DynamicField DataField="QUESTION_ID" HeaderText="ID" />
+
+                                    <asp:DynamicField DataField="QUESTION_NAME" HeaderText="Name" />
+
+                                    <asp:DynamicField DataField="QUESTION_DESCRITION" HeaderText="Description" />
+
+                                    <asp:TemplateField ItemStyle-Height="20px" HeaderText="Task Date" SortExpression="DATE" HeaderStyle-ForeColor="white">
+                                        <ItemStyle Width="15%" HorizontalAlign="Left" CssClass=" gridRow" Wrap="false" />
+                                        <ItemTemplate>
+                                            <%--<asp:Button CssClass="btn btn-success" Text="Activate Coach" runat="server" OnCommand="ActivateCoach_Click" CommandArgument='<%= USER_ID  %>'  />--%>
+                                             <asp:LinkButton ID="lnkRemove" runat="server" CommandArgument='<%# Eval("QUESTION_ID")%>'
+                                                   CssClass="btn btn-primary" Text="Edit QUESTION" OnClick="EDITQUESTION_Click"></asp:LinkButton>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+
+
+                                </Columns>
+
+
+                            </asp:GridView>
+                        </div>
+    
+
+
                     </div>
                 </div>
             </div>

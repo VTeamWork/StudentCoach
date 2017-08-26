@@ -31,12 +31,30 @@ namespace VteamWork {
         protected global::System.Web.UI.HtmlControls.HtmlTextArea Description;
         
         /// <summary>
-        /// lstStudents control.
+        /// ModuleList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox lstStudents;
+        protected global::System.Web.UI.WebControls.ListBox ModuleList;
+        
+        /// <summary>
+        /// QuestionID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField QuestionID;
+        
+        /// <summary>
+        /// GridViewDemo2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GridViewDemo2;
     }
 }

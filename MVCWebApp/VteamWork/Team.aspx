@@ -17,34 +17,53 @@
                     </div>
                     <div class="body">
 
-                        <div class="row clearfix">
-                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                        <div class="row clearfix" >
+                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                                 <div class="input-group">
                                     <span class="input-group-addon">
-                                        <i class="material-icons">search</i>
+                                        <i class="material-icons">supervisor_account</i>
                                     </span>
                                     <div class="form-line">
-                                        <asp:TextBox runat="server" ID="txtSearch" CssClass="form-control" placeholder="Search Team" />
+                                        <asp:TextBox runat="server" ID="txtTeamName" CssClass="form-control" required="required" placeholder="Team Name" />
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
-                                <div class="form-group">
+
+                           
+
+                           <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                               <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="material-icons">person</i>
+                                    </span>
+                                <div class="form-line">
+                                   
+                                    <asp:ListBox ID="lstStudents" SelectionMode="Multiple"  runat="server" CssClass="form-control show-tick">
+                                
+                                    </asp:ListBox>
+                                    </div>
+                                   </div>
+
+                                </div>
+                             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="material-icons">description</i>
+                                    </span>
                                     <div class="form-line">
-                                        <asp:Button ID="btnSearch" CssClass="btn btn-block btn-lg bg-red waves-effect " runat="server" Text="Search" OnClick="btnSearch_Click" />
+                                        <asp:TextBox runat="server" ID="txtDescription" CssClass="form-control" required="required" TextMode="MultiLine" placeholder="Team Description" />
                                     </div>
                                 </div>
                             </div>
+
                             <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
-                                <div class="form-group">
-                                    <div class="form-line">
-                                        <asp:Button ID="btnAdd" runat="server" Text="Add" CssClass="btn btn-block btn-lg bg-red waves-effect" OnClick="btnAdd_Click" />
-                                    </div>
-                                </div>
+                               <asp:HiddenField ID="TeamID" runat="server" />
+                                        <asp:Button ID="btnSave" runat="server" Text="Save" CssClass="btn btn-block btn-lg bg-red waves-effect" OnClick="btnSave_Click" />
+                                 
                             </div>
                         </div>
 
-                        <div class="table-responsive" id="GridDiv" runat="server" visible="false">
+                        <div class="table-responsive">
                             <asp:GridView runat="server" ID="GridViewDemo2"
                                 ItemType="Model.tbl_TEAM"
                                 SelectMethod="GetUser"
@@ -72,55 +91,6 @@
                         </div>
           
 
-                        <div class="row clearfix"  id="DivAdd" runat="server" visible="false">
-                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                                <div class="input-group">
-                                    <span class="input-group-addon">
-                                        <i class="material-icons">supervisor_account</i>
-                                    </span>
-                                    <div class="form-line">
-                                        <asp:TextBox runat="server" ID="txtTeamName" CssClass="form-control" required="required" placeholder="Team Name" />
-                                    </div>
-                                </div>
-                            </div>
-
-                           
-
-                           <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                               <div class="input-group">
-                                    <span class="input-group-addon">
-                                        <i class="material-icons">person</i>
-                                    </span>
-                                <div class="form-line">
-                                   
-                                    <asp:ListBox ID="lstStudents" SelectionMode="Multiple"  runat="server" CssClass="form-control show-tick">
-                                
-                                    </asp:ListBox>
-                                    </div>
-                                   </div>
-
-                                </div>
-                          
-
-                             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                                <div class="input-group">
-                                    <span class="input-group-addon">
-                                        <i class="material-icons">description</i>
-                                    </span>
-                                    <div class="form-line">
-                                        <asp:TextBox runat="server" ID="txtDescription" CssClass="form-control" required="required" TextMode="MultiLine" placeholder="Team Description" />
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <div class="form-group">
-                                    <div class="form-line">
-                                        <asp:Button ID="btnSave" runat="server" Text="Save" CssClass="btn btn-block btn-lg bg-red waves-effect" OnClick="btnSave_Click" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
                     </div>
                 </div>

@@ -14,6 +14,7 @@ namespace VteamWork
 {
     public partial class Team : System.Web.UI.Page
     {
+        Model.tbl_TEAM team;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -22,82 +23,121 @@ namespace VteamWork
             }
         
         }
-
         public IQueryable<Model.tbl_TEAM> GetUser()
         {
             return LoginHelper.db.tbl_TEAM.Select(s => s);
         }
-
-        protected void btnAdd_Click(object sender, EventArgs e)
+        protected void lnkEdit_Click(object sender, EventArgs e)
         {
             try
             {
-                DivAdd.Visible = true;
+                // string ID = e.CommandArgument.ToString();
+                int ID = Convert.ToInt32(((LinkButton)sender).CommandArgument);
+                team = LoginHelper.db.tbl_TEAM.FirstOrDefault(u => u.TEAM_ID == ID);
+                TeamID.Value = ID.ToString();
+                txtTeamName.Text = team.TEAM_NAME;
+                txtDescription.Text = team.TEAM_DESCRITION;
+
+                List<tbl_USER> studentLst = LoginHelper.db.tbl_USER.Where(u => u.TEAM_ID == ID).Select(s => s).ToList();
+                foreach (tbl_USER item in studentLst)
+                {
+                    lstStudents.Items.FindByValue(item.USER_ID.ToString()).Selected=true;
+                }
 
             }
             catch (Exception ex)
             {
                 Session["response"] = new Response() { IsError = true, Message = ex.Message };
-
             }
-      
-
+  
         }
-
-        protected void btnSearch_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                GridDiv.Visible = true;
-     
-
-            }
-            catch (Exception ex)
-            {
-     
-
-            }
-            
-
-        }
-
-
-        protected void lnkEdit_Click(object sender, EventArgs e)
-        {
-
-        }
-
         protected void btnSave_Click(object sender, EventArgs e)
         {
             try
             {
-                tbl_TEAM tblTeam = new tbl_TEAM();
-                tblTeam.TEAM_NAME = txtTeamName.Text;
-                tblTeam.TEAM_DESCRITION = txtDescription.Text;
-                tblTeam.CREATED_ON = DateTime.Now;
-                tblTeam.CREATED_BY = ((tbl_USER)Session["userinfo"]).LOGIN_ID.ToString();
-                tblTeam.UPDATED_ON = DateTime.Now;
-                tblTeam.UPDATED_BY = ((tbl_USER)Session["userinfo"]).LOGIN_ID.ToString();
-                LoginHelper.db.tbl_TEAM.Add(tblTeam);
-                LoginHelper.db.SaveChanges();
-    
+                if (string.IsNullOrEmpty(TeamID.Value))
+                {
+                    team = new Model.tbl_TEAM();
+                    team.TEAM_NAME = txtTeamName.Text;
+                    team.TEAM_DESCRITION = txtDescription.Text;
+                    team.CREATED_ON = DateTime.Now;
+                    team.CREATED_BY = ((tbl_USER)Session["userinfo"]).LOGIN_ID.ToString();
+                    team.UPDATED_ON = DateTime.Now;
+                    team.UPDATED_BY = ((tbl_USER)Session["userinfo"]).LOGIN_ID.ToString();
+                    LoginHelper.db.tbl_TEAM.Add(team);
+                    LoginHelper.db.SaveChanges();
+
+
                     foreach (ListItem item in lstStudents.Items)
                     {
-                    int itemid = 0;
+                        int itemid = 0;
                         if (item.Selected)
                         {
-                        itemid = Convert.ToInt32(item.Value);
-                           tbl_USER tbluser= LoginHelper.db.tbl_USER.FirstOrDefault(u => u.USER_ID == itemid);
-                            tbluser.TEAM_ID = tblTeam.TEAM_ID;
+                            itemid = Convert.ToInt32(item.Value);
+                            var Studentlst = LoginHelper.db.tbl_USER.Where(u => u.USER_ID==itemid && u.USER_TYPE_ID == 2 && u.TEAM_ID != null).Select(s => s).ToList();
+
+                            if (Studentlst.Count == 0)
+                            {
+                                tbl_USER tbluser = LoginHelper.db.tbl_USER.FirstOrDefault(u => u.USER_ID == itemid);
+                                tbluser.TEAM_ID = team.TEAM_ID;
+                                tbluser.UPDATED_ON = DateTime.Now;
+                                tbluser.UPDATED_BY = ((tbl_USER)Session["userinfo"]).LOGIN_ID.ToString();
+                                LoginHelper.db.SaveChanges();
+                            }
+                            else
+                            {
+                                Session["response"] = new Response() { IsError = true, Message = item.Text + "This student alredy assigned" };
+                                break;
+                            }
+
+                        }
+                    }
+                }
+                else
+                {
+
+                    team = LoginHelper.db.tbl_TEAM.FirstOrDefault(u => u.TEAM_ID.ToString() == TeamID.Value);
+                    team.TEAM_NAME = txtTeamName.Text;
+                    team.TEAM_DESCRITION = txtDescription.Text;
+                    team.CREATED_ON = DateTime.Now;
+                    team.CREATED_BY = ((tbl_USER)Session["userinfo"]).LOGIN_ID.ToString();
+                    team.UPDATED_ON = DateTime.Now;
+                    team.UPDATED_BY = ((tbl_USER)Session["userinfo"]).LOGIN_ID.ToString();
+                    LoginHelper.db.tbl_TEAM.Add(team);
+                    LoginHelper.db.SaveChanges();
+
+                    int teamID = Convert.ToInt32(TeamID.Value);
+                   var Studentlst= LoginHelper.db.tbl_USER.Where(u => u.USER_TYPE_ID == 2 && u.TEAM_ID == teamID).Select(s => s).ToList();
+
+                    foreach (tbl_USER item in lstStudents.Items)
+                    {
+                        int itemid = 0;
+                            itemid = Convert.ToInt32(item.USER_ID);
+                            tbl_USER tbluser = LoginHelper.db.tbl_USER.FirstOrDefault(u => u.USER_ID == itemid);
+                            tbluser.TEAM_ID = null;
+                            tbluser.UPDATED_ON = DateTime.Now;
+                            tbluser.UPDATED_BY = ((tbl_USER)Session["userinfo"]).LOGIN_ID.ToString();
+                            LoginHelper.db.SaveChanges();
+                        
+                    }
+
+
+                    foreach (ListItem item in lstStudents.Items)
+                    {
+                        int itemid = 0;
+                        if (item.Selected)
+                        {
+                            itemid = Convert.ToInt32(item.Value);
+                            tbl_USER tbluser = LoginHelper.db.tbl_USER.FirstOrDefault(u => u.USER_ID == itemid);
+                            tbluser.TEAM_ID = team.TEAM_ID;
                             tbluser.UPDATED_ON = DateTime.Now;
                             tbluser.UPDATED_BY = ((tbl_USER)Session["userinfo"]).LOGIN_ID.ToString();
                             LoginHelper.db.SaveChanges();
                         }
                     }
-                
 
+                }
                 Session["response"] = new Response() { IsError = false, Message = "Success" };
-                Response.Redirect("Default.aspx");
 
 
             }
@@ -105,13 +145,12 @@ namespace VteamWork
             {
 
                 Session["response"] = new Response() { IsError = true, Message = ex.Message };
-                Response.Redirect("Default.aspx");
 
             }
-           
+            Response.Redirect("Default.aspx");
+
+
         }
-
-
         public void BindList()
         {
             try

@@ -27,7 +27,7 @@
                         <div class="body">
                                 <div class="row clearfix">
                                
-                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
                                         <label>Select Team</label>
                                         <div class="form-group form-float">
                                             <div class="form-line">
@@ -36,7 +36,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
                                     <label>Select Module</label>
                                         <div class="form-group form-float">
                                             <div class="form-line">
@@ -46,12 +46,15 @@
                                     </asp:ListBox>                                                   </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                                    <label></label>
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                              <asp:Button  OnClick="btnSave_Click" Text="Save" CssClass="form-control btn btn-primary btn-lg m-l-15 waves-effect" runat="server" /> 
+                                                   </div>
+                                        </div>       
                                         
-                                        <asp:HiddenField ID="QuestionID" runat="server" />
                                         
-                                        <asp:Button  OnClick="btnSave_Click" Text="Save" CssClass="form-control btn btn-primary btn-lg m-l-15 waves-effect" runat="server" /> 
-
                                     </div>
                                 </div>
 
@@ -62,33 +65,26 @@
 
 
 
-   <%--<div class="table-responsive">
-                            <asp:GridView runat="server" ID="GridViewDemo2" DataKeyNames="MODULE_ID"
-                                ItemType="Model.tbl_TEAM_MODULE"
-                                SelectMethod="GetTeamModules"
-                                AutoGenerateColumns="false"
-                                CssClass="gvv table table-bordered table-striped table-hover">
+   <div class="table-responsive">
+                            <%--<asp:gridview runat="server" id="gridviewdemo2" datakeynames="Team_module_id"
+                                itemtype="Model.tbl_TEAM_MODULE"
+                                selectmethod="GetTeamModules"
+                                autogeneratecolumns="false"
+                                cssclass="gvv table table-bordered table-striped table-hover">
 
-                                <HeaderStyle />
-                                <Columns>
-                                    <asp:DynamicField DataField="tbl_TEAM.TEAM_NAME" HeaderText="Team Name" />
+                                <headerstyle />
+                                <columns>
+                                    <asp:dynamicfield datafield="team_id" headertext="team name" />
 
-                                    <asp:DynamicField DataField="tbl_MODULE.MODULE_NAME" HeaderText="Module Name" />
+                                    <asp:dynamicfield datafield="tbl_MODULE.MODULE_NAME" headertext="module name" />
 
-                                    <asp:TemplateField ItemStyle-Height="20px" HeaderText="Task Date" SortExpression="DATE" HeaderStyle-ForeColor="white">
-                                        <ItemStyle Width="15%" HorizontalAlign="Left" CssClass=" gridRow" Wrap="false" />
-                                        <ItemTemplate>
-                                             <asp:LinkButton ID="lnkRemove" runat="server" CommandArgument='<%# Eval("Team_module_id")%>'
-                                                   CssClass="btn btn-primary" Text="Edit QUESTION" OnClick="EDITASSIGN_Click"></asp:LinkButton>
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
+                                    
+
+                                </columns>
 
 
-                                </Columns>
-
-
-                            </asp:GridView>
-                        </div>--%>
+                            </asp:gridview>--%>
+                        </div>
     
 
 

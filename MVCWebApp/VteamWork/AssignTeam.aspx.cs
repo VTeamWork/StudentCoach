@@ -19,10 +19,10 @@ namespace VteamWork
                 BindTeamList();
             }
         }
-        public IQueryable<Model.tbl_TEAM_MODULE> GetTeamModules()
+        public List<Model.tbl_TEAM_MODULE> GetTeamModules()
         {
-
-            return LoginHelper.db.tbl_TEAM_MODULE.Select(s => s);
+            return LoginHelper.db.tbl_TEAM_MODULE.ToList();
+            //return LoginHelper.db.tbl_TEAM_MODULE.AsQueryable();
         }
         
         private void BindModuleList()
@@ -47,6 +47,10 @@ namespace VteamWork
         {
             try
             {
+                int teamid =  Convert.ToInt32(TeamList.SelectedValue);
+                var removedata = LoginHelper.db.tbl_TEAM_MODULE.Where(t => t.team_id == teamid);
+                LoginHelper.db.tbl_TEAM_MODULE.RemoveRange(removedata.ToList());
+                LoginHelper.db.SaveChanges();
                 var query = from ListItem item in ModuleList.Items where item.Selected select item;
                 List<Model.tbl_TEAM_MODULE> Insertlist = new List<Model.tbl_TEAM_MODULE>();
                 foreach (ListItem item in query)
@@ -77,10 +81,10 @@ namespace VteamWork
 
             try
             {
-                ModuleList.DataSource = LoginHelper.db.tbl_TEAM.Select(s => s).ToList();
-                ModuleList.DataTextField = "TEAM_NAME";
-                ModuleList.DataValueField = "TEAM_ID";
-                ModuleList.DataBind();
+                TeamList.DataSource = LoginHelper.db.tbl_TEAM.Select(s => s).ToList();
+                TeamList.DataTextField = "TEAM_NAME";
+                TeamList.DataValueField = "TEAM_ID";
+                TeamList.DataBind();
             }
             catch (Exception ex)
             { }

@@ -7,8 +7,9 @@ namespace Model
 
     public partial class VTeamWorkDB : DbContext
     {
+
         public VTeamWorkDB()
-            : base("name=VTeamWorkDB")
+           : base("name=VTeamWorkDB")
         {
 
             Database.SetInitializer<VTeamWorkDB>(new CreateDatabaseIfNotExists<VTeamWorkDB>());
@@ -39,15 +40,13 @@ namespace Model
         public virtual DbSet<tbl_ROLE_PAGE> tbl_ROLE_PAGE { get; set; }
         public virtual DbSet<tbl_ROLE_RESTRICT> tbl_ROLE_RESTRICT { get; set; }
         public virtual DbSet<tbl_TEAM> tbl_TEAM { get; set; }
+        public virtual DbSet<tbl_TEAM_MODULE> tbl_TEAM_MODULE { get; set; }
         public virtual DbSet<tbl_USER> tbl_USER { get; set; }
         public virtual DbSet<tbl_USER_ROLE> tbl_USER_ROLE { get; set; }
         public virtual DbSet<tbl_USER_TYPE> tbl_USER_TYPE { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            //Database.SetInitializer<VTeamWorkDB>(null);
-            //base.OnModelCreating(modelBuilder);
-
             modelBuilder.Entity<tbl_ANSWER>()
                 .Property(e => e.QUESTION_NAME)
                 .IsUnicode(false);
@@ -127,6 +126,11 @@ namespace Model
             modelBuilder.Entity<tbl_MODULE>()
                 .Property(e => e.UPDATED_BY)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<tbl_MODULE>()
+                .HasMany(e => e.tbl_TEAM_MODULE)
+                .WithRequired(e => e.tbl_MODULE)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<tbl_PAGE>()
                 .Property(e => e.PAGE_NAME)
@@ -254,6 +258,19 @@ namespace Model
                 .IsUnicode(false);
 
             modelBuilder.Entity<tbl_TEAM>()
+                .Property(e => e.UPDATED_BY)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<tbl_TEAM>()
+                .HasMany(e => e.tbl_TEAM_MODULE)
+                .WithRequired(e => e.tbl_TEAM)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<tbl_TEAM_MODULE>()
+                .Property(e => e.CREATED_BY)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<tbl_TEAM_MODULE>()
                 .Property(e => e.UPDATED_BY)
                 .IsUnicode(false);
 

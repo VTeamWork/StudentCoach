@@ -58,13 +58,13 @@ namespace VteamWork
                 LoginHelper.db.SaveChanges();
                 ModuleID.Value = null;
                 Session["response"] = new Response() { IsError = false, Message = "Success" };
-                 Response.Redirect(Request.Url.ToString());
+//                 Response.Redirect(Request.Url.ToString());
             }
             catch (Exception ex)
             {
                 Session["response"] = new Response() { IsError = true, Message = ex.Message };
-                Response.Redirect(Request.Url.ToString());
             }
+            Response.Redirect(Request.Url.ToString());
 
         }
 
@@ -86,8 +86,8 @@ namespace VteamWork
             }
             catch (Exception ex)
             {
-                Session["response"] = new Response() { IsError = true, Message = ex.Message };
-                Response.Redirect("Default.aspx");
+  //              Session["response"] = new Response() { IsError = true, Message = ex.Message };
+//                Response.Redirect("Default.aspx");
 
             }
         }

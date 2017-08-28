@@ -83,10 +83,15 @@ namespace VteamWork
                                 tbluser.UPDATED_ON = DateTime.Now;
                                 tbluser.UPDATED_BY = ((tbl_USER)Session["userinfo"]).LOGIN_ID.ToString();
                                 LoginHelper.db.SaveChanges();
+                                Session["response"] = new Response() { IsError = false, Message = "Success" };
                             }
                             else
                             {
-                                Session["response"] = new Response() { IsError = true, Message = item.Text + "This student alredy assigned" };
+                                Session["response"] = new Response() { IsError = true, Message = item.Text + " alredy assigned to another team!" };
+                                tbl_TEAM tblteam = LoginHelper.db.tbl_TEAM.FirstOrDefault(u => u.TEAM_ID == team.TEAM_ID);
+                                LoginHelper.db.tbl_TEAM.Remove(tblteam);
+                                LoginHelper.db.SaveChanges();
+
                                 break;
                             }
 
@@ -103,13 +108,12 @@ namespace VteamWork
                     team.CREATED_BY = ((tbl_USER)Session["userinfo"]).LOGIN_ID.ToString();
                     team.UPDATED_ON = DateTime.Now;
                     team.UPDATED_BY = ((tbl_USER)Session["userinfo"]).LOGIN_ID.ToString();
-                    LoginHelper.db.tbl_TEAM.Add(team);
                     LoginHelper.db.SaveChanges();
 
                     int teamID = Convert.ToInt32(TeamID.Value);
-                   var Studentlst= LoginHelper.db.tbl_USER.Where(u => u.USER_TYPE_ID == 2 && u.TEAM_ID == teamID).Select(s => s).ToList();
+                   List<tbl_USER> Studentlst= LoginHelper.db.tbl_USER.Where(u => u.USER_TYPE_ID == 2 && u.TEAM_ID == teamID).Select(s => s).ToList();
 
-                    foreach (tbl_USER item in lstStudents.Items)
+                    foreach (tbl_USER item in Studentlst)
                     {
                         int itemid = 0;
                             itemid = Convert.ToInt32(item.USER_ID);
@@ -128,16 +132,35 @@ namespace VteamWork
                         if (item.Selected)
                         {
                             itemid = Convert.ToInt32(item.Value);
-                            tbl_USER tbluser = LoginHelper.db.tbl_USER.FirstOrDefault(u => u.USER_ID == itemid);
-                            tbluser.TEAM_ID = team.TEAM_ID;
-                            tbluser.UPDATED_ON = DateTime.Now;
-                            tbluser.UPDATED_BY = ((tbl_USER)Session["userinfo"]).LOGIN_ID.ToString();
-                            LoginHelper.db.SaveChanges();
+                             Studentlst = LoginHelper.db.tbl_USER.Where(u => u.USER_ID == itemid && u.USER_TYPE_ID == 2 && u.TEAM_ID != null).Select(s => s).ToList();
+
+                            if (Studentlst.Count == 0)
+                            {
+                                tbl_USER tbluser = LoginHelper.db.tbl_USER.FirstOrDefault(u => u.USER_ID == itemid);
+                                tbluser.TEAM_ID = team.TEAM_ID;
+                                tbluser.UPDATED_ON = DateTime.Now;
+                                tbluser.UPDATED_BY = ((tbl_USER)Session["userinfo"]).LOGIN_ID.ToString();
+                                LoginHelper.db.SaveChanges();
+                                Session["response"] = new Response() { IsError = false, Message = "Success" };
+                            }
+                            else
+                            {
+                                Session["response"] = new Response() { IsError = true, Message = item.Text + " alredy assigned to another team!" };
+                            }
                         }
                     }
+                   
 
                 }
-                Session["response"] = new Response() { IsError = false, Message = "Success" };
+                Model.DataResponse.Response resp = (Model.DataResponse.Response)Session["Response"];
+                if (!resp.IsError)
+                {
+                    Session["response"] = new Response() { IsError = false, Message = "Success" };
+                }
+                {
+
+
+                }
 
 
             }

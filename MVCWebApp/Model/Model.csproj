@@ -51,7 +51,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="C__MigrationHistory.cs" />
     <Compile Include="DataResponse\Response.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -66,6 +65,7 @@
     <Compile Include="tbl_ROLE_PAGE.cs" />
     <Compile Include="tbl_ROLE_RESTRICT.cs" />
     <Compile Include="tbl_TEAM.cs" />
+    <Compile Include="tbl_TEAM_MODULE.cs" />
     <Compile Include="tbl_USER.cs" />
     <Compile Include="tbl_USER_ROLE.cs" />
     <Compile Include="tbl_USER_TYPE.cs" />

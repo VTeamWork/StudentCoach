@@ -7,25 +7,9 @@ namespace Model
 
     public partial class VTeamWorkDB : DbContext
     {
-
         public VTeamWorkDB()
-           : base("name=VTeamWorkDB")
+            : base("name=VTeamWorkDB")
         {
-
-            Database.SetInitializer<VTeamWorkDB>(new CreateDatabaseIfNotExists<VTeamWorkDB>());
-            // Database.SetInitializer<VTeamWorkDB>(new MigrateDatabaseToLatestVersion<this, System.Configuration>());
-        }
-        public void InitializeDatabase(VTeamWorkDB context)
-        {
-            if (context.Database.Exists())
-            {
-                if (!context.Database.CompatibleWithModel(true))
-                {
-                    context.Database.Delete();
-                }
-            }
-            context.Database.Create();
-            context.Database.ExecuteSqlCommand("CREATE TABLE GLOBAL_DATA([KEY] VARCHAR(50), [VALUE] VARCHAR(250))");
         }
 
         public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }

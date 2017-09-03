@@ -27,9 +27,13 @@ namespace VteamWork
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            try
+            if (!string.IsNullOrEmpty(ListType.SelectedValue.ToString()))
+
             {
-                if(!string.IsNullOrEmpty(QuestionID.Value))
+                try
+
+                { 
+                if (!string.IsNullOrEmpty(QuestionID.Value))
                 {
                     int ID = Convert.ToInt32(QuestionID.Value);
                     tbl_QUESTION tbl_QUESTION = LoginHelper.db.tbl_QUESTION.FirstOrDefault(c=>c.QUESTION_ID==ID);
@@ -37,8 +41,8 @@ namespace VteamWork
                     tbl_QUESTION.QUESTION_DESCRITION = Description.Value;
                     tbl_QUESTION.MODULE_ID = Convert.ToInt32(ModuleList.SelectedValue);
                     tbl_QUESTION.UPDATED_ON = DateTime.Now;
-
-                    tbl_QUESTION.UPDATED_BY = ((tbl_USER)Session["userinfo"]).LOGIN_ID.ToString();
+                    tbl_QUESTION.user_type_id = Convert.ToInt32(ListType.SelectedValue);
+                        tbl_QUESTION.UPDATED_BY = ((tbl_USER)Session["userinfo"]).LOGIN_ID.ToString();
                     LoginHelper.db.SaveChanges();
                 }
                 else { 
@@ -49,6 +53,7 @@ namespace VteamWork
                     tbl_QUESTION.MODULE_ID = Convert.ToInt32(ModuleList.SelectedValue);
                     tbl_QUESTION.CREATED_ON = DateTime.Now;
                 tbl_QUESTION.CREATED_BY = ((tbl_USER)Session["userinfo"]).LOGIN_ID.ToString();
+                    tbl_QUESTION.user_type_id = Convert.ToInt32(ListType.SelectedValue);
 
                     tbl_QUESTION.UPDATED_ON = DateTime.Now;
                 tbl_QUESTION.UPDATED_BY = ((tbl_USER)Session["userinfo"]).LOGIN_ID.ToString();
@@ -66,6 +71,12 @@ namespace VteamWork
                 Session["response"] = new Response() { IsError = true, Message = ex.Message };
 //                Response.Redirect("Default.aspx");
 
+            }
+        }
+            else
+            {
+                Session["response"] = new Response() { IsError = true, Message = "Please Select User Type" };
+                //              
             }
             Response.Redirect(Request.Url.ToString());
 

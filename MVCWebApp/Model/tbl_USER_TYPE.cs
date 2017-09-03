@@ -11,6 +11,7 @@ namespace Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public tbl_USER_TYPE()
         {
+            tbl_QUESTION = new HashSet<tbl_QUESTION>();
             tbl_USER = new HashSet<tbl_USER>();
         }
 
@@ -30,6 +31,9 @@ namespace Model
         public string UPDATED_BY { get; set; }
 
         public DateTime? UPDATED_ON { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbl_QUESTION> tbl_QUESTION { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_USER> tbl_USER { get; set; }

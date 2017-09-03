@@ -23,6 +23,8 @@ namespace Model
         [StringLength(100)]
         public string QUESTION_DESCRITION { get; set; }
 
+        public int? user_type_id { get; set; }
+
         public int? USER_ID { get; set; }
 
         public int? MODULE_ID { get; set; }
@@ -45,5 +47,7 @@ namespace Model
         public virtual tbl_MODULE tbl_MODULE { get; set; }
 
         public virtual tbl_USER tbl_USER { get; set; }
+
+        public virtual tbl_USER_TYPE tbl_USER_TYPE { get; set; }
     }
 }

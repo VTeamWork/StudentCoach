@@ -27,7 +27,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                         <div class="form-group form-float">
                                             <div class="form-line">
-                                                <input type="text" ID="Name" runat="server" class="form-control">
+                                                <input type="text" ID="Name" runat="server" required="required" class="form-control">
                                                 <label class="form-label">Name</label>
                                             </div>
                                         </div>
@@ -36,7 +36,7 @@
                                         <div class="form-group form-float">
                                             <div class="form-line">
                                                 <%--<input type="password" class="form-control">--%>
-                                                <textarea ID="Description" runat="server" class="form-control"></textarea>
+                                                <textarea ID="Description" runat="server" class="form-control" required="required"></textarea>
                                                 <label class="form-label">Descsription</label>
                                             </div>
                                         </div>
@@ -44,7 +44,9 @@
 
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                         <div class="form-group form-float">
-                                            <div class="form-line">
+                                         <label>Select User Type</label>
+                                               
+                                                <div class="form-line">
                                                 <%--<input type="password" class="form-control">--%>
                                       <asp:ListBox ID="ModuleList" SelectionMode="Single"  runat="server" CssClass="form-control show-tick">
                                   
@@ -52,14 +54,27 @@
                                             </div>
                                         </div>
                                     </div>
+
+                                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                        <div class="form-group form-float">
+                                       <label>Select User Type</label>
+                                                 <div class="form-line">
+                                      <asp:ListBox ID="ListType" SelectionMode="Single"   runat="server" CssClass="form-control show-tick">
+                                  <asp:ListItem Text="Select Type" Value=""> </asp:ListItem>
+                                   <asp:ListItem Text="Student" Value="2"></asp:ListItem>
+                                   <asp:ListItem Text="Coach" Value="3"></asp:ListItem>
+                                   
+
+                                           </asp:ListBox>          
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                         
                                         <asp:HiddenField ID="QuestionID" runat="server" />
                                         
-                                        <asp:Button  OnClick="btnSave_Click" Text="Save" CssClass="form-control btn btn-primary btn-lg m-l-15 waves-effect" runat="server" /> 
-
-                                        <%--<button type="button" class="btn btn-primary btn-lg m-l-15 waves-effect">Save</button>--%>
-                                    </div>
+                                        <asp:Button  OnClick="btnSave_Click" Text="Save" CssClass="btn btn-block bg-red" runat="server" /> 
+                </div>
                                 </div>
 
 

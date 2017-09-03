@@ -37,8 +37,11 @@ namespace VteamWork
                 TeamID.Value = ID.ToString();
                 txtTeamName.Text = team.TEAM_NAME;
                 txtDescription.Text = team.TEAM_DESCRITION;
+                tbl_USER coachlist = LoginHelper.db.tbl_USER.FirstOrDefault(u => u.TEAM_ID == ID && u.USER_TYPE_ID == 3);
 
-                List<tbl_USER> studentLst = LoginHelper.db.tbl_USER.Where(u => u.TEAM_ID == ID).Select(s => s).ToList();
+                CoachList.SelectedValue = coachlist.USER_ID.ToString();
+
+                List<tbl_USER> studentLst = LoginHelper.db.tbl_USER.Where(u => u.TEAM_ID == ID && u.USER_TYPE_ID==2).Select(s => s).ToList();
                 foreach (tbl_USER item in studentLst)
                 {
                     lstStudents.Items.FindByValue(item.USER_ID.ToString()).Selected=true;
@@ -65,10 +68,22 @@ namespace VteamWork
                     team.UPDATED_ON = DateTime.Now;
                     team.UPDATED_BY = ((tbl_USER)Session["userinfo"]).LOGIN_ID.ToString();
                     LoginHelper.db.tbl_TEAM.Add(team);
-                    LoginHelper.db.SaveChanges();
+                    int CoachID = Convert.ToInt32(CoachList.SelectedValue);
+                    var user = LoginHelper.db.tbl_USER.FirstOrDefault(u => u.USER_TYPE_ID == 3 && u.TEAM_ID != null);
+                    if(user==null)
+                    {
+                        LoginHelper.db.SaveChanges();
+                        var cuser = LoginHelper.db.tbl_USER.FirstOrDefault(u =>u.USER_ID==CoachID &&  u.USER_TYPE_ID == 3);
+                        cuser.TEAM_ID = team.TEAM_ID;
+                    }
+                    else
+                    {
+                        Session["response"] = new Response() { IsError = true, Message = CoachList.SelectedItem.Text + " alredy assigned to another team!" };
+                    }
 
-
-                    foreach (ListItem item in lstStudents.Items)
+                    if(!((Response)(Session["response"])).IsError)
+                    { 
+                     foreach (ListItem item in lstStudents.Items)
                     {
                         int itemid = 0;
                         if (item.Selected)
@@ -97,6 +112,8 @@ namespace VteamWork
 
                         }
                     }
+                    }
+                  
                 }
                 else
                 {
@@ -109,59 +126,71 @@ namespace VteamWork
                     team.UPDATED_ON = DateTime.Now;
                     team.UPDATED_BY = ((tbl_USER)Session["userinfo"]).LOGIN_ID.ToString();
                     LoginHelper.db.SaveChanges();
-
                     int teamID = Convert.ToInt32(TeamID.Value);
-                   List<tbl_USER> Studentlst= LoginHelper.db.tbl_USER.Where(u => u.USER_TYPE_ID == 2 && u.TEAM_ID == teamID).Select(s => s).ToList();
-
-                    foreach (tbl_USER item in Studentlst)
+                                        int CoachID = Convert.ToInt32(CoachList.SelectedValue);
+                    var oldcoach = LoginHelper.db.tbl_USER.FirstOrDefault(u => u.USER_ID == CoachID && u.USER_TYPE_ID == 3 && u.TEAM_ID == teamID);
+                    var user = LoginHelper.db.tbl_USER.FirstOrDefault(u => u.USER_TYPE_ID == 3 && u.TEAM_ID != null);
+                    if (user == null)
                     {
-                        int itemid = 0;
+                        var cuser = LoginHelper.db.tbl_USER.FirstOrDefault(u => u.USER_ID == CoachID && u.USER_TYPE_ID == 3);
+                        cuser.TEAM_ID = team.TEAM_ID;
+
+                    }
+                    else
+                    {
+                        Session["response"] = new Response() { IsError = true, Message = CoachList.SelectedItem.Text + " alredy assigned to another team!" };
+                    }
+
+
+                    if (!((Response)(Session["response"])).IsError)
+                    {
+                        oldcoach.TEAM_ID = null;
+                        List<tbl_USER> Studentlst = LoginHelper.db.tbl_USER.Where(u => u.USER_TYPE_ID == 2 && u.TEAM_ID == teamID).Select(s => s).ToList();
+
+                        foreach (tbl_USER item in Studentlst)
+                        {
+                            int itemid = 0;
                             itemid = Convert.ToInt32(item.USER_ID);
                             tbl_USER tbluser = LoginHelper.db.tbl_USER.FirstOrDefault(u => u.USER_ID == itemid);
                             tbluser.TEAM_ID = null;
                             tbluser.UPDATED_ON = DateTime.Now;
                             tbluser.UPDATED_BY = ((tbl_USER)Session["userinfo"]).LOGIN_ID.ToString();
                             LoginHelper.db.SaveChanges();
-                        
-                    }
+
+                        }
 
 
-                    foreach (ListItem item in lstStudents.Items)
-                    {
-                        int itemid = 0;
-                        if (item.Selected)
+                        foreach (ListItem item in lstStudents.Items)
                         {
-                            itemid = Convert.ToInt32(item.Value);
-                             Studentlst = LoginHelper.db.tbl_USER.Where(u => u.USER_ID == itemid && u.USER_TYPE_ID == 2 && u.TEAM_ID != null).Select(s => s).ToList();
+                            int itemid = 0;
+                            if (item.Selected)
+                            {
+                                itemid = Convert.ToInt32(item.Value);
+                                Studentlst = LoginHelper.db.tbl_USER.Where(u => u.USER_ID == itemid && u.USER_TYPE_ID == 2 && u.TEAM_ID != null).Select(s => s).ToList();
 
-                            if (Studentlst.Count == 0)
-                            {
-                                tbl_USER tbluser = LoginHelper.db.tbl_USER.FirstOrDefault(u => u.USER_ID == itemid);
-                                tbluser.TEAM_ID = team.TEAM_ID;
-                                tbluser.UPDATED_ON = DateTime.Now;
-                                tbluser.UPDATED_BY = ((tbl_USER)Session["userinfo"]).LOGIN_ID.ToString();
-                                LoginHelper.db.SaveChanges();
-                                Session["response"] = new Response() { IsError = false, Message = "Success" };
-                            }
-                            else
-                            {
-                                Session["response"] = new Response() { IsError = true, Message = item.Text + " alredy assigned to another team!" };
+                                if (Studentlst.Count == 0)
+                                {
+                                    tbl_USER tbluser = LoginHelper.db.tbl_USER.FirstOrDefault(u => u.USER_ID == itemid);
+                                    tbluser.TEAM_ID = team.TEAM_ID;
+                                    tbluser.UPDATED_ON = DateTime.Now;
+                                    tbluser.UPDATED_BY = ((tbl_USER)Session["userinfo"]).LOGIN_ID.ToString();
+                                    LoginHelper.db.SaveChanges();
+                                    Session["response"] = new Response() { IsError = false, Message = "Success" };
+                                }
+                                else
+                                {
+                                    Session["response"] = new Response() { IsError = true, Message = item.Text + " alredy assigned to another team!" };
+                                }
                             }
                         }
-                    }
-                   
 
+                    }
                 }
                 Model.DataResponse.Response resp = (Model.DataResponse.Response)Session["Response"];
                 if (!resp.IsError)
                 {
                     Session["response"] = new Response() { IsError = false, Message = "Success" };
                 }
-                {
-
-
-                }
-
 
             }
             catch (Exception ex)
@@ -171,8 +200,6 @@ namespace VteamWork
 
             }
             Response.Redirect("Default.aspx");
-
-
         }
         public void BindList()
         {
@@ -182,6 +209,10 @@ namespace VteamWork
                 lstStudents.DataTextField = "FIRST_NAME";
                 lstStudents.DataValueField = "USER_ID";
                 lstStudents.DataBind();
+                CoachList.DataSource =  LoginHelper.db.tbl_USER.Where(u => u.USER_TYPE_ID == 3).Select(s => s).ToList();
+                CoachList.DataTextField = "FIRST_NAME";
+                CoachList.DataValueField = "USER_ID";
+                CoachList.DataBind();
             }
             catch( Exception ex)
             { }

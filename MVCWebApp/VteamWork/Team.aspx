@@ -18,7 +18,7 @@
                     <div class="body">
 
                         <div class="row clearfix" >
-                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" style="margin:0px !important">
                                 <div class="input-group">
                                     <span class="input-group-addon">
                                         <i class="material-icons">supervisor_account</i>
@@ -31,7 +31,7 @@
 
                            
 
-                           <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                <div class="input-group">
                                     <span class="input-group-addon">
                                         <i class="material-icons">person</i>
@@ -48,7 +48,7 @@
 
 
                                 </div>
-                                      <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                                      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                <div class="input-group">
                                     <span class="input-group-addon">
                                         <i class="material-icons">person</i>
@@ -65,7 +65,7 @@
 
 
                                 </div>
-                             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                 <div class="input-group">
                                     <span class="input-group-addon">
                                         <i class="material-icons">description</i>
@@ -76,7 +76,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
                                <asp:HiddenField ID="TeamID" runat="server" />
                                         <asp:Button ID="btnSave" runat="server" Text="Save" CssClass="btn btn-block btn-lg bg-red waves-effect" OnClick="btnSave_Click" />
                                  

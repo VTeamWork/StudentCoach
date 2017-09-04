@@ -66,7 +66,7 @@
 
 
    <div class="table-responsive">
-                            <%--<asp:gridview runat="server" id="gridviewdemo2" datakeynames="Team_module_id"
+                            <asp:gridview runat="server" id="gridviewdemo2" datakeynames="Team_module_id"
                                 itemtype="Model.tbl_TEAM_MODULE"
                                 selectmethod="GetTeamModules"
                                 autogeneratecolumns="false"
@@ -76,14 +76,25 @@
                                 <columns>
                                     <asp:dynamicfield datafield="team_id" headertext="team name" />
 
-                                    <asp:dynamicfield datafield="tbl_MODULE.MODULE_NAME" headertext="module name" />
-
                                     
+                                     <asp:TemplateField HeaderText="Team Name">
+              <ItemTemplate>
+                <asp:Label Text="<%# Item.tbl_TEAM.TEAM_NAME %>" 
+                    runat="server" />
+              </ItemTemplate>
+            </asp:TemplateField>
+                                    
+                                          <asp:TemplateField HeaderText="Module Name">
+              <ItemTemplate>
+                <asp:Label Text="<%# Item.tbl_MODULE.MODULE_NAME %>" 
+                    runat="server" />
+              </ItemTemplate>
+            </asp:TemplateField>       
 
                                 </columns>
 
 
-                            </asp:gridview>--%>
+                            </asp:gridview>
                         </div>
     
 

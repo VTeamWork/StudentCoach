@@ -93,6 +93,7 @@ namespace VteamWork
                 Name.Value = question.QUESTION_NAME;
                 Description.Value = question.QUESTION_DESCRITION;
                 ModuleList.SelectedValue = question.MODULE_ID.ToString();
+                ListType.SelectedValue = question.user_type_id.ToString();
                 //LoginHelper.db.SaveChanges();
                 //  LoginHelper.SendEmail(user.EMAIL, "Activate Coach", "Welcome");
                 // Session["response"] = new Response() { IsError = false, Message = "Success" };

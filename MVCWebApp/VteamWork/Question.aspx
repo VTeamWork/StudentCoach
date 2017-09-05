@@ -44,7 +44,7 @@
 
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                         <div class="form-group form-float">
-                                         <label>Select User Type</label>
+                                         <label>Select Module</label>
                                                
                                                 <div class="form-line">
                                                 <%--<input type="password" class="form-control">--%>

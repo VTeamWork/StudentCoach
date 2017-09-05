@@ -36,6 +36,7 @@
                                     <span class="input-group-addon">
                                         <i class="material-icons">person</i>
                                     </span>
+                                   <label>Select Student</label>
                                 <div class="form-line">
                                    
                                     <asp:ListBox ID="lstStudents" SelectionMode="Multiple"  runat="server" CssClass="form-control show-tick">
@@ -53,6 +54,7 @@
                                     <span class="input-group-addon">
                                         <i class="material-icons">person</i>
                                     </span>
+                                   <label>Select Coach</label>
                                 <div class="form-line">
                                    
                                     <asp:ListBox ID="CoachList" SelectionMode="Single"  runat="server" CssClass="form-control show-tick">

@@ -108,6 +108,20 @@ namespace VteamWork.Helper
             }
         }
 
+        public static Exception getExceptionMessage(Exception excep)
+        {
+            if (excep.InnerException != null)
+            {
+                return getExceptionMessage(excep.InnerException);
+            }
+            else
+            {
+
+                return excep;
+            }
+
+        }
+
 
 
     }

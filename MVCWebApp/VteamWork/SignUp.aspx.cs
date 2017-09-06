@@ -65,7 +65,7 @@ namespace VteamWork
 
                 //    var sqlException = ex.InnerException as System.Data.SqlClient.SqlException;
                 //if(sqlException.)
-                Exception Excep = getExceptionMessage(ex);
+                Exception Excep = LoginHelper.getExceptionMessage(ex);
                     //if (sqlException.Number == 2601 || sqlException.Number == 2627)
                     if (Excep != null && Excep.Message.ToLower().Contains("unique"))
                     {
@@ -90,18 +90,18 @@ namespace VteamWork
             LoginHelper.ShowAlert(resp, this.Alert);
         }
 
-        public Exception getExceptionMessage(Exception excep)
-        {
-            if(excep.InnerException!=null)
-            {
-                return getExceptionMessage(excep.InnerException);
-            }
-            else
-            {
+        //public Exception getExceptionMessage(Exception excep)
+        //{
+        //    if(excep.InnerException!=null)
+        //    {
+        //        return getExceptionMessage(excep.InnerException);
+        //    }
+        //    else
+        //    {
 
-                return excep;
-            }
+        //        return excep;
+        //    }
 
-        }
+        //}
     }
 }

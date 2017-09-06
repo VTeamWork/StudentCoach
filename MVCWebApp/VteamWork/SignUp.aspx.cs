@@ -53,13 +53,55 @@ namespace VteamWork
             tblUser.EMAIL = EMAIL.Text.ToString();
             tblUser.LOGIN_ID = EMAIL.Text.ToString();
             tblUser.DEPT_NAME = TimeZ.Value;
+            Response resp;
+            try
+            { 
+            resp = LoginHelper.Save(tblUser);
 
-            Response resp = LoginHelper.Save(tblUser);
+            }
+            catch (Exception ex)
+            {
+
+
+                //    var sqlException = ex.InnerException as System.Data.SqlClient.SqlException;
+                //if(sqlException.)
+                Exception Excep = LoginHelper.getExceptionMessage(ex);
+                    //if (sqlException.Number == 2601 || sqlException.Number == 2627)
+                    if (Excep != null && Excep.Message.ToLower().Contains("unique"))
+                    {
+                        resp = new Response() { IsError = true, Message = "Email is Already Exist" };
+                        //        ErrorMessage = "Cannot insert duplicate values.";
+                    }
+                 
+                
+                else
+                {
+                    resp = new Response() { IsError = true, Message = "Error while saving data" };
+
+                    //      ErrorMessage = "Error while saving data.";
+                }
+            }
+
+
             if (!resp.IsError)
             {
               
             }
             LoginHelper.ShowAlert(resp, this.Alert);
         }
+
+        //public Exception getExceptionMessage(Exception excep)
+        //{
+        //    if(excep.InnerException!=null)
+        //    {
+        //        return getExceptionMessage(excep.InnerException);
+        //    }
+        //    else
+        //    {
+
+        //        return excep;
+        //    }
+
+        //}
     }
 }

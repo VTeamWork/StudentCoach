@@ -56,6 +56,7 @@ namespace VteamWork
         }
         protected void btnSave_Click(object sender, EventArgs e)
         {
+            Response Saveresp = new Response();
             try
             {
                 if (string.IsNullOrEmpty(TeamID.Value))
@@ -67,8 +68,17 @@ namespace VteamWork
                     team.CREATED_BY = ((tbl_USER)Session["userinfo"]).LOGIN_ID.ToString();
                     team.UPDATED_ON = DateTime.Now;
                     team.UPDATED_BY = ((tbl_USER)Session["userinfo"]).LOGIN_ID.ToString();
-                    LoginHelper.db.tbl_TEAM.Add(team);
-                    int CoachID = Convert.ToInt32(CoachList.SelectedValue);
+
+
+
+                    
+                        LoginHelper.db.tbl_TEAM.Add(team);
+                    
+
+                   
+                
+                    
+            int CoachID = Convert.ToInt32(CoachList.SelectedValue);
                     var user = LoginHelper.db.tbl_USER.FirstOrDefault(u => u.USER_TYPE_ID == 3 && u.TEAM_ID != null);
                     if(user==null)
                     {
@@ -113,7 +123,7 @@ namespace VteamWork
                         }
                     }
                     }
-                  
+                    
                 }
                 else
                 {
@@ -195,8 +205,26 @@ namespace VteamWork
             }
             catch (Exception ex)
             {
+                
 
-                Session["response"] = new Response() { IsError = true, Message = ex.Message };
+                //    var sqlException = ex.InnerException as System.Data.SqlClient.SqlException;
+                //if(sqlException.)
+                Exception Excep = LoginHelper.getExceptionMessage(ex);
+                //if (sqlException.Number == 2601 || sqlException.Number == 2627)
+                if (Excep != null && Excep.Message.ToLower().Contains("unique"))
+                {
+                    Saveresp = new Response() { IsError = true, Message = "Team Name is Already Exist" };
+                    //        ErrorMessage = "Cannot insert duplicate values.";
+                }
+                else
+                {
+                    Saveresp = new Response() { IsError = true, Message = "Error while saving data" };
+
+                    //      ErrorMessage = "Error while saving data.";
+                }
+            
+
+            Session["response"] = Saveresp;
 
             }
             Response.Redirect("Default.aspx");

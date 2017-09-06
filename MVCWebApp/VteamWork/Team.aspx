@@ -36,6 +36,7 @@
                                     <span class="input-group-addon">
                                         <i class="material-icons">person</i>
                                     </span>
+                                   <label>Select Student</label>
                                 <div class="form-line">
                                    
                                     <asp:ListBox ID="lstStudents" SelectionMode="Multiple"  runat="server" CssClass="form-control show-tick">
@@ -48,11 +49,12 @@
 
 
                                 </div>
-                                      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" style="padding:0px !important;margin:0px !important">
                                <div class="input-group">
                                     <span class="input-group-addon">
                                         <i class="material-icons">person</i>
                                     </span>
+                                   <label>Select Coach</label>
                                 <div class="form-line">
                                    
                                     <asp:ListBox ID="CoachList" SelectionMode="Single"  runat="server" CssClass="form-control show-tick">
@@ -76,11 +78,14 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            
+                                <div  class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
                                <asp:HiddenField ID="TeamID" runat="server" />
                                         <asp:Button ID="btnSave" runat="server" Text="Save" CssClass="btn btn-block btn-lg bg-red waves-effect" OnClick="btnSave_Click" />
-                                 
+                               
                             </div>
+                                </div>
                         </div>
 
                         <div class="table-responsive">

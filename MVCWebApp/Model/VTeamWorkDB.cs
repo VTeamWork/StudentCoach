@@ -112,6 +112,11 @@ namespace Model
                 .IsUnicode(false);
 
             modelBuilder.Entity<tbl_MODULE>()
+                .HasMany(e => e.tbl_MODULE1)
+                .WithOptional(e => e.tbl_MODULE2)
+                .HasForeignKey(e => e.PARENT_MODULE_ID);
+
+            modelBuilder.Entity<tbl_MODULE>()
                 .HasMany(e => e.tbl_TEAM_MODULE)
                 .WithRequired(e => e.tbl_MODULE)
                 .WillCascadeOnDelete(false);

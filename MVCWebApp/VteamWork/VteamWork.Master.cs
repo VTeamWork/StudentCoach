@@ -80,7 +80,7 @@ namespace VteamWork
                                         txtHTML += "<a href = \"" + lst2.PAGE_PATH + "\" > " + lst2.PAGE_NAME + "</a></ li >";
                                      }
                                     txtHTML += "</ul>";
-                                    txtHTML += "</li></ul>";
+                                    txtHTML += "</li></ul>"; 
                                 }
                             }
                         }
@@ -90,6 +90,12 @@ namespace VteamWork
             }
 
             return txtHTML;
+        }
+
+        protected void Logout_Click(object sender, EventArgs e)
+        {
+            Session["userinfo"] = null;
+            Response.Redirect("~/Login.aspx");
         }
     }
 }

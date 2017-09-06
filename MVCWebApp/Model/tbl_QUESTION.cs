@@ -23,8 +23,6 @@ namespace Model
         [StringLength(100)]
         public string QUESTION_DESCRITION { get; set; }
 
-        public int? user_type_id { get; set; }
-
         public int? USER_ID { get; set; }
 
         public int? MODULE_ID { get; set; }
@@ -40,6 +38,8 @@ namespace Model
 
         [Column(TypeName = "date")]
         public DateTime? UPDATED_ON { get; set; }
+
+        public int? user_type_id { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_ANSWER> tbl_ANSWER { get; set; }

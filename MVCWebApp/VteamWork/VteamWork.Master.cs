@@ -91,5 +91,11 @@ namespace VteamWork
 
             return txtHTML;
         }
+
+        protected void Logout_Click(object sender, EventArgs e)
+        {
+            Session["userinfo"] = null;
+            Response.Redirect("~/Login.aspx");
+        }
     }
 }

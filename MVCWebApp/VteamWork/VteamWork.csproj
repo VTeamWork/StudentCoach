@@ -233,6 +233,7 @@
     <Content Include="js\pages\widgets\infobox\infobox-5.js" />
     <Content Include="js\script.js" />
     <Content Include="Login.aspx" />
+    <Content Include="logout.aspx" />
     <Content Include="Module.aspx" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
@@ -3017,6 +3018,13 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="logout.aspx.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="logout.aspx.designer.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
     </Compile>
     <Compile Include="Module.aspx.cs">
       <DependentUpon>Module.aspx</DependentUpon>

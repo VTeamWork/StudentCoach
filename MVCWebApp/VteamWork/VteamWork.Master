@@ -100,15 +100,31 @@
     </div>
     <!-- #END# Search Bar -->
     <!-- Top Bar -->
+    <style>
+        .logout{
+            color: white;
+            float: right;
+            margin: 22px;
+        
+        }
+         .logout:hover{
+            color: #ffffff !important;
+       
+        }
+
+    </style>
     <nav class="navbar">
         <div class="container-fluid">
             <div class="navbar-header">
                 <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
                 <a href="javascript:void(0);" class="bars"></a>
-                <a class="navbar-brand" href="index.html">VTeamWork</a>
+                <a class="navbar-brand" href="Default.aspx">VTeamWork</a>
             </div>
 
-
+            <div runat="server">
+              <a class="logout" href="Logout.aspx">Logout</a>
+        
+                    </div>
 <%--            <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Call Search -->
@@ -306,7 +322,8 @@
             </div>
        
             --%>
-             </div>
+        
+            </div>
     </nav>
     <!-- #Top Bar -->
     <section>

@@ -80,7 +80,7 @@ namespace VteamWork
                                         txtHTML += "<a href = \"" + lst2.PAGE_PATH + "\" > " + lst2.PAGE_NAME + "</a></ li >";
                                      }
                                     txtHTML += "</ul>";
-                                    txtHTML += "</li></ul>";
+                                    txtHTML += "</li></ul>"; 
                                 }
                             }
                         }

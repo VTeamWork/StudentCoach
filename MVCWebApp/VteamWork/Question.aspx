@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/VteamWork.Master" AutoEventWireup="true" CodeBehind="CoachQuestion.aspx.cs" Inherits="VteamWork.CoachQuestion" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/VteamWork.Master" AutoEventWireup="true" CodeBehind="Question.aspx.cs" Inherits="VteamWork.Question" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -7,7 +7,7 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="card">
                 <div class="header">
-                    <h2>Coach Question Info
+                    <h2>Student Question Info
                     </h2>
 
                 </div>
@@ -15,7 +15,7 @@
                     <div class="row clearfix">
                         <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12">
                             <div class="form-group form-float" style="margin :0px !important">
-                                <label>Select Module</label>
+                                <label>Select Sub Module</label>
                                 <div class="form-line">
                                     <asp:ListBox ID="ModuleList" SelectionMode="Single" runat="server" CssClass="form-control show-tick"></asp:ListBox>
                                 </div>

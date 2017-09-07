@@ -103,6 +103,7 @@ namespace VteamWork
         {
             public string mdlName;
             public string mdlDesc;
+            public string IsMndtry;
         }
 
         private void BindModuleList()

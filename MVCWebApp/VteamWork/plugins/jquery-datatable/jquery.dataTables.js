@@ -1186,6 +1186,10 @@
 			/* HTML5 attribute detection - build an mData object automatically if the
 			 * attributes are found
 			 */
+		    try
+		    {
+
+		    
 			if ( rowOne.length ) {
 				var a = function ( cell, name ) {
 					return cell.getAttribute( 'data-'+name ) !== null ? name : null;
@@ -1211,7 +1215,10 @@
 					}
 				} );
 			}
-			
+		    }
+		    catch(Excep){
+
+		    }
 			var features = oSettings.oFeatures;
 			
 			/* Must be done after everything which can be overridden by the state saving! */

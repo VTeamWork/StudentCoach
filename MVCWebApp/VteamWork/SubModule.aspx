@@ -107,6 +107,11 @@
 
         function Add() {
 
+            if (i == 0)
+            {
+                $("#tblSeries tbody").append("<tr><th>Module Name</th><th>Module ID</th><th>Module Descc</th></tr>");
+                    
+            }
             debugger
 
             var mdlName = $("#<%=ModuleName.ClientID%>").val();

@@ -109,7 +109,7 @@
 
             if (i == 0)
             {
-                $("#tblSeries tbody").append("<tr><th>Module Name</th><th>Module ID</th><th>Module Descc</th></tr>");
+                $("#tblSeries tbody").append("<tr><th>Sub Module Name</th><th>Sub Module Desciption</th></tr>");
                     
             }
             debugger

@@ -41,6 +41,8 @@ namespace Model
 
         public int? user_type_id { get; set; }
 
+        public bool? IsRequired { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_ANSWER> tbl_ANSWER { get; set; }
 
@@ -50,4 +52,4 @@ namespace Model
 
         public virtual tbl_USER_TYPE tbl_USER_TYPE { get; set; }
     }
-}
+}g

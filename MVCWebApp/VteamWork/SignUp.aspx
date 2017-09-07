@@ -201,10 +201,7 @@
                         <i class="material-icons">date_range</i>
                     </span>
                     <div class="form-line">
-
                         <asp:TextBox runat="server" TextMode="Date" ID="ENROLL_DATE" CssClass="form-control date" required="required" placeholder="Ex: 30/07/2016"></asp:TextBox>
-
-                        <%--<input type="text" class="form-control date" placeholder="Ex: 30/07/2016">--%>
                     </div>
                 </div>
 

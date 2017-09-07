@@ -30,7 +30,6 @@
     <div class="col-md-5 col-xs-12 col-sm-5">
         <label class="col-md-4 text-right">Sub Module Name</label>
         <div class="col-md-8">
-            <%--<input type="text" class="form-control" placeholder="Module Name" />--%>
            <asp:TextBox ID="ModuleName" CssClass="form-control" runat="server" ClientIDMode="Static"></asp:TextBox>
         </div>
 
@@ -106,9 +105,6 @@
         var partner_details = [];
 
         function Add() {
-
-            debugger
-
             var mdlName = $("#<%=ModuleName.ClientID%>").val();
             var mdlDesc = $("#<%=Description.ClientID%>").val();
             if (mdlName == "") {

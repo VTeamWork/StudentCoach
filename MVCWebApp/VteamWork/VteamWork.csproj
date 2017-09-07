@@ -2946,7 +2946,7 @@
     <Content Include="plugins\ckeditor\plugins\wsc\dialogs\wsc_ie.js" />
     <Content Include="plugins\ckeditor\plugins\xml\plugin.js" />
     <Content Include="plugins\ckeditor\styles.js" />
-    <Content Include="Question.aspx" />
+    <Content Include="CoachQuestion.aspx" />
     <Content Include="ResetPassword.aspx" />
     <Content Include="SignUp.aspx" />
     <Content Include="Team.aspx" />
@@ -3031,12 +3031,12 @@
     <Compile Include="Module.aspx.designer.cs">
       <DependentUpon>Module.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Question.aspx.cs">
-      <DependentUpon>Question.aspx</DependentUpon>
+    <Compile Include="CoachQuestion.aspx.cs">
+      <DependentUpon>CoachQuestion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Question.aspx.designer.cs">
-      <DependentUpon>Question.aspx</DependentUpon>
+    <Compile Include="CoachQuestion.aspx.designer.cs">
+      <DependentUpon>CoachQuestion.aspx</DependentUpon>
     </Compile>
     <Compile Include="ResetPassword.aspx.cs">
       <DependentUpon>ResetPassword.aspx</DependentUpon>
@@ -3051,6 +3051,13 @@
     </Compile>
     <Compile Include="SignUp.aspx.designer.cs">
       <DependentUpon>SignUp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SubModule.aspx.cs">
+      <DependentUpon>SubModule.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SubModule.aspx.designer.cs">
+      <DependentUpon>SubModule.aspx</DependentUpon>
     </Compile>
     <Compile Include="Team.aspx.cs">
       <DependentUpon>Team.aspx</DependentUpon>

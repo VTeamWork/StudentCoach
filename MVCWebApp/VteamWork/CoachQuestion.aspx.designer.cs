@@ -10,7 +10,16 @@
 namespace VteamWork {
     
     
-    public partial class Question {
+    public partial class CoachQuestion {
+        
+        /// <summary>
+        /// ModuleList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListBox ModuleList;
         
         /// <summary>
         /// Name control.
@@ -31,22 +40,13 @@ namespace VteamWork {
         protected global::System.Web.UI.HtmlControls.HtmlTextArea Description;
         
         /// <summary>
-        /// ModuleList control.
+        /// chkIs_Mendatory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox ModuleList;
-        
-        /// <summary>
-        /// ListType control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox ListType;
+        protected global::System.Web.UI.WebControls.CheckBox chkIs_Mendatory;
         
         /// <summary>
         /// QuestionID control.
@@ -58,6 +58,15 @@ namespace VteamWork {
         protected global::System.Web.UI.WebControls.HiddenField QuestionID;
         
         /// <summary>
+        /// btnAdd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputButton btnAdd;
+        
+        /// <summary>
         /// GridViewDemo2 control.
         /// </summary>
         /// <remarks>
@@ -65,5 +74,14 @@ namespace VteamWork {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GridViewDemo2;
+        
+        /// <summary>
+        /// table control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField table;
     }
 }

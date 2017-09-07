@@ -52,4 +52,4 @@ namespace Model
 
         public virtual tbl_USER_TYPE tbl_USER_TYPE { get; set; }
     }
-}g
+}

@@ -84,9 +84,9 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -236,6 +236,24 @@
     <Content Include="js\pages\widgets\infobox\infobox-4.js" />
     <Content Include="js\pages\widgets\infobox\infobox-5.js" />
     <Content Include="js\script.js" />
+    <Content Include="plugins\jquery-datatable\extensions\export\buttons.flash.min.js" />
+    <Content Include="plugins\jquery-datatable\extensions\export\buttons.html5.min.js" />
+    <Content Include="plugins\jquery-datatable\extensions\export\buttons.print.min.js" />
+    <Content Include="plugins\jquery-datatable\extensions\export\dataTables.buttons.min.js" />
+    <Content Include="plugins\jquery-datatable\extensions\export\jszip.min.js" />
+    <Content Include="plugins\jquery-datatable\extensions\export\pdfmake.min.js" />
+    <Content Include="plugins\jquery-datatable\extensions\export\vfs_fonts.js" />
+    <Content Include="plugins\jquery-datatable\jquery.dataTables.js" />
+    <Content Include="plugins\jquery-datatable\skin\bootstrap\css\dataTables.bootstrap.css" />
+    <Content Include="plugins\jquery-datatable\skin\bootstrap\css\dataTables.bootstrap.min.css" />
+    <Content Include="plugins\jquery-datatable\skin\bootstrap\images\favicon.ico" />
+    <Content Include="plugins\jquery-datatable\skin\bootstrap\images\sort_asc.png" />
+    <Content Include="plugins\jquery-datatable\skin\bootstrap\images\sort_asc_disabled.png" />
+    <Content Include="plugins\jquery-datatable\skin\bootstrap\images\sort_both.png" />
+    <Content Include="plugins\jquery-datatable\skin\bootstrap\images\sort_desc.png" />
+    <Content Include="plugins\jquery-datatable\skin\bootstrap\images\sort_desc_disabled.png" />
+    <Content Include="plugins\jquery-datatable\skin\bootstrap\js\dataTables.bootstrap.js" />
+    <Content Include="plugins\jquery-datatable\skin\bootstrap\js\dataTables.bootstrap.min.js" />
     <Content Include="SubModule.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="logout.aspx" />
@@ -2979,6 +2997,7 @@
     <Content Include="plugins\ckeditor\plugins\wsc\LICENSE.md" />
     <Content Include="plugins\ckeditor\README.md" />
     <Content Include="VtMasterMain.Master" />
+    <Content Include="plugins\jquery-datatable\skin\bootstrap\images\Sorting icons.psd" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

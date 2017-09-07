@@ -44,7 +44,7 @@
      <div class="col-md-2 col-xs-12 col-sm-2">
     <asp:HiddenField ID="ModuleID" runat="server" />
              <input type="button" runat="server" ID="btnAdd"  value="Add Record" class="btn btn-primary"  onclick="Add();" style="margin-top:20px !important"  />
-            <asp:button text="Save" class="form-control"  OnClick="SaveModule_Click" Cssclass="btn btn-lg bg-red"    runat="server" />
+            <asp:button text="Save" Cssclass="form-control"  OnClick="SaveModule_Click" Cssclass="btn btn-lg bg-red"    runat="server" />
     
     </div>
     
@@ -104,7 +104,12 @@
         var i = 0;
         var partner_details = [];
 
+                    
         function Add() {
+  if (i == 0)
+            {
+                $("#tblSeries tbody").append("<tr><th>Sub Module Name</th><th>Sub Module Desciption</th></tr>");
+            }
             var mdlName = $("#<%=ModuleName.ClientID%>").val();
             var mdlDesc = $("#<%=Description.ClientID%>").val();
             if (mdlName == "") {

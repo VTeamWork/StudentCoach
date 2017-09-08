@@ -10,7 +10,7 @@
 namespace VteamWork {
     
     
-    public partial class Question {
+    public partial class CoachQuestion {
         
         /// <summary>
         /// ModuleList control.

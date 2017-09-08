@@ -84,9 +84,9 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -108,6 +108,7 @@
   <ItemGroup>
     <Content Include="AssignTeam.aspx" />
     <Content Include="Coach.aspx" />
+    <Content Include="Question.aspx" />
     <Content Include="css\materialize.css" />
     <Content Include="css\style.css" />
     <Content Include="css\style.min.css" />
@@ -2964,7 +2965,7 @@
     <Content Include="plugins\ckeditor\plugins\wsc\dialogs\wsc_ie.js" />
     <Content Include="plugins\ckeditor\plugins\xml\plugin.js" />
     <Content Include="plugins\ckeditor\styles.js" />
-    <Content Include="Question.aspx" />
+    <Content Include="CoachQuestion.aspx" />
     <Content Include="ResetPassword.aspx" />
     <Content Include="SignUp.aspx" />
     <Content Include="Team.aspx" />
@@ -3028,6 +3029,13 @@
     <Compile Include="Coach.aspx.designer.cs">
       <DependentUpon>Coach.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Question.aspx.cs">
+      <DependentUpon>Question.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Question.aspx.designer.cs">
+      <DependentUpon>Question.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -3051,12 +3059,12 @@
     <Compile Include="Module.aspx.designer.cs">
       <DependentUpon>Module.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Question.aspx.cs">
-      <DependentUpon>Question.aspx</DependentUpon>
+    <Compile Include="CoachQuestion.aspx.cs">
+      <DependentUpon>CoachQuestion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Question.aspx.designer.cs">
-      <DependentUpon>Question.aspx</DependentUpon>
+    <Compile Include="CoachQuestion.aspx.designer.cs">
+      <DependentUpon>CoachQuestion.aspx</DependentUpon>
     </Compile>
     <Compile Include="ResetPassword.aspx.cs">
       <DependentUpon>ResetPassword.aspx</DependentUpon>

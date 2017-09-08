@@ -50,7 +50,7 @@
                                     <label></label>
                                         <div class="form-group">
                                             <div class="form-line">
-                                              <asp:Button  OnClick="btnSave_Click" Text="Save" CssClass="form-control btn btn-primary btn-lg m-l-15 waves-effect" runat="server" /> 
+                                              <asp:Button  OnClick="btnSave_Click" Text="Search" CssClass="form-control btn btn-block  bg-red" runat="server" /> 
                                                    </div>
                                         </div>       
                                         

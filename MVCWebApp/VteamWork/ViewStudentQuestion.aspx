@@ -55,9 +55,38 @@
 
    <div class="table-responsive">
        <div ID="DataShow" runat="server">
+           
 
+</div>
+       <div style="padding-left:20px">
+           <div>
+               <h3>Module1</h3>
+                   <div>
+                       <h4>abc sub module</h4>
+                       <ul>
+                           <li>What is this? </li>
+                           <li>What is this? </li>
 
-</div>  
+                       </ul>
+
+                   </div>
+
+           </div>
+            <div>
+               <h3>Module2</h3>
+                    <div>
+                       <h5>abc sub module</h5>
+                       <ul>
+                           <li>What is this? </li>
+                           <li>What is this? </li>
+
+                       </ul>
+
+                   </div>
+
+           </div>
+
+       </div>  
                </div>
     
 

@@ -19,9 +19,9 @@ namespace VteamWork
         public List<Model.tbl_MODULE> GetViewStudent(int? TeamID = null)
         {
             if (TeamID == null)
-                return LoginHelper.db.tbl_MODULE.ToList();
+                return LoginHelper.db.tbl_MODULE.Where(c=>c.PARENT_MODULE_ID==null).ToList();
             else
-                return LoginHelper.db.tbl_TEAM_MODULE.Where(c => c.team_id == TeamID).Select(c => c.tbl_MODULE).ToList();
+                return LoginHelper.db.tbl_TEAM_MODULE.Where(c => c.team_id == TeamID && c.tbl_MODULE.PARENT_MODULE_ID==null).Select(c => c.tbl_MODULE).ToList();
             //return LoginHelper.db.tbl_TEAM_MODULE.AsQueryable();
         }
         protected void Page_Load(object sender, EventArgs e)
@@ -63,23 +63,42 @@ namespace VteamWork
 
             }
 
-
+            
             foreach (var mainmodule in list)
             {
                 HtmlGenericControl myDiv = new HtmlGenericControl("div");
-                myDiv.ID = "myDiv";
-                Label maincontrol = new Label() { Text = mainmodule.MODULE_NAME };
+                myDiv.ID = "MainModule" + mainmodule.MODULE_ID;
+                HtmlGenericControl maincontrol = new HtmlGenericControl("h3");
+                maincontrol.InnerHtml = mainmodule.MODULE_NAME;
                 myDiv.Controls.Add(maincontrol);
+
                 foreach (var item in mainmodule.tbl_MODULE1)
                 {
-                    myDiv.Controls.Add(new Label() { Text = item.MODULE_NAME });
+                    HtmlGenericControl SubModuleDiv = new HtmlGenericControl("div");
+                    SubModuleDiv.ID = "SubModule" +item.MODULE_ID;
+                    HtmlGenericControl submoduleheading = new HtmlGenericControl("h4");
+                    submoduleheading.InnerHtml = item.MODULE_NAME;
+                    // myDiv.Controls.Add(new Label() { Text = item.MODULE_NAME });
+                    SubModuleDiv.Controls.Add(submoduleheading);
+                  //  ListView asplist = new ListView();
+
+                    //asplist.DataSource = item.tbl_QUESTION.Select(s => s.QUESTION_NAME);
+
+                    HtmlGenericControl listsbmod = new HtmlGenericControl("ul");
+                    SubModuleDiv.ID = "SubModuleList" + item.MODULE_ID;
 
                     foreach (var questions in item.tbl_QUESTION)
                     {
-                        myDiv.Controls.Add(new Label() { Text = questions.QUESTION_NAME });
+
+                        HtmlGenericControl listitem = new HtmlGenericControl("li");
+                        listitem.InnerHtml = questions.QUESTION_NAME;
+                        listsbmod.Controls.Add(listitem);
+                        //myDiv.Controls.Add(new Label() { Text = questions.QUESTION_NAME });
 
                     }
-
+                    SubModuleDiv.Controls.Add(listsbmod);
+                    
+                    myDiv.Controls.Add(SubModuleDiv);
 
                 }
                 DataShow.Controls.Add(myDiv);

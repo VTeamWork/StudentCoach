@@ -96,7 +96,7 @@
                                 ItemType="Model.tbl_TEAM"
                                 SelectMethod="GetUser"
                                 AutoGenerateColumns="false"
-                                CssClass="dataTable table table-bordered table-striped table-hover js-basic-example">
+                                CssClass="gvv table table-bordered table-striped table-hover">
 
                                 <HeaderStyle />
                                 <Columns>

@@ -52,10 +52,7 @@
 </div>
                               <div id="addedpartners" class="body table-responsive" >
                              <table class="table" id="tblSeries" style="display:none">
-                    <tr>
-                        <th scope="col">Sub Module Name</th>
-                        <th scope="col">Sub Module Description</th>
-                    </tr>
+                    <tbody></tbody>
             </table>
                         </div>
 

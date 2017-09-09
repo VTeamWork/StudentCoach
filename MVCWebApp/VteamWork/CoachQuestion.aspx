@@ -13,10 +13,10 @@
                 </div>
                 <div class="body">
                     <div class="row clearfix">
-                        <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12">
+                        <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12" style="margin :0px !important">
                             <div class="form-group form-float" style="margin :0px !important">
                                 <label>Select Module</label>
-                                <div class="form-line">
+                                <div class="">
                                     <asp:ListBox ID="ModuleList" SelectionMode="Single" runat="server" CssClass="form-control show-tick"></asp:ListBox>
                                 </div>
                             </div>
@@ -62,11 +62,7 @@
 
                 <div id="addedpartners" class="body table-responsive">
                     <table class="table" id="tblSeries" style="display: none">
-                        <tr>
-                            <th scope="col">Question</th>
-                            <th scope="col">Question Description</th>
-                             <th scope="col">Is Mendatory</th>
-                        </tr>
+                        <tbody></tbody>
                     </table>
                 </div>
 
@@ -114,7 +110,7 @@
         function Add() {
 
             if (i == 0) {
-                $("#tblSeries tbody").append("<tr><th>Sub Module Name</th><th>Sub Module Desciption</th></tr>");
+                $("#tblSeries tbody").append("<tr><th>Question</th><th>Question Description</th><th>Is Mendatory</th></tr>");
             }
             var mdlName = $("#<%=Name.ClientID%>").val();
             var mdlDesc = $("#<%=Description.ClientID%>").val();

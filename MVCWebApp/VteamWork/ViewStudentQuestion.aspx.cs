@@ -29,7 +29,16 @@ namespace VteamWork
             if(!IsPostBack)
             { 
             BindTeamList();
-            Binddata();
+
+            if(string.IsNullOrEmpty(TeamList.SelectedValue))
+                {
+                    Binddata();
+
+                }
+                else {
+                    int? TeamID = Convert.ToInt32(TeamList.SelectedValue);
+            Binddata(TeamID);
+                }
             }
 
         }
@@ -44,6 +53,13 @@ namespace VteamWork
                 TeamList.DataTextField = "TEAM_NAME";
                 TeamList.DataValueField = "TEAM_ID";
                 TeamList.DataBind();
+                try
+                {
+                    TeamList.SelectedValue = LoginHelper.db.tbl_TEAM.Select(s => s.TEAM_ID).ToList().LastOrDefault().ToString();
+                }
+                catch (Exception)
+                {
+                }
             }
             catch (Exception ex)
             { }
@@ -91,6 +107,10 @@ namespace VteamWork
                     {
 
                         HtmlGenericControl listitem = new HtmlGenericControl("li");
+                        if (questions.IsRequired==true)
+                        {
+                            listitem.Attributes.Add("class", "RequiredQuestion");
+                        }
                         listitem.InnerHtml = questions.QUESTION_NAME;
                         listsbmod.Controls.Add(listitem);
                         //myDiv.Controls.Add(new Label() { Text = questions.QUESTION_NAME });

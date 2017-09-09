@@ -2,12 +2,19 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-  <div class="row clearfix">
+  
+    <style>
+        .RequiredQuestion{
+            color:blue !important;
+        }
+
+    </style>
+    <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
                             <h2>
-                               Assign Module 
+                               Search Questions
                             </h2> 
                             <ul class="header-dropdown m-r--5">
                                 <li class="dropdown">
@@ -37,9 +44,9 @@
                                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
                                     <label></label>
                                         <div class="form-group">
-                                            <div class="form-line">
-                                              <asp:Button  OnClick="Search_Click" Text="Save" CssClass="form-control btn btn-primary btn-lg m-l-15 waves-effect" runat="server" /> 
-                                                   </div>
+                                           
+                                              <asp:Button  OnClick="Search_Click" Text="Search" CssClass="form-control btn-block bg-red" runat="server" /> 
+                                          
                                         </div>       
                                         
                                         
@@ -54,39 +61,11 @@
 
 
    <div class="table-responsive">
-       <div ID="DataShow" runat="server">
+       <div ID="DataShow" runat="server" style="margin-left:30px">
            
 
 </div>
-       <div style="padding-left:20px">
-           <div>
-               <h3>Module1</h3>
-                   <div>
-                       <h4>abc sub module</h4>
-                       <ul>
-                           <li>What is this? </li>
-                           <li>What is this? </li>
-
-                       </ul>
-
-                   </div>
-
-           </div>
-            <div>
-               <h3>Module2</h3>
-                    <div>
-                       <h5>abc sub module</h5>
-                       <ul>
-                           <li>What is this? </li>
-                           <li>What is this? </li>
-
-                       </ul>
-
-                   </div>
-
-           </div>
-
-       </div>  
+     
                </div>
     
 

@@ -29,6 +29,7 @@ namespace VteamWork
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
+            Response resp;
             try
             {
                 if (!string.IsNullOrEmpty(QuestionID.Value))
@@ -76,9 +77,21 @@ namespace VteamWork
             }
             catch (Exception ex)
             {
-                Session["response"] = new Response() { IsError = true, Message = ex.Message };
+                Exception Excep = LoginHelper.getExceptionMessage(ex);
+                if (Excep != null && Excep.Message.ToLower().Contains("unique"))
+                {
+                    resp = new Response() { IsError = true, Message = "Question is Already Exist" };
+                }
+
+                else
+                {
+                    resp = new Response() { IsError = true, Message = "Error while saving data" };
+                }
+
+
+                Session["response"] = resp;
             }
-            Response.Redirect(Request.Url.ToString());
+          Response.Redirect(Request.Url.ToString());
 
 
         }

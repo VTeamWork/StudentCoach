@@ -110,6 +110,7 @@ namespace VteamWork.Helper
 
         public static Exception getExceptionMessage(Exception excep)
         {
+            LoginHelper.db = new VTeamWorkDB();
             if (excep.InnerException != null)
             {
                 return getExceptionMessage(excep.InnerException);

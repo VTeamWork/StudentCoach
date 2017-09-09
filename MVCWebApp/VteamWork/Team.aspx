@@ -40,8 +40,11 @@
                                 <div class="form-line">
                                    
                                     <asp:ListBox ID="lstStudents" SelectionMode="Multiple"  runat="server" CssClass="form-control show-tick">
+                                      
+
                                 
                                     </asp:ListBox>
+                                      <%--<asp:CustomValidator ID="CustomValidator1" runat="server" Display="Dynamic" ErrorMessage="Please select 10 items only." ClientValidationFunction="CustomValidator1_ClientValidate" > </asp:CustomValidator>--%>
                                     </div>
                                    </div>
 
@@ -122,6 +125,28 @@
             </div>
         </div>
     </div>
+
+     
+<%--<script>
+function CustomValidator1_ClientValidate(source,args)
+{ 
+var listbox = document.getElementById("<%=lstStudents.ClientID %>");
+var total = 0;
+var i=0;
+for( i = 0; i < listbox.options.length; i++ )
+{
+ if (listbox.options[i].selected) 
+  {
+   total ++; 
+    if (total >1) {
+      args.IsValid = false;
+      return;
+  }
+  } 
+ } 
+ args.IsValid = true; return;
+}
+</script>--%>
 
 
 </asp:Content>

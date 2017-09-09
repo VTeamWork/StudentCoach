@@ -44,7 +44,7 @@
      <div class="col-md-2 col-xs-12 col-sm-2">
     <asp:HiddenField ID="ModuleID" runat="server" />
              <input type="button" runat="server" ID="btnAdd"  value="Add Record" class="btn btn-primary"  onclick="Add();" style="margin-top:20px !important"  />
-            <asp:button text="Save" Cssclass="form-control"  OnClick="SaveModule_Click" Cssclass="btn btn-lg bg-red"    runat="server" />
+            <asp:button text="Save"   OnClick="SaveModule_Click" Cssclass="btn btn-lg bg-red"    runat="server" />
     
     </div>
     
@@ -127,7 +127,7 @@
                 i++;
                 $("#tblSeries").show();
               
-                $('#tblSeries tr:last').after("<tr class=\"gridItemStyle genrow\" id=" + i + "><td>" + mdlName + "</td><td>" + mdlDesc + "</td><td><a id=\"rempartner_" + i + "\" class=\"removepart\" href=\"#\" onclick=\"del('" + i + "');\">Remove</a> | <a id=\"rempartnerupd_" + i + "\" class=\"removepartupd\"  href=\"#\" onclick=\"Edit('" + mdlName + "','" + mdlDesc + "');\">Edit</a></td></tr>");
+                $('#tblSeries tr:last').after("<tr class=\"gridItemStyle genrow\" id=" + i + "><td>" + mdlName + "</td><td>" + mdlDesc + "</td><td><a id=\"rempartner_" + i + "\" class=\"removepart\" href=\"#\" onclick=\"del('" + i + "');\">Remove</a></td></tr>");
 
 
 
@@ -151,7 +151,7 @@
                     }
 
                 }
-                $('#' + selectedrowid).html("<td>" + mdlName + "</td><td>" + mdlDesc + "</td><td><a id=\"rempartner_" + selectedrowid + "\" class=\"removepart\" href=\"#\" onclick=\"del('" + i + "');\">Remove</a> | <a id=\"rempartnerupd_" + i + "\" class=\"removepartupd\" href=\"#\" onclick=\"Edit('" + mdlName + "','" + mdlDesc + "''" + selectedrowid + "');\">Edit</a></td>");
+                $('#' + selectedrowid).html("<td>" + mdlName + "</td><td>" + mdlDesc + "</td><td><a id=\"rempartner_" + selectedrowid + "\" class=\"removepart\" href=\"#\" onclick=\"del('" + i + "');\">Remove</a></td>");
 
             }
             Clear();

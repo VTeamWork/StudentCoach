@@ -62,11 +62,7 @@
 
                 <div id="addedpartners" class="body table-responsive">
                     <table class="table" id="tblSeries" style="display: none">
-                      <%--  <tr>
-                            <th scope="col">Question</th>
-                            <th scope="col">Question Description</th>
-                             <th scope="col">Is Mendatory</th>
-                        </tr>--%>
+                    <tbody></tbody>
                     </table>
                 </div>
 
@@ -114,7 +110,7 @@
         function Add() {
 
             if (i == 0) {
-                $("#tblSeries tbody").append("<tr><th>Question</th><th>Question Desciption</th><th>Is Mendatory</th> </tr>").hide();
+                $("#tblSeries tbody").append("<tr><th>Question</th><th>Question Desciption</th><th>Is Mendatory</th> </tr>");
             }
             var mdlName = $("#<%=Name.ClientID%>").val();
             var mdlDesc = $("#<%=Description.ClientID%>").val();

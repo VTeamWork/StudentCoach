@@ -22,7 +22,7 @@ namespace VteamWork
         public IQueryable<Model.tbl_MODULE> GetModule()
         {
 
-            return LoginHelper.db.tbl_MODULE.Select(s => s);
+            return LoginHelper.db.tbl_MODULE.Where(u => u.PARENT_MODULE_ID == null).Select(s => s);
         }
 
         

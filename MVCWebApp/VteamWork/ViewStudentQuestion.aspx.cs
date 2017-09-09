@@ -87,13 +87,14 @@ namespace VteamWork
                 HtmlGenericControl maincontrol = new HtmlGenericControl("h3");
                 maincontrol.InnerHtml = mainmodule.MODULE_NAME;
                 myDiv.Controls.Add(maincontrol);
+                char Alpha = 'A';
 
                 foreach (var item in mainmodule.tbl_MODULE1)
                 {
                     HtmlGenericControl SubModuleDiv = new HtmlGenericControl("div");
                     SubModuleDiv.ID = "SubModule" +item.MODULE_ID;
-                    HtmlGenericControl submoduleheading = new HtmlGenericControl("h4");
-                    submoduleheading.InnerHtml = item.MODULE_NAME;
+                    HtmlGenericControl submoduleheading = new HtmlGenericControl("h5");
+                    submoduleheading.InnerHtml = Alpha.ToString()+"-      "+item.MODULE_NAME;
                     // myDiv.Controls.Add(new Label() { Text = item.MODULE_NAME });
                     SubModuleDiv.Controls.Add(submoduleheading);
                   //  ListView asplist = new ListView();
@@ -101,7 +102,7 @@ namespace VteamWork
                     //asplist.DataSource = item.tbl_QUESTION.Select(s => s.QUESTION_NAME);
 
                     HtmlGenericControl listsbmod = new HtmlGenericControl("ul");
-                    SubModuleDiv.ID = "SubModuleList" + item.MODULE_ID;
+                    SubModuleDiv.ID = "SuWbModuleList" + item.MODULE_ID;
 
                     foreach (var questions in item.tbl_QUESTION)
                     {
@@ -119,7 +120,7 @@ namespace VteamWork
                     SubModuleDiv.Controls.Add(listsbmod);
                     
                     myDiv.Controls.Add(SubModuleDiv);
-
+                    Alpha++;
                 }
                 DataShow.Controls.Add(myDiv);
 

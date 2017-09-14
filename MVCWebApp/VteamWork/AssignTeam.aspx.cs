@@ -28,7 +28,9 @@ namespace VteamWork
         private void BindModuleList()
         {try
             {
-                ModuleList.DataSource = LoginHelper.db.tbl_MODULE.Where(u => u.PARENT_MODULE_ID == null).Select(s => s).ToList();
+                var lst = LoginHelper.db.tbl_MODULE.Where(u => u.PARENT_MODULE_ID == null).Select(s => s).ToList();
+                ModuleList.DataSource = lst;
+                //ModuleList.DataTextFormatString = "{0} {1}";
                 ModuleList.DataTextField = "MODULE_NAME";
                 ModuleList.DataValueField = "MODULE_ID";
                 ModuleList.DataBind();

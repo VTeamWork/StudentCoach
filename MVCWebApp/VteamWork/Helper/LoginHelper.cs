@@ -60,11 +60,11 @@ namespace VteamWork.Helper
 
         }
 
-        public static Response GetPageList(int menu_group_id)
+        public static Response GetPageList(int? menu_group_id,int? role_id)
         {
             try
             {
-                var pageinfo = db.tbl_PAGE.Where(c => c.MENU_GROUP_ID == menu_group_id).ToList();
+                var pageinfo = db.tbl_ROLE_PAGE.Where(c => c.tbl_PAGE.MENU_GROUP_ID == menu_group_id  && c.tbl_ROLE.ROLE_ID==role_id).OrderBy(x=>x.tbl_PAGE.PAGE_SEQ).Select(s=>s.tbl_PAGE).ToList();
                 if (pageinfo != null)
                 {
 

@@ -2973,6 +2973,7 @@
     <Content Include="OldUser.aspx" />
     <Content Include="User.aspx" />
     <Content Include="ViewCoachQuestions.aspx" />
+    <Content Include="ViewModelStudent.aspx" />
     <Content Include="ViewStudentQuestion.aspx" />
     <Content Include="VteamWork.Master" />
     <Content Include="plugins\bootstrap-colorpicker\css\bootstrap-colorpicker.css.map" />
@@ -3122,6 +3123,13 @@
     </Compile>
     <Compile Include="ViewCoachQuestions.aspx.designer.cs">
       <DependentUpon>ViewCoachQuestions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModelStudent.aspx.cs">
+      <DependentUpon>ViewModelStudent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewModelStudent.aspx.designer.cs">
+      <DependentUpon>ViewModelStudent.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewStudentQuestion.aspx.cs">
       <DependentUpon>ViewStudentQuestion.aspx</DependentUpon>

@@ -58,7 +58,7 @@ namespace VteamWork
                         else
                         {
 
-                             resp = LoginHelper.GetPageList((int)lst.MENU_GROUP_ID);
+                             resp = LoginHelper.GetPageList((int)lst.MENU_GROUP_ID,user.USER_TYPE_ID);
                             if (resp.IsError == false)
                             {
                                 List<tbl_PAGE> pageList = (List<tbl_PAGE>)resp.data;
@@ -80,12 +80,12 @@ namespace VteamWork
                                         txtHTML += "<a href = \"" + lst2.PAGE_PATH + "\" > " + lst2.PAGE_NAME + "</a></ li >";
                                      }
                                     txtHTML += "</ul>";
-                                    txtHTML += "</li></ul>"; 
+                                    txtHTML += "</li>"; 
                                 }
                             }
                         }
                     }
-                    txtHTML += @"</li>";
+                    txtHTML += @"</ul></li>";
                 }
             }
 

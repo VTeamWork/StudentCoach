@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/VteamWork.Master" AutoEventWireup="true" CodeBehind="Module.aspx.cs" Inherits="VteamWork.Module" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -11,47 +12,43 @@
                     <div class="header">
                         <h2>Module
                         </h2>
-                        <ul class="header-dropdown m-r--5">
-                            <li class="dropdown">
-                                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                    <i class="material-icons">more_vert</i>
-                                </a>
-                                <ul class="dropdown-menu pull-right">
-                                    <li><a href="javascript:void(0);">Action</a></li>
-                                    <li><a href="javascript:void(0);">Another action</a></li>
-                                    <li><a href="javascript:void(0);">Something else here</a></li>
-                                </ul>
-                            </li>
-                        </ul>
                     </div>
                     <div class="body">
 
-<div class="form-horizontal panel" style="height:200px">
-    <div class="col-md-5 col-xs-12 col-sm-5">
-        <label class="col-md-4 text-right">Module Name</label>
-        <div class="col-md-8">
-            <%--<input type="text" class="form-control" placeholder="Module Name" />--%>
-           <asp:TextBox ID="ModuleName" CssClass="form-control" runat="server"></asp:TextBox>
-        </div>
+                        <div class="form-horizontal panel" style="height: 200px">
+                            <div class="col-md-5 col-xs-12 col-sm-5">
+                                <label class="col-md-4 text-right">Module Name</label>
+                                <div class="col-md-8">
+                                    <%--<input type="text" class="form-control" placeholder="Module Name" />--%>
+                                    <asp:TextBox ID="ModuleName" CssClass="form-control" runat="server"></asp:TextBox>
+                                </div>
 
-    </div>
-     <div class="col-md-5 col-xs-12 col-sm-5">
-        <label class="col-md-4 text-right">Module Description</label>
-        <div class="col-md-8">
+                            </div>
+                            <div class="col-md-5 col-xs-12 col-sm-5 checkbox" style="display: none">
+                                <label class="col-md-4 text-right">Module Description</label>
+                                <div class="col-md-8">
 
-           <asp:TextBox TextMode="MultiLine" ID="Description" CssClass="form-control" runat="server"></asp:TextBox>
-        
-        <%--<textarea class="form-control"></textarea>--%>
-         </div>
+                                    <asp:TextBox TextMode="MultiLine" ID="Description" ClientIDMode="Static" CssClass="form-control" runat="server"></asp:TextBox>
 
-    </div>
-     <div class="col-md-2 col-xs-12 col-sm-2">
-    <asp:HiddenField ID="ModuleID" runat="server" />
-            <asp:button text="Save" class="form-control"  OnClick="SaveModule_Click" Cssclass="btn btn-lg bg-red"    runat="server" />
-    
-    </div>
+                                    <%--<textarea class="form-control"></textarea>--%>
+                                </div>
 
-</div>
+                            </div>
+
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                                <div class="form-group">
+
+                                    <asp:CheckBox runat="server" ID="chkIs_Default" ClientIDMode="Static" Text="Is Default" onchange="checkboxchange()" />
+
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-xs-12 col-sm-2">
+                                <asp:HiddenField ID="ModuleID" runat="server" />
+                                <asp:Button Text="Save" class="form-control" OnClick="SaveModule_Click" CssClass="btn btn-lg bg-red" runat="server" />
+
+                            </div>
+
+                        </div>
 
 
                         <div class="table-responsive">
@@ -74,8 +71,8 @@
                                         <ItemStyle Width="15%" HorizontalAlign="Left" CssClass=" gridRow" Wrap="false" />
                                         <ItemTemplate>
                                             <%--<asp:Button CssClass="btn btn-success" Text="Activate Coach" runat="server" OnCommand="ActivateCoach_Click" CommandArgument='<%= USER_ID  %>'  />--%>
-                                             <asp:LinkButton ID="lnkRemove" runat="server" CommandArgument='<%# Eval("MODULE_ID")%>'
-                                                   CssClass="btn btn-primary" Text="Edit Module" OnClick="EDITMODULE_Click"></asp:LinkButton>
+                                            <asp:LinkButton ID="lnkRemove" runat="server" CommandArgument='<%# Eval("MODULE_ID")%>'
+                                                CssClass="btn btn-primary" Text="Edit Module" OnClick="EDITMODULE_Click"></asp:LinkButton>
                                         </ItemTemplate>
                                     </asp:TemplateField>
 
@@ -89,5 +86,19 @@
                 </div>
             </div>
         </div>
-        </div>
+    </div>
+    <script>
+
+        function checkboxchange() {
+            debugger
+            if ($("#<%=chkIs_Default.ClientID%>").is(":checked")) {
+                    $(".checkbox").show();
+                }
+                else {
+                $(".checkbox").hide();
+                }
+            }
+
+
+    </script>
 </asp:Content>

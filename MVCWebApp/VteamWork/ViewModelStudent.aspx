@@ -4,6 +4,13 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <style>
+        .space{
+            height:25px !important;
+
+        }
+
+    </style>
 <div class="container-fluid">
             <div class="block-header">
                 <h2>COLLAPSE</h2>

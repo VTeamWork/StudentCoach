@@ -36,6 +36,18 @@ namespace VteamWork
 
             foreach (var mainmodule in list)
             {
+                i++;
+                level = 1;
+                j = 1;
+
+                if (level == 1)
+                {
+                    var space = new HtmlGenericControl("div");
+
+                    space.Attributes.Add("class","space");
+                    accordion_4.Controls.Add(space);
+
+                }
                 accordion_4.Controls.Add(GetPannel(mainmodule,ref i,ref j, ref level,ref allowlevel));
             }
 
@@ -46,6 +58,9 @@ namespace VteamWork
             HtmlGenericControl pannel = new HtmlGenericControl("div");
             pannel.Attributes.Add("class", "panel panel-danger");
 
+
+           
+
             pannel.Controls.Add(GetModulePannelHeader(module,ref i,ref j,ref level));
 
             if(allowlevel!=level)
@@ -53,12 +68,15 @@ namespace VteamWork
                 ++level;
                 foreach (var item in module.tbl_MODULE1)
                 {
-                   pannel.Controls.Add(GetPannel(item, ref i, ref j, ref level, ref allowlevel));
+                    j++; 
+                    pannel.Controls.Add(GetPannel(item, ref i, ref j, ref level, ref allowlevel));
 
                 }
             }
             else
             {
+             
+
                 pannel.Controls.Add(GetModulePannelLowerDiv(module.tbl_QUESTION.ToList(), ref i, ref j, ref level));
 
             }
@@ -68,10 +86,13 @@ namespace VteamWork
 
         private HtmlGenericControl GetModulePannelHeader(Model.tbl_MODULE module, ref int i, ref int j, ref int level)
         {
+           
             HtmlGenericControl pannelheader = new HtmlGenericControl("div");
             pannelheader.Attributes.Add("class", "panel-heading");
             pannelheader.Attributes.Add("role", "tab");
             pannelheader.Attributes.Add("role", "tab");
+
+           
             string concat = "";
             if (level == 1)
                 concat = concat + i;

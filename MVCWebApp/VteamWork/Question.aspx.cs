@@ -76,8 +76,19 @@ namespace VteamWork
             }
             catch (Exception ex)
             {
-                Session["response"] = new Response() { IsError = true, Message = ex.Message };
+                Response resp;
+                Exception Excep = LoginHelper.getExceptionMessage(ex);
+                if (Excep != null && Excep.Message.ToLower().Contains("unique"))
+                {
+                    resp = new Response() { IsError = true, Message = "Question is Already Exist" };
+                }
+
+                else
+                {
+                    resp = new Response() { IsError = true, Message = "Error while saving data" };
+                }
             }
+
             Response.Redirect(Request.Url.ToString());
 
 

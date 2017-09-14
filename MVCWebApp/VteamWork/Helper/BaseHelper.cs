@@ -12,7 +12,13 @@ namespace VteamWork.Helper
 {
     public class BaseHelper
     {
+
+        //public static VTeamWorkDB db { get { return new VTeamWorkDB(); } }
         public static VTeamWorkDB db = new VTeamWorkDB();
+
+
+        
+
 
         public static object BindData<T>(Object Page)
         {
@@ -66,6 +72,7 @@ namespace VteamWork.Helper
 
         public static Response Save(object obj)
         {
+            
             string class_name = obj.GetType().Name;
             object class_object = db.GetType().GetProperty(class_name).GetType();
             //MethodInfo method = class_object.GetType().GetMethod("Add");

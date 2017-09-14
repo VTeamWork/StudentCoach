@@ -22,7 +22,7 @@ namespace VteamWork
         public IQueryable<Model.tbl_MODULE> GetModule()
         {
 
-            return LoginHelper.db.tbl_MODULE.Select(s => s);
+            return LoginHelper.db.tbl_MODULE.Where(u => u.PARENT_MODULE_ID == null).Select(s => s);
         }
 
         
@@ -60,10 +60,26 @@ namespace VteamWork
                 Session["response"] = new Response() { IsError = false, Message = "Success" };
 //                 Response.Redirect(Request.Url.ToString());
             }
+
             catch (Exception ex)
             {
-                Session["response"] = new Response() { IsError = true, Message = ex.Message };
+                Response resp;
+                Exception Excep = LoginHelper.getExceptionMessage(ex);
+                if (Excep != null && Excep.Message.ToLower().Contains("unique"))
+                {
+                    resp = new Response() { IsError = true, Message = "Module is Already Exist" };
+                }
+
+                else
+                {
+                    resp = new Response() { IsError = true, Message = "Error while saving data" };
+                }
+                Session["response"] = resp;
             }
+
+
+            
+
             Response.Redirect(Request.Url.ToString());
 
         }

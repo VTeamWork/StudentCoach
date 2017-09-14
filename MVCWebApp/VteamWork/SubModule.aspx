@@ -124,7 +124,7 @@
                 i++;
                 $("#tblSeries").show();
               
-                $('#tblSeries tr:last').after("<tr class=\"gridItemStyle genrow\" id=" + i + "><td>" + mdlName + "</td><td>" + mdlDesc + "</td><td><a id=\"rempartner_" + i + "\" class=\"removepart\" href=\"#\" onclick=\"del('" + i + "');\">Remove</a> | <a id=\"rempartnerupd_" + i + "\" class=\"removepartupd\"  href=\"#\" onclick=\"Edit('" + mdlName + "','" + mdlDesc + "');\">Edit</a></td></tr>");
+                $('#tblSeries tr:last').after("<tr class=\"gridItemStyle genrow\" id=" + i + "><td>" + mdlName + "</td><td>" + mdlDesc + "</td><td><a id=\"rempartner_" + i + "\" class=\"removepart\" href=\"#\" onclick=\"del('" + i + "');\">Remove</a></td></tr>");
 
 
 
@@ -148,7 +148,7 @@
                     }
 
                 }
-                $('#' + selectedrowid).html("<td>" + mdlName + "</td><td>" + mdlDesc + "</td><td><a id=\"rempartner_" + selectedrowid + "\" class=\"removepart\" href=\"#\" onclick=\"del('" + i + "');\">Remove</a> | <a id=\"rempartnerupd_" + i + "\" class=\"removepartupd\" href=\"#\" onclick=\"Edit('" + mdlName + "','" + mdlDesc + "''" + selectedrowid + "');\">Edit</a></td>");
+                $('#' + selectedrowid).html("<td>" + mdlName + "</td><td>" + mdlDesc + "</td><td><a id=\"rempartner_" + selectedrowid + "\" class=\"removepart\" href=\"#\" onclick=\"del('" + i + "');\">Remove</a></td>");
 
             }
             Clear();

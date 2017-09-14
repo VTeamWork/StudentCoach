@@ -61,24 +61,15 @@ namespace VteamWork
             }
             catch (Exception ex)
             {
-
-
-                //    var sqlException = ex.InnerException as System.Data.SqlClient.SqlException;
-                //if(sqlException.)
                 Exception Excep = LoginHelper.getExceptionMessage(ex);
-                    //if (sqlException.Number == 2601 || sqlException.Number == 2627)
                     if (Excep != null && Excep.Message.ToLower().Contains("unique"))
                     {
                         resp = new Response() { IsError = true, Message = "Email is Already Exist" };
-                        //        ErrorMessage = "Cannot insert duplicate values.";
                     }
-                 
                 
                 else
                 {
                     resp = new Response() { IsError = true, Message = "Error while saving data" };
-
-                    //      ErrorMessage = "Error while saving data.";
                 }
             }
 

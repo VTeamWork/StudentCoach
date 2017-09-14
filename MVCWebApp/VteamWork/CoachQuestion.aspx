@@ -110,7 +110,7 @@
         function Add() {
 
             if (i == 0) {
-                $("#tblSeries tbody").append("<tr><th>Question</th><th>Question Description</th><th>Is Mendatory</th></tr>");
+                $("#tblSeries tbody").append("<tr><th>Sub Module Name</th><th>Sub Module Desciption</th></tr>");
             }
             var mdlName = $("#<%=Name.ClientID%>").val();
             var mdlDesc = $("#<%=Description.ClientID%>").val();

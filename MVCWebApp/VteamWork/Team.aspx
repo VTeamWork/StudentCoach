@@ -44,7 +44,7 @@
 
                                 
                                     </asp:ListBox>
-                                      <%--<asp:CustomValidator ID="CustomValidator1" runat="server" Display="Dynamic" ErrorMessage="Please select 10 items only." ClientValidationFunction="CustomValidator1_ClientValidate" > </asp:CustomValidator>--%>
+                                      <asp:CustomValidator ID="CustomValidator1" runat="server" Display="Dynamic" ErrorMessage="Please select 5 students only." ClientValidationFunction="CustomValidator1_ClientValidate" > </asp:CustomValidator>
                                     </div>
                                    </div>
 
@@ -127,7 +127,7 @@
     </div>
 
      
-<%--<script>
+<script>
 function CustomValidator1_ClientValidate(source,args)
 { 
 var listbox = document.getElementById("<%=lstStudents.ClientID %>");
@@ -146,7 +146,7 @@ for( i = 0; i < listbox.options.length; i++ )
  } 
  args.IsValid = true; return;
 }
-</script>--%>
+</script>
 
 
 </asp:Content>

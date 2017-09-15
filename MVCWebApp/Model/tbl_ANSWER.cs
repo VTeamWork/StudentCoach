@@ -12,10 +12,10 @@ namespace Model
         public int ANSWER_ID { get; set; }
 
         [StringLength(100)]
-        public string QUESTION_NAME { get; set; }
+        public string ANSWER_NAME { get; set; }
 
-        [StringLength(100)]
-        public string QUESTION_DESCRITION { get; set; }
+        [StringLength(1000)]
+        public string ANSWER_DESCRITION { get; set; }
 
         public int? QUESTION_ID { get; set; }
 
@@ -31,6 +31,8 @@ namespace Model
         [Column(TypeName = "date")]
         public DateTime? UPDATED_ON { get; set; }
 
-        public virtual tbl_QUESTION tbl_QUESTION { get; set; }
+        public int? USER_ID { get; set; }
+
+        public virtual tbl_USER tbl_USER { get; set; }
     }
 }

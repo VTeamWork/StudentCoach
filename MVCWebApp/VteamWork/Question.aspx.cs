@@ -23,7 +23,7 @@ namespace VteamWork
         public IQueryable<Model.tbl_QUESTION> GetQuestions()
         {
 
-            return LoginHelper.db.tbl_QUESTION.Where(u => u.user_type_id == 2).Select(s => s);
+            return LoginHelper.db.tbl_QUESTION.Where(u => u.USER_TYPE_ID == 2).Select(s => s);
         }
 
 
@@ -41,7 +41,7 @@ namespace VteamWork
                     tbl_QUESTION.QUESTION_DESCRITION = Description.Value;
                     tbl_QUESTION.MODULE_ID = Convert.ToInt32(ModuleList.SelectedValue);
                     tbl_QUESTION.UPDATED_ON = DateTime.Now;
-                    tbl_QUESTION.user_type_id = 2;
+                    tbl_QUESTION.USER_TYPE_ID = 2;
                     tbl_QUESTION.UPDATED_BY = ((tbl_USER)Session["userinfo"]).LOGIN_ID.ToString();
                     tbl_QUESTION.IsRequired = chkIs_Mendatory.Checked;
                     LoginHelper.db.SaveChanges();
@@ -59,7 +59,7 @@ namespace VteamWork
                         tbl_QUESTION.MODULE_ID = Convert.ToInt32(ModuleList.SelectedValue);
                         tbl_QUESTION.CREATED_ON = DateTime.Now;
                         tbl_QUESTION.CREATED_BY = ((tbl_USER)Session["userinfo"]).LOGIN_ID.ToString();
-                        tbl_QUESTION.user_type_id = 2;
+                        tbl_QUESTION.USER_TYPE_ID = 2;
                         tbl_QUESTION.UPDATED_ON = DateTime.Now;
                         tbl_QUESTION.UPDATED_BY = ((tbl_USER)Session["userinfo"]).LOGIN_ID.ToString();
                         tbl_QUESTION.IsRequired = u.IsMndtry=="True"?true:false;

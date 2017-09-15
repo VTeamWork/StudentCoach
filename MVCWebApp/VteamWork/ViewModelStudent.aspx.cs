@@ -63,23 +63,12 @@ namespace VteamWork
 
             pannel.Controls.Add(GetModulePannelHeader(module,ref i,ref j,ref level));
 
-            if(allowlevel!=level)
-            {
-                ++level;
-                foreach (var item in module.tbl_MODULE1)
-                {
-                    j++; 
-                    pannel.Controls.Add(GetPannel(item, ref i, ref j, ref level, ref allowlevel));
-
-                }
-            }
-            else
-            {
+           
              
 
-                pannel.Controls.Add(GetModulePannelLowerDiv(module.tbl_QUESTION.ToList(), ref i, ref j, ref level));
+                pannel.Controls.Add(GetModulePannelLowerDiv(module, ref i, ref j, ref level,ref allowlevel));
 
-            }
+           // }
 
             return pannel;
         }
@@ -122,7 +111,7 @@ namespace VteamWork
 
             return heading;
         }
-        private HtmlGenericControl GetModulePannelLowerDiv(List<Model.tbl_QUESTION> questions, ref int i, ref int j, ref int level)
+        private HtmlGenericControl GetModulePannelLowerDiv(Model.tbl_MODULE module, ref int i, ref int j, ref int level,ref int allowlevel)
         {
             HtmlGenericControl pannelDiv = new HtmlGenericControl("div");
             string concat = "";
@@ -131,21 +120,35 @@ namespace VteamWork
             else
                 concat = concat + i + j;
 
+          
             pannelDiv.Attributes.Add("id", "collapseOne_"+ concat);
             pannelDiv.Attributes.Add("class", "panel-collapse collapse");
             pannelDiv.Attributes.Add("role", "tabpanel");
             pannelDiv.Attributes.Add("aria-labelledby", "headingOne" + concat);
             pannelDiv.Attributes.Add("aria-expanded", "false");
 
+            if (allowlevel != level)
+            {
+                ++level;
+                foreach (var item in module.tbl_MODULE1)
+                {
+                    
+                    j++;
+                    pannelDiv.Controls.Add(GetPannel(item, ref i, ref j, ref level, ref allowlevel));
+
+                }
+            }
+            else { 
             HtmlGenericControl pannelbody = new HtmlGenericControl("div");
             pannelbody.Attributes.Add("class", "panel-body");
             int k = 1;
-            foreach (var item in questions)
+            foreach (var item in module.tbl_QUESTION)
             {
                 pannelbody.InnerHtml += k +" "+ item.QUESTION_NAME + "<br/>";
                 k++;
             }
             pannelDiv.Controls.Add(pannelbody);
+            }
             return pannelDiv;
 
         }

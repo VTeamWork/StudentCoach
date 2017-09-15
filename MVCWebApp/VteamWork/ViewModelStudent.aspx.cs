@@ -15,8 +15,13 @@ namespace VteamWork
         protected void Page_Load(object sender, EventArgs e)
         {
 
-        
+           int? teamID = ((Model.tbl_USER)Session["userinfo"]).TEAM_ID;
+
+            if(teamID==null)
             Binddata();
+            else
+                Binddata(teamID);
+
 
         }
 
@@ -169,10 +174,10 @@ namespace VteamWork
                 HtmlGenericControl pannelbody = new HtmlGenericControl("div");
                 pannelbody.Attributes.Add("class", "panel-body");
                 int k = 1;
-                foreach (var item in module.tbl_QUESTION)
+                foreach (var item in module.tbl_QUESTION.Where(c=>c.USER_TYPE_ID==2))
                 {
                    // pannelbody.InnerHtml += 
-
+                   
                     HtmlGenericControl control = new HtmlGenericControl("div");
 
                     HtmlGenericControl spanQ = new HtmlGenericControl("span");
@@ -181,7 +186,8 @@ namespace VteamWork
 
                     TextBox asptextbox = new TextBox();
                     asptextbox.ID = "text_" + item.QUESTION_ID;
-
+                    string answer = GetAnswer(item.QUESTION_ID, ((Model.tbl_USER)Session["userinfo"]).USER_ID);
+                    asptextbox.Text = answer; 
                     control.Controls.Add(asptextbox);
 
 
@@ -216,19 +222,38 @@ namespace VteamWork
             //return LoginHelper.db.tbl_TEAM_MODULE.AsQueryable();
         }
 
+
+        public string GetAnswer(int QuestionID,int UserID)
+        {
+            var answer = LoginHelper.db.tbl_ANSWER.FirstOrDefault(c => c.QUESTION_ID == QuestionID && c.USER_ID == UserID);
+            if(answer!=null)
+            {
+               return answer.ANSWER_DESCRITION;
+
+            }
+            else
+            {
+                return "";
+            }
+
+        }
         protected void SaveAnswer(object sender, EventArgs e)
         {
             try
             {
-                 string ID = ((CommandEventArgs)e).CommandArgument.ToString();
+                string ID = ((CommandEventArgs)e).CommandArgument.ToString();
                 string text = GeTTextValue(Convert.ToInt32(ID));
                 //int ID = Convert.ToInt32(((LinkButton)sender).CommandArgument);
                 Model.tbl_ANSWER answer = new Model.tbl_ANSWER();
 
-                //answer.QUESTION_ID = ID;
-                //answer.CREATED_BY = ((Model.tbl_USER)Session["userinfo"]).USER_ID.ToString();
+                answer.QUESTION_ID = Convert.ToInt32(ID);
+                answer.USER_ID = ((Model.tbl_USER)Session["userinfo"]).USER_ID;
 
-
+                answer.CREATED_BY = ((Model.tbl_USER)Session["userinfo"]).USER_ID.ToString();
+                answer.ANSWER_DESCRITION = text;
+                answer.CREATED_ON = DateTime.Now;
+                LoginHelper.db.tbl_ANSWER.Add(answer);
+                LoginHelper.db.SaveChanges();
 
             }
             catch (Exception excep)
@@ -236,8 +261,7 @@ namespace VteamWork
 
 
             }
-
-
+            
         }
     }
     }

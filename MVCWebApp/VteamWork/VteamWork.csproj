@@ -3164,7 +3164,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Model\Model.csproj">
-      <Project>{338c7ed0-5088-4553-a504-072cfe2ddc4b}</Project>
+      <Project>{6E58C70F-FBB6-4A74-935B-0F1FE5DEF514}</Project>
       <Name>Model</Name>
     </ProjectReference>
   </ItemGroup>

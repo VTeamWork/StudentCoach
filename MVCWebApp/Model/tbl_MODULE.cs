@@ -19,10 +19,10 @@ namespace Model
         [Key]
         public int MODULE_ID { get; set; }
 
-        [StringLength(100)]
+        [StringLength(1000)]
         public string MODULE_NAME { get; set; }
 
-        [StringLength(100)]
+        [StringLength(1000)]
         public string MODULE_DESCRITION { get; set; }
 
         [StringLength(50)]

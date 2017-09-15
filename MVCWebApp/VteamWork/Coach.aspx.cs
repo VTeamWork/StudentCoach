@@ -1,4 +1,5 @@
-﻿using Model.DataResponse;
+﻿using Model;
+using Model.DataResponse;
 using System;
 using System.Collections.Generic;
 using System.Linq;

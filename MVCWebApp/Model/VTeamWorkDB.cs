@@ -12,7 +12,6 @@ namespace Model
         {
         }
 
-        public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<tbl_ANSWER> tbl_ANSWER { get; set; }
         public virtual DbSet<tbl_APPLICATION> tbl_APPLICATION { get; set; }
@@ -32,11 +31,11 @@ namespace Model
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<tbl_ANSWER>()
-                .Property(e => e.QUESTION_NAME)
+                .Property(e => e.ANSWER_NAME)
                 .IsUnicode(false);
 
             modelBuilder.Entity<tbl_ANSWER>()
-                .Property(e => e.QUESTION_DESCRITION)
+                .Property(e => e.ANSWER_DESCRITION)
                 .IsUnicode(false);
 
             modelBuilder.Entity<tbl_ANSWER>()

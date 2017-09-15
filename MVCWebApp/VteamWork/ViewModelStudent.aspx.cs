@@ -180,29 +180,40 @@ namespace VteamWork
                    
                     HtmlGenericControl control = new HtmlGenericControl("div");
 
-                    HtmlGenericControl spanQ = new HtmlGenericControl("span");
-                    spanQ.InnerHtml = k + " " + item.QUESTION_NAME + "<br/>";
+                    control.Attributes.Add("class", "col-xs-12 col-sm-12 col-md-12");
+
+                    HtmlGenericControl spanQ = new HtmlGenericControl("div");
+                    spanQ.Attributes.Add("class", "col-md-12 col-xs-12 col-sm-12");
+                    spanQ.InnerHtml =  "<div class='col-md-12 col-xs-12 col-sm-12' ><strong>" + k +"   " + item.QUESTION_NAME + "</strong></div><br/>";
                     control.Controls.Add(spanQ);
 
                     TextBox asptextbox = new TextBox();
                     asptextbox.ID = "text_" + item.QUESTION_ID;
                     string answer = GetAnswer(item.QUESTION_ID, ((Model.tbl_USER)Session["userinfo"]).USER_ID);
-                    asptextbox.Text = answer; 
+                    asptextbox.Text = answer;
+                    asptextbox.CssClass = "form-control";
+
                     control.Controls.Add(asptextbox);
 
 
                     listtextbox.Add(asptextbox);
                     //pannelbody.Controls.Add(asptextbox);
 
+                    HtmlGenericControl control1 = new HtmlGenericControl("div");
+
+                    control1.Attributes.Add("class", "col-xs-12 col-sm-6 col-md-6");
+
                     Button aspbutton = new Button();
                     aspbutton.ID = "button_" + concat + item.QUESTION_ID;
                     aspbutton.Text = "Save";
+                    aspbutton.CssClass = "btn btn-block bg-red";
                     aspbutton.CommandArgument = item.QUESTION_ID.ToString();
                     aspbutton.Command += new CommandEventHandler(SaveAnswer);
 
-                    control.Controls.Add(aspbutton);
+                    control1.Controls.Add(aspbutton);
 
                     pannelbody.Controls.Add(control);
+                    pannelbody.Controls.Add(control1);
 
                     k++;
                 }

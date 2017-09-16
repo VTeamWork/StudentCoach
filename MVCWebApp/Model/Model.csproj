@@ -72,6 +72,7 @@
     <Compile Include="tbl_USER.cs" />
     <Compile Include="tbl_USER_ROLE.cs" />
     <Compile Include="tbl_USER_TYPE.cs" />
+    <Compile Include="TeamReview.cs" />
     <Compile Include="VTeamWorkDB.cs" />
   </ItemGroup>
   <ItemGroup>

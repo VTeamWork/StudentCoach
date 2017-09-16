@@ -13,6 +13,7 @@ namespace Model
         {
             tbl_USER = new HashSet<tbl_USER>();
             tbl_TEAM_MODULE = new HashSet<tbl_TEAM_MODULE>();
+            TeamReviews = new HashSet<TeamReview>();
         }
 
         [Key]
@@ -41,5 +42,8 @@ namespace Model
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_TEAM_MODULE> tbl_TEAM_MODULE { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TeamReview> TeamReviews { get; set; }
     }
 }

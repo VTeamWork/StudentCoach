@@ -27,6 +27,7 @@ namespace Model
         public virtual DbSet<tbl_USER> tbl_USER { get; set; }
         public virtual DbSet<tbl_USER_ROLE> tbl_USER_ROLE { get; set; }
         public virtual DbSet<tbl_USER_TYPE> tbl_USER_TYPE { get; set; }
+        public virtual DbSet<TeamReview> TeamReviews { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -108,6 +109,11 @@ namespace Model
 
             modelBuilder.Entity<tbl_MODULE>()
                 .Property(e => e.UPDATED_BY)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<tbl_MODULE>()
+                .Property(e => e.IS_DEFAULT)
+                .IsFixedLength()
                 .IsUnicode(false);
 
             modelBuilder.Entity<tbl_MODULE>()
@@ -254,6 +260,11 @@ namespace Model
                 .WithRequired(e => e.tbl_TEAM)
                 .WillCascadeOnDelete(false);
 
+            modelBuilder.Entity<tbl_TEAM>()
+                .HasMany(e => e.TeamReviews)
+                .WithOptional(e => e.tbl_TEAM)
+                .HasForeignKey(e => e.TeamID);
+
             modelBuilder.Entity<tbl_TEAM_MODULE>()
                 .Property(e => e.CREATED_BY)
                 .IsUnicode(false);
@@ -357,6 +368,11 @@ namespace Model
                 .Property(e => e.SKYPE_ID)
                 .IsUnicode(false);
 
+            modelBuilder.Entity<tbl_USER>()
+                .HasMany(e => e.TeamReviews)
+                .WithOptional(e => e.tbl_USER)
+                .HasForeignKey(e => e.CoachID);
+
             modelBuilder.Entity<tbl_USER_ROLE>()
                 .Property(e => e.UPDATE_ID)
                 .IsFixedLength()
@@ -380,6 +396,10 @@ namespace Model
 
             modelBuilder.Entity<tbl_USER_TYPE>()
                 .Property(e => e.UPDATED_BY)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<TeamReview>()
+                .Property(e => e.TeamReviewComment)
                 .IsUnicode(false);
         }
     }

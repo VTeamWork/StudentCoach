@@ -15,8 +15,14 @@ namespace VteamWork
         protected void Page_Load(object sender, EventArgs e)
         {
 
-           int? teamID = ((Model.tbl_USER)Session["userinfo"]).TEAM_ID;
+            int? teamID = null;
+            if(((Model.tbl_USER)Session["userinfo"]).TEAM_ID!=null)
+            {
 
+                teamID = ((Model.tbl_USER)Session["userinfo"]).TEAM_ID;
+            }
+
+           
             if(teamID==null)
             Binddata();
             else
@@ -254,18 +260,34 @@ namespace VteamWork
             {
                 string ID = ((CommandEventArgs)e).CommandArgument.ToString();
                 string text = GeTTextValue(Convert.ToInt32(ID));
-                //int ID = Convert.ToInt32(((LinkButton)sender).CommandArgument);
+                int QuestionID = Convert.ToInt32(ID);
+                int userID = ((Model.tbl_USER)Session["userinfo"]).USER_ID;
+
+                var ansuerexist = LoginHelper.db.tbl_ANSWER.FirstOrDefault(c => c.QUESTION_ID == QuestionID && c.USER_ID== userID);
+
+                if (ansuerexist != null)
+                {
+                    ansuerexist.ANSWER_DESCRITION = text;
+                    ansuerexist.UPDATED_ON = DateTime.Now;
+                    ansuerexist.UPDATED_BY = ((Model.tbl_USER)Session["userinfo"]).USER_ID.ToString();
+
+                }
+                else {  
+
                 Model.tbl_ANSWER answer = new Model.tbl_ANSWER();
 
                 answer.QUESTION_ID = Convert.ToInt32(ID);
                 answer.USER_ID = ((Model.tbl_USER)Session["userinfo"]).USER_ID;
 
+
+            
                 answer.CREATED_BY = ((Model.tbl_USER)Session["userinfo"]).USER_ID.ToString();
                 answer.ANSWER_DESCRITION = text;
                 answer.CREATED_ON = DateTime.Now;
                 LoginHelper.db.tbl_ANSWER.Add(answer);
+                }
                 LoginHelper.db.SaveChanges();
-
+                
             }
             catch (Exception excep)
             {

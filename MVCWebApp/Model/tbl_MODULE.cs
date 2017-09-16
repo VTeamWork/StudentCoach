@@ -39,6 +39,9 @@ namespace Model
 
         public int? PARENT_MODULE_ID { get; set; }
 
+        [StringLength(1)]
+        public string IS_DEFAULT { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_QUESTION> tbl_QUESTION { get; set; }
 

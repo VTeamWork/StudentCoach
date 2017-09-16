@@ -46,7 +46,7 @@
                                         <div class="form-group form-float">
                                             <div class="form-line">
                                               
-                                      <asp:ListBox ID="studentist" SelectionMode="Multiple"  runat="server" CssClass="form-control">
+                                      <asp:ListBox ID="studentist" SelectionMode="Single"  runat="server" CssClass="form-control">
                                   <asp:ListItem></asp:ListItem>
                                     </asp:ListBox>                                                   </div>
                                         </div>
@@ -55,7 +55,7 @@
                                     <label></label>
                                         <div class="form-group">
                                             <div class="form-line">
-                                              <asp:Button  OnClick="btnSearch_Click" Text="Save" CssClass="form-control btn btn-block  bg-red" runat="server" /> 
+                                              <asp:Button  OnClick="btnSearch_Click" Text="Search" CssClass="form-control btn btn-block  bg-red" runat="server" /> 
                                                    </div>
                                         </div>       
                                         

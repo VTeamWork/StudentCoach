@@ -228,7 +228,7 @@ namespace VteamWork
                 HtmlGenericControl pannelbody = new HtmlGenericControl("div");
                 pannelbody.Attributes.Add("class", "panel-body");
                 int k = 1;
-                foreach (var item in module.tbl_QUESTION.Where(c => c.USER_TYPE_ID == 1))
+                foreach (var item in module.tbl_QUESTION.Where(c => c.USER_TYPE_ID == 3))
                 {
                     // pannelbody.InnerHtml += 
 
@@ -290,7 +290,8 @@ namespace VteamWork
 
         public string GetAnswer(int QuestionID, int UserID)
         {
-            var answer = LoginHelper.db.tbl_ANSWER.FirstOrDefault(c => c.QUESTION_ID == QuestionID && c.USER_ID == UserID);
+            int studentID = Convert.ToInt32(studentist.SelectedValue);
+            var answer = LoginHelper.db.tbl_ANSWER.FirstOrDefault(c => c.QUESTION_ID == QuestionID && c.USER_ID == studentID && c.COACH_ID==UserID );
             if (answer != null)
             {
                 return answer.ANSWER_DESCRITION;
@@ -310,8 +311,9 @@ namespace VteamWork
                 string text = GeTTextValue(Convert.ToInt32(ID));
                 int QuestionID = Convert.ToInt32(ID);
                 int userID = ((Model.tbl_USER)Session["userinfo"]).USER_ID;
+                int studentID = Convert.ToInt32(studentist.SelectedValue);
 
-                var ansuerexist = LoginHelper.db.tbl_ANSWER.FirstOrDefault(c => c.QUESTION_ID == QuestionID && c.USER_ID == userID);
+                var ansuerexist = LoginHelper.db.tbl_ANSWER.FirstOrDefault(c => c.QUESTION_ID == QuestionID && c.COACH_ID == userID && c.USER_ID==studentID);
 
                 if (ansuerexist != null)
                 {
@@ -326,7 +328,8 @@ namespace VteamWork
                     Model.tbl_ANSWER answer = new Model.tbl_ANSWER();
 
                     answer.QUESTION_ID = Convert.ToInt32(ID);
-                    answer.USER_ID = ((Model.tbl_USER)Session["userinfo"]).USER_ID;
+                    answer.COACH_ID = ((Model.tbl_USER)Session["userinfo"]).USER_ID;
+                    answer.USER_ID = studentID;
 
 
 

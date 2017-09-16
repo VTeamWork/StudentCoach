@@ -369,6 +369,16 @@ namespace Model
                 .IsUnicode(false);
 
             modelBuilder.Entity<tbl_USER>()
+                .HasMany(e => e.tbl_ANSWER)
+                .WithOptional(e => e.tbl_USER)
+                .HasForeignKey(e => e.COACH_ID);
+
+            modelBuilder.Entity<tbl_USER>()
+                .HasMany(e => e.tbl_ANSWER1)
+                .WithOptional(e => e.tbl_USER1)
+                .HasForeignKey(e => e.USER_ID);
+
+            modelBuilder.Entity<tbl_USER>()
                 .HasMany(e => e.TeamReviews)
                 .WithOptional(e => e.tbl_USER)
                 .HasForeignKey(e => e.CoachID);

@@ -107,6 +107,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="TeamReview.aspx" />
     <Content Include="AssignTeam.aspx" />
     <Content Include="Coach.aspx" />
     <Content Include="Question.aspx" />
@@ -3018,6 +3019,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TeamReview.aspx.cs">
+      <DependentUpon>TeamReview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeamReview.aspx.designer.cs">
+      <DependentUpon>TeamReview.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AssignTeam.aspx.cs">
       <DependentUpon>AssignTeam.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

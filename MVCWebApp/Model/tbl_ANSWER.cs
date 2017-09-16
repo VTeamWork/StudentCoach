@@ -33,6 +33,10 @@ namespace Model
 
         public int? USER_ID { get; set; }
 
+        public int? COACH_ID { get; set; }
+
         public virtual tbl_USER tbl_USER { get; set; }
+
+        public virtual tbl_USER tbl_USER1 { get; set; }
     }
 }

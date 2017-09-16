@@ -51,6 +51,7 @@ namespace VteamWork
                         module.CREATED_BY = ((tbl_USER)Session["userinfo"]).LOGIN_ID.ToString();
                         module.UPDATED_ON = DateTime.Now;
                         module.UPDATED_BY = ((tbl_USER)Session["userinfo"]).LOGIN_ID.ToString();
+                        module.IS_DEFAULT = u.IsMndtry == "True" ? "1" : "0";
                         LoginHelper.db.tbl_MODULE.Add(module);
                     });
 
@@ -65,6 +66,7 @@ namespace VteamWork
                     module.CREATED_BY = ((tbl_USER)Session["userinfo"]).LOGIN_ID.ToString();
                     module.UPDATED_ON = DateTime.Now;
                     module.UPDATED_BY = ((tbl_USER)Session["userinfo"]).LOGIN_ID.ToString();
+                    module.IS_DEFAULT = chkDefault.Checked == true ? "1" : "0";
 
                 }
                 LoginHelper.db.SaveChanges();
@@ -103,6 +105,10 @@ namespace VteamWork
                 ModuleName.Text = module.MODULE_NAME;
                 Description.Text = module.MODULE_DESCRITION;
                 ModuleList.SelectedValue = module.PARENT_MODULE_ID.ToString();
+                if (module.IS_DEFAULT == "1")
+                    chkDefault.Checked = true;
+                else
+                    chkDefault.Checked = false;
 
             }
             catch (Exception ex)

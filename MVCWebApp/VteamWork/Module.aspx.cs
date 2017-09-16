@@ -14,7 +14,7 @@ namespace VteamWork
         Model.tbl_MODULE module;
         protected void Page_Load(object sender, EventArgs e)
         {
-         
+
 
         }
 
@@ -25,24 +25,19 @@ namespace VteamWork
             return LoginHelper.db.tbl_MODULE.Where(u => u.PARENT_MODULE_ID == null).Select(s => s);
         }
 
-        
+
 
         protected void SaveModule_Click(object sender, EventArgs e)
         {
             try
             {
-                // string ID = e.CommandArgument.ToString();
-                //   int ID = Convert.ToInt32(((LinkButton)sender).CommandArgument);
-                //  var Module = LoginHelper.db.tbl_MODULE.FirstOrDefault(u => u.MODULE_ID == ID);
 
-                //LoginHelper.db.SaveChanges();
-                //  LoginHelper.SendEmail(user.EMAIL, "Activate Coach", "Welcome");
-
-                if(string.IsNullOrEmpty(ModuleID.Value))
-                { 
-                 module = new Model.tbl_MODULE();
+                if (string.IsNullOrEmpty(ModuleID.Value))
+                {
+                    module = new Model.tbl_MODULE();
                     module.MODULE_NAME = ModuleName.Text;
                     module.MODULE_DESCRITION = Description.Text;
+                    module.IS_DEFAULT = chkDefault.Checked == true ? "1" : "0";
                     LoginHelper.db.tbl_MODULE.Add(module);
 
                 }
@@ -50,7 +45,7 @@ namespace VteamWork
                 {
 
                     module = LoginHelper.db.tbl_MODULE.FirstOrDefault(u => u.MODULE_ID.ToString() == ModuleID.Value);
-
+                    module.IS_DEFAULT = chkDefault.Checked == true ? "1" : "0";
                     module.MODULE_NAME = ModuleName.Text;
                     module.MODULE_DESCRITION = Description.Text;
 
@@ -58,7 +53,7 @@ namespace VteamWork
                 LoginHelper.db.SaveChanges();
                 ModuleID.Value = null;
                 Session["response"] = new Response() { IsError = false, Message = "Success" };
-//                 Response.Redirect(Request.Url.ToString());
+                //                 Response.Redirect(Request.Url.ToString());
             }
 
             catch (Exception ex)
@@ -78,7 +73,7 @@ namespace VteamWork
             }
 
 
-            
+
 
             Response.Redirect(Request.Url.ToString());
 
@@ -94,16 +89,16 @@ namespace VteamWork
                 ModuleID.Value = ID.ToString();
                 ModuleName.Text = module.MODULE_NAME;
                 Description.Text = module.MODULE_DESCRITION;
-                
-                //LoginHelper.db.SaveChanges();
-                //  LoginHelper.SendEmail(user.EMAIL, "Activate Coach", "Welcome");
-                // Session["response"] = new Response() { IsError = false, Message = "Success" };
-                // Response.Redirect("Default.aspx");
+                if (module.IS_DEFAULT == "1")
+                    chkDefault.Checked = true;
+                else
+                    chkDefault.Checked = false;
+
             }
             catch (Exception ex)
             {
-  //              Session["response"] = new Response() { IsError = true, Message = ex.Message };
-//                Response.Redirect("Default.aspx");
+                //              Session["response"] = new Response() { IsError = true, Message = ex.Message };
+                //                Response.Redirect("Default.aspx");
 
             }
         }

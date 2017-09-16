@@ -41,6 +41,14 @@
          </div>
 
     </div>
+       <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                                <div class="form-group">
+
+                                    <asp:CheckBox runat="server" ID="chkDefault" ClientIDMode="Static" Text="Is Default" />
+
+                                </div>
+                            </div>
+
      <div class="col-md-2 col-xs-12 col-sm-2">
     <asp:HiddenField ID="ModuleID" runat="server" />
              <input type="button" runat="server" ID="btnAdd"  value="Add Record" class="btn btn-primary"  onclick="Add();" style="margin-top:20px !important"  />
@@ -105,10 +113,19 @@
         function Add() {
   if (i == 0)
             {
-                $("#tblSeries tbody").append("<tr><th>Sub Module Name</th><th>Sub Module Desciption</th></tr>");
+      $("#tblSeries tbody").append("<tr><th>Sub Module Name</th><th>Sub Module Desciption</th><th>Is Default</th></tr>");
             }
             var mdlName = $("#<%=ModuleName.ClientID%>").val();
             var mdlDesc = $("#<%=Description.ClientID%>").val();
+               var IsMndtry = "";
+            if ($("#<%=chkDefault.ClientID%>").is(":checked")) {
+                IsMndtry = "True"
+            }
+            else
+            {
+                IsMndtry = "False"
+            }
+
             if (mdlName == "") {
                 alert("Enter Module Name");
                 return;
@@ -124,7 +141,7 @@
                 i++;
                 $("#tblSeries").show();
               
-                $('#tblSeries tr:last').after("<tr class=\"gridItemStyle genrow\" id=" + i + "><td>" + mdlName + "</td><td>" + mdlDesc + "</td><td><a id=\"rempartner_" + i + "\" class=\"removepart\" href=\"#\" onclick=\"del('" + i + "');\">Remove</a></td></tr>");
+                $('#tblSeries tr:last').after("<tr class=\"gridItemStyle genrow\" id=" + i + "><td>" + mdlName + "</td><td>" + mdlDesc + "</td><td>" + IsMndtry + "</td><td><a id=\"rempartner_" + i + "\" class=\"removepart\" href=\"#\" onclick=\"del('" + i + "');\">Remove</a></td></tr>");
 
 
 
@@ -133,6 +150,7 @@
                      "rowid":i,
                     "mdlName": mdlName,
                     "mdlDesc": mdlDesc,
+                    "IsMndtry": IsMndtry,
                 });
                 $("#table").val(JSON.stringify(partner_details));
 
@@ -144,11 +162,12 @@
                     if (partner_details[index].rowid == selectedrowid)
                     {
                         partner_details.mdlName = mdlName ;
-                        partner_details.mdlDesc = mdlDesc ;
+                        partner_details.mdlDesc = mdlDesc;
+                        partner_detailsils.isMndtry = IsMndtry;
                     }
 
                 }
-                $('#' + selectedrowid).html("<td>" + mdlName + "</td><td>" + mdlDesc + "</td><td><a id=\"rempartner_" + selectedrowid + "\" class=\"removepart\" href=\"#\" onclick=\"del('" + i + "');\">Remove</a></td>");
+                $('#' + selectedrowid).html("<td>" + mdlName + "</td><td>" + mdlDesc + "</td><td>" + IsMndtry + "</td><td><a id=\"rempartner_" + selectedrowid + "\" class=\"removepart\" href=\"#\" onclick=\"del('" + i + "');\">Remove</a></td>");
 
             }
             Clear();
@@ -160,6 +179,7 @@
 
             $("#<%=ModuleName.ClientID%>").val("");
             $("#<%=Description.ClientID%>").val("");
+             $("#<%=chkDefault.ClientID%>").prop('checked', false);
         }
         function del(i) {
 

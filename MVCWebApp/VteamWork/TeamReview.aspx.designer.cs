@@ -10,60 +10,42 @@
 namespace VteamWork {
     
     
-    public partial class Module {
+    public partial class TeamReview {
         
         /// <summary>
-        /// ModuleName control.
+        /// TeamList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ModuleName;
+        protected global::System.Web.UI.WebControls.ListBox TeamList;
         
         /// <summary>
-        /// Description control.
+        /// Comments control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Description;
+        protected global::System.Web.UI.WebControls.TextBox Comments;
         
         /// <summary>
-        /// chkIs_Default control.
+        /// ReviewID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkIs_Default;
+        protected global::System.Web.UI.WebControls.HiddenField ReviewID;
         
         /// <summary>
-        /// chkDefault control.
+        /// gridviewdemo2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkDefault;
-        
-        /// <summary>
-        /// ModuleID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField ModuleID;
-        
-        /// <summary>
-        /// GridViewDemo2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridViewDemo2;
+        protected global::System.Web.UI.WebControls.GridView gridviewdemo2;
     }
 }

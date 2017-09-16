@@ -9,7 +9,7 @@
         <div class="row clearfix">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="card">
-                    <div class="header">c
+                    <div class="header">
                         <h2>Module
                         </h2>
                     </div>
@@ -38,7 +38,15 @@
                             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
                                 <div class="form-group">
 
-                                    <asp:CheckBox runat="server" ID="chkIs_Default" ClientIDMode="Static" Text="Is Default" onchange="checkboxchange()" />
+                                    <asp:CheckBox runat="server" ID="chkIs_Default" ClientIDMode="Static" Text="Description View" onchange="checkboxchange()" />
+
+                                </div>
+                            </div>
+
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                                <div class="form-group">
+
+                                    <asp:CheckBox runat="server" ID="chkDefault" ClientIDMode="Static" Text="Is Default" />
 
                                 </div>
                             </div>

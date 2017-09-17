@@ -20,7 +20,7 @@
                                         <label>Select Team</label>
                                         <div class="form-group form-float">
                                             <div class="form-line">
-                                                <asp:ListBox ID="TeamList" SelectionMode="Single"  runat="server" CssClass="form-control">    </asp:ListBox>  
+                                                <asp:ListBox ID="TeamList" SelectionMode="Single"  runat="server" CssClass="form-control" OnSelectedIndexChanged="TeamList_SelectedIndexChanged" AutoPostBack="true">    </asp:ListBox>  
                                             </div>
                                         </div>
                                     </div>
@@ -62,7 +62,7 @@
 
                                 <headerstyle />
                                 <columns>
-                                    <asp:dynamicfield datafield="team_id" headertext="team name" />
+                                  <%--  <asp:dynamicfield datafield="TeamID" headertext="team name" />--%>
 
                                     
                                      <asp:TemplateField HeaderText="Team Name">
@@ -72,12 +72,20 @@
               </ItemTemplate>
             </asp:TemplateField>
                                     
-                                          <asp:TemplateField HeaderText="Module Name">
+                                          <asp:TemplateField HeaderText="Comments">
               <ItemTemplate>
                 <asp:Label Text="<%# Item.TeamReviewComment %>" 
                     runat="server" />
               </ItemTemplate>
             </asp:TemplateField>       
+                                       <asp:TemplateField ItemStyle-Height="20px" HeaderText="Task Date" SortExpression="DATE" HeaderStyle-ForeColor="white">
+                                        <ItemStyle Width="15%" HorizontalAlign="Left" CssClass=" gridRow" Wrap="false" />
+                                        <ItemTemplate>
+                                            <%--<asp:Button CssClass="btn btn-success" Text="Activate Coach" runat="server" OnCommand="ActivateCoach_Click" CommandArgument='<%= USER_ID  %>'  />--%>
+                                            <asp:LinkButton ID="lnkRemove" runat="server" CommandArgument='<%# Eval("TeamReviewID")%>'
+                                                CssClass="btn btn-primary" Text="Edit" OnClick="EDITMODULE_Click"></asp:LinkButton>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
 
                                 </columns>
 

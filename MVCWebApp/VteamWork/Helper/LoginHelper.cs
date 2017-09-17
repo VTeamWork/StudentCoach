@@ -34,12 +34,20 @@ namespace VteamWork.Helper
 
         }
 
-        public static Response GetMenuList(tbl_USER user = null)
+        public static Response GetMenuList(int? role_id,tbl_USER user = null)
         {
             try
             {
-                var menuinfo = db.tbl_MENU_GROUP.ToList();
-                if (menuinfo != null)
+                List<tbl_MENU_GROUP> menuinfo = null;
+                var pageinfo = db.tbl_ROLE_PAGE.Where(c =>  c.tbl_ROLE.ROLE_ID == role_id).ToList();
+                if(pageinfo.Count>0)
+                 menuinfo = db.tbl_MENU_GROUP.ToList();
+              
+               // var menuinfo = db.tbl_ROLE_PAGE.Where(w => w.tbl_PAGE != null && w.ROLE_ID == role_id).Select(m => m.tbl_PAGE.tbl_MENU_GROUP).ToList();
+
+
+               // var pageinfo = db.tbl_PAGE.Where(c => c.PAGE_ID != null && c.tbl_ROLE_PAGE. == role_id).OrderBy(x => x.tbl_PAGE.PAGE_SEQ).Select(s => s.tbl_PAGE).ToList();
+                if (menuinfo.Count>0)
                 {
 
                     return new Response { IsError = false, Message = "Success", data = menuinfo };

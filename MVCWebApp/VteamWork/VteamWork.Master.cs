@@ -41,7 +41,7 @@ namespace VteamWork
         {
             string txtHTML = "";
 
-            Response resp = LoginHelper.GetMenuList(user);
+            Response resp = LoginHelper.GetMenuList( user.USER_TYPE_ID,user);
             if(resp.IsError==false)
             { 
             List<tbl_MENU_GROUP> menuList = (List<tbl_MENU_GROUP>)resp.data;
@@ -50,8 +50,15 @@ namespace VteamWork
                     txtHTML += @"<li>";
                     foreach (var lst in menuList)
                     {
-                       
-                        if (lst.PARENT_MENU_GROUP_ID == 0)
+                        int m_id = 0;
+                        var lstMenu = LoginHelper.db.tbl_MENU_GROUP.Where(c => c.PARENT_MENU_GROUP_ID == lst.MENU_GROUP_ID).ToList();
+                        if (lstMenu.Count > 0)
+                        {
+                            m_id = lstMenu[0].MENU_GROUP_ID;
+                        }
+                           
+                        var lstparentMenu = LoginHelper.db.tbl_ROLE_PAGE.Where(c => c.tbl_PAGE.MENU_GROUP_ID == m_id  && c.tbl_ROLE.ROLE_ID == user.USER_TYPE_ID).ToList();
+                        if (lst.PARENT_MENU_GROUP_ID == 0 && lstparentMenu.Count>0)
                         {
                             txtHTML += " <a href = \"javascript:void(0);\" class=\"menu-toggle\"><span>" + lst.MENU_GROUP_NAME + "</span></a> ";
                         }

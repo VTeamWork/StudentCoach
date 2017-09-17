@@ -19,6 +19,23 @@ namespace VteamWork
                 BindStudentList();
                 BindTeamList();
             }
+            else
+            {
+                int? teamID = null;
+                if (!string.IsNullOrEmpty(TeamList.SelectedValue))
+                {
+                    teamID = Convert.ToInt32(TeamList.SelectedValue);
+                    // teamID = ((Model.tbl_USER)Session["userinfo"]).TEAM_ID;
+                }
+
+
+                if (teamID == null)
+                    Binddata();
+                else
+                    Binddata(teamID);
+
+
+            }
         }
 
         private void BindStudentList()
@@ -47,10 +64,10 @@ namespace VteamWork
         protected void btnSearch_Click(object sender, EventArgs e)
         {
             int? teamID = null;
-            if (((Model.tbl_USER)Session["userinfo"]).TEAM_ID != null)
+            if (!string.IsNullOrEmpty(TeamList.SelectedValue))
             {
-
-                teamID = ((Model.tbl_USER)Session["userinfo"]).TEAM_ID;
+                teamID = Convert.ToInt32(teamID);
+               // teamID = ((Model.tbl_USER)Session["userinfo"]).TEAM_ID;
             }
 
 
@@ -88,7 +105,7 @@ namespace VteamWork
 
             foreach (var item in listtextbox)
             {
-                if (item.ID.ToLower().Contains("text_" + questionID.ToString()))
+                if (item.ID.ToLower().Contains("text_" + questionID.ToString() + "_" + studentist.SelectedValue))
                 {
                     answeer = item.Text;
                     break;
@@ -242,11 +259,11 @@ namespace VteamWork
                     control.Controls.Add(spanQ);
 
                     TextBox asptextbox = new TextBox();
-                    asptextbox.ID = "text_" + item.QUESTION_ID;
+                    asptextbox.ID = "text_" + item.QUESTION_ID+"_" + studentist.SelectedValue;
                     string answer = GetAnswer(item.QUESTION_ID, ((Model.tbl_USER)Session["userinfo"]).USER_ID);
                     asptextbox.Text = answer;
                     asptextbox.CssClass = "form-control";
-
+                    asptextbox.ViewStateMode = ViewStateMode.Disabled;
                     control.Controls.Add(asptextbox);
 
 

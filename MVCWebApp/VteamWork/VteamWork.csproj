@@ -2976,6 +2976,7 @@
     <Content Include="User.aspx" />
     <Content Include="ViewCoachQuestions.aspx" />
     <Content Include="ViewModelCoachQuestions.aspx" />
+    <Content Include="ViewModelCoStQues.aspx" />
     <Content Include="ViewModelStudent.aspx" />
     <Content Include="ViewStudentQuestion.aspx" />
     <Content Include="VteamWork.Master" />
@@ -3147,6 +3148,13 @@
     </Compile>
     <Compile Include="ViewModelCoachQuestions.aspx.designer.cs">
       <DependentUpon>ViewModelCoachQuestions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModelCoStQues.aspx.cs">
+      <DependentUpon>ViewModelCoStQues.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewModelCoStQues.aspx.designer.cs">
+      <DependentUpon>ViewModelCoStQues.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewModelStudent.aspx.cs">
       <DependentUpon>ViewModelStudent.aspx</DependentUpon>

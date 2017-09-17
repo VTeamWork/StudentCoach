@@ -80,10 +80,7 @@ namespace VteamWork
             {
                 // string ID = e.CommandArgument.ToString();
                 int ID = Convert.ToInt32(((LinkButton)sender).CommandArgument);
-                ReviewObj = LoginHelper.db.TeamReviews.FirstOrDefault(u => u.TeamReviewID == ID);
-                ReviewID.Value = ID.ToString();
-                Comments.Text = ReviewObj.TeamReviewComment;
-                TeamList.SelectedValue = ReviewObj.TeamID.ToString();
+                edit(ID);
 
 
             }
@@ -108,6 +105,22 @@ namespace VteamWork
             catch (Exception ex)
             { }
 
+        }
+
+        private void edit (int id)
+        {
+            ReviewObj = LoginHelper.db.TeamReviews.FirstOrDefault(u => u.TeamReviewID == id);
+            ReviewID.Value = id.ToString();
+            Comments.Text = ReviewObj.TeamReviewComment;
+            TeamList.SelectedValue = ReviewObj.TeamID.ToString();
+
+        }
+
+        protected void TeamList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           int teamid = Convert.ToInt32(TeamList.SelectedValue);
+          var  teamobj=LoginHelper.db.TeamReviews.FirstOrDefault(u => u.TeamID == teamid);
+            edit(teamobj.TeamReviewID);
         }
     }
 }

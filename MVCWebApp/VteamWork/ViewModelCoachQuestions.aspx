@@ -16,18 +16,7 @@
                             <h2>
                                View Coach Questions 
                             </h2> 
-                            <ul class="header-dropdown m-r--5">
-                                <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">more_vert</i>
-                                    </a>
-                                    <ul class="dropdown-menu pull-right">
-                                        <li><a href="javascript:void(0);">Action</a></li>
-                                        <li><a href="javascript:void(0);">Another action</a></li>
-                                        <li><a href="javascript:void(0);">Something else here</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
+ 
                         </div>
                         <div class="body" runat="server">
                                 <div class="row clearfix">
@@ -69,45 +58,13 @@
                     </div>
         </div>
 <div class="container-fluid">
-            <div class="block-header">
-                <h2>COLLAPSE</h2>
-            </div>
-            <!-- Example -->
-            
-            <!-- #END# Example -->
-            
             <div class="row clearfix">
-                <!-- Basic Examples -->
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
-                        <div class="header">
-                            <h2>
-                                BASIC EXAMPLES
-                                <small>Extend the default collapse behavior to create an accordion with the panel component.</small>
-                            </h2>
-                            <ul class="header-dropdown m-r--5">
-                                <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">more_vert</i>
-                                    </a>
-                                    <ul class="dropdown-menu pull-right">
-                                        <li><a href="javascript:void(0);" class=" waves-effect waves-block">Action</a></li>
-                                        <li><a href="javascript:void(0);" class=" waves-effect waves-block">Another action</a></li>
-                                        <li><a href="javascript:void(0);" class=" waves-effect waves-block">Something else here</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
                         <div class="body">
                             <div class="row clearfix">
-                                
-
-                                
-
-                                
-
                                 <div class="col-xs-12 ol-sm-12 col-md-12 col-lg-12">
-                                    <b>Panel Danger</b>
+                  
                                     <div class="panel-group"  role="tablist" aria-multiselectable="true" ID="accordion_4" runat="server">
                                   <%--      <div class="panel panel-danger">
                                             <div class="panel-heading" role="tab" id="headingOne_4">

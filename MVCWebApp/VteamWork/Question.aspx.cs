@@ -104,7 +104,11 @@ namespace VteamWork
                 Name.Value = question.QUESTION_NAME;
                 Description.Value = question.QUESTION_DESCRITION;
                 ModuleList.SelectedValue = question.MODULE_ID.ToString();
+
                 chkIs_Mendatory.Checked = (bool) question.IsRequired;
+
+               var lstparent= LoginHelper.db.tbl_MODULE.Where(u => u.MODULE_ID == question.MODULE_ID).Select(s => s).OrderBy(x => x.MODULE_NAME).ToList();
+                subModule.SelectedValue = lstparent[0].PARENT_MODULE_ID.ToString();
             }
             catch (Exception ex)
             {
@@ -115,7 +119,25 @@ namespace VteamWork
         {
             try
             {
-                ModuleList.DataSource = LoginHelper.db.tbl_MODULE.Where(u => u.PARENT_MODULE_ID != null).Select(s => s).ToList();
+                var lst = LoginHelper.db.tbl_MODULE.Where(u => u.PARENT_MODULE_ID == null).Select(s => s).OrderBy(x => x.MODULE_NAME).ToList();
+                var lstQuery = lst.Select(p => new { MODULE_ID = p.MODULE_ID, DisplayText = p.MODULE_NAME.ToString() + " " + p.MODULE_DESCRITION });
+                subModule.DataSource = lstQuery;
+                subModule.DataTextField = "DisplayText";
+                subModule.DataValueField = "MODULE_ID";
+                subModule.DataBind();
+            }
+            catch (Exception ex)
+            { }
+
+        }
+
+        private void BindSubModuleList(int parentModuleID)
+        {
+            try
+            {
+                var lst = LoginHelper.db.tbl_MODULE.Where(u => u.PARENT_MODULE_ID == parentModuleID).Select(s => s).OrderBy(x => x.MODULE_NAME).ToList();
+                //var lstQuery = lst.Select(p => new { MODULE_ID = p.MODULE_ID, DisplayText = p.MODULE_NAME.ToString() + " " + p.MODULE_DESCRITION });
+                ModuleList.DataSource = lst;
                 ModuleList.DataTextField = "MODULE_NAME";
                 ModuleList.DataValueField = "MODULE_ID";
                 ModuleList.DataBind();
@@ -123,6 +145,11 @@ namespace VteamWork
             catch (Exception ex)
             { }
 
+        }
+
+        protected void ModuleList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            BindSubModuleList(Convert.ToInt32(subModule.SelectedValue));
         }
     }
 

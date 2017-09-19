@@ -30,14 +30,14 @@ namespace VteamWork
             return LoginHelper.db.tbl_MODULE.Where(u => u.PARENT_MODULE_ID != null).Select(s => s);
         }
 
-        
+
 
         protected void SaveModule_Click(object sender, EventArgs e)
         {
             try
             {
 
-                if(string.IsNullOrEmpty(ModuleID.Value))
+                if (string.IsNullOrEmpty(ModuleID.Value))
                 {
                     JArray array = JArray.Parse(table.Value);
                     List<Sub_Module> ranges = array.ToObject<List<Sub_Module>>();
@@ -58,7 +58,7 @@ namespace VteamWork
                 }
                 else
                 {
-                    
+
                     module = LoginHelper.db.tbl_MODULE.FirstOrDefault(u => u.MODULE_ID.ToString() == ModuleID.Value);
                     module.MODULE_NAME = ModuleName.Text;
                     module.MODULE_DESCRITION = Description.Text;
@@ -129,8 +129,10 @@ namespace VteamWork
         {
             try
             {
-                ModuleList.DataSource = LoginHelper.db.tbl_MODULE.Where(u => u.PARENT_MODULE_ID == null).Select(s => s).ToList();
-                ModuleList.DataTextField = "MODULE_NAME";
+                var lst = LoginHelper.db.tbl_MODULE.Where(u => u.PARENT_MODULE_ID == null).Select(s => s).OrderBy(x=>x.MODULE_NAME).ToList();
+                var lstQuery = lst.Select(p => new { MODULE_ID = p.MODULE_ID, DisplayText = p.MODULE_NAME.ToString() + " " + p.MODULE_DESCRITION });
+                ModuleList.DataSource = lstQuery;
+                ModuleList.DataTextField = "DisplayText";
                 ModuleList.DataValueField = "MODULE_ID";
                 ModuleList.DataBind();
             }
@@ -139,6 +141,8 @@ namespace VteamWork
 
         }
 
+      
 
+      
     }
 }

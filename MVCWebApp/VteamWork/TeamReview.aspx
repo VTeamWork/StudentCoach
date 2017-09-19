@@ -20,14 +20,28 @@
                                         <label>Select Team</label>
                                         <div class="form-group form-float">
                                             <div class="form-line">
-                                                <asp:ListBox ID="TeamList" SelectionMode="Single"  runat="server" CssClass="form-control" OnSelectedIndexChanged="TeamList_SelectedIndexChanged" AutoPostBack="true">    </asp:ListBox>  
+                                                <asp:ListBox ID="TeamList" SelectionMode="Single"  runat="server" CssClass="form-control" OnSelectedIndexChanged="TeamList_SelectedIndexChanged" AutoPostBack="true"> 
+                                                    <%--<asp:ListItem Text="please select" Value="0" Selected="True"></asp:ListItem>--%>
+
+                                                </asp:ListBox>  
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                                        <label>Select Module</label>
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+                                    <asp:ListBox ID="ModuleList" SelectionMode="Single" runat="server" CssClass="form-control show-tick"></asp:ListBox>
+                                              
+                                        </div>
+                                    </div>
+                                        </div>
+                         
 
-                                    <label>Team Comments</label>
+                                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+
+                                    <label>1 Overall notes on team IG performance</label>
                                         <div class="form-group form-float">
                                             <div class="form-line">
                                     <asp:TextBox TextMode="MultiLine" ID="Comments" ClientIDMode="Static" CssClass="form-control" runat="server"></asp:TextBox>                                                 </div>

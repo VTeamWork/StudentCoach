@@ -18,8 +18,8 @@ namespace Model
 
         public int? CoachID { get; set; }
 
-        public virtual tbl_TEAM tbl_TEAM { get; set; }
+        public virtual tbl_MODULE tbl_MODULE { get; set; }
 
-        public virtual tbl_USER tbl_USER { get; set; }
+        public virtual tbl_TEAM tbl_TEAM { get; set; }
     }
 }

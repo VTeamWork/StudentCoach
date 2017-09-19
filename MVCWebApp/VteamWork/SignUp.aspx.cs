@@ -79,7 +79,20 @@ namespace VteamWork
               
             }
             LoginHelper.ShowAlert(resp, this.Alert);
+            FIRST_NAME.Text = string.Empty;
+            LAST_NAME.Text = string.Empty;
+            EMAIL.Text = string.Empty;
+            COMMENTS.Value = string.Empty;
+            SKYPE_ID.Text = string.Empty;
+            ENROLL_DATE.Text = string.Empty;
+            MOBILE_NO.Text = string.Empty;
+            CITY.Text = string.Empty;
+            TimeZ.Value = string.Empty;
+
+
         }
+
+
 
         //public Exception getExceptionMessage(Exception excep)
         //{

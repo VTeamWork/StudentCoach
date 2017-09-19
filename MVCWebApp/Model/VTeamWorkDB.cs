@@ -126,6 +126,11 @@ namespace Model
                 .WithRequired(e => e.tbl_MODULE)
                 .WillCascadeOnDelete(false);
 
+            modelBuilder.Entity<tbl_MODULE>()
+                .HasMany(e => e.TeamReviews)
+                .WithOptional(e => e.tbl_MODULE)
+                .HasForeignKey(e => e.CoachID);
+
             modelBuilder.Entity<tbl_PAGE>()
                 .Property(e => e.PAGE_NAME)
                 .IsUnicode(false);
@@ -377,11 +382,6 @@ namespace Model
                 .HasMany(e => e.tbl_ANSWER1)
                 .WithOptional(e => e.tbl_USER1)
                 .HasForeignKey(e => e.USER_ID);
-
-            modelBuilder.Entity<tbl_USER>()
-                .HasMany(e => e.TeamReviews)
-                .WithOptional(e => e.tbl_USER)
-                .HasForeignKey(e => e.CoachID);
 
             modelBuilder.Entity<tbl_USER_ROLE>()
                 .Property(e => e.UPDATE_ID)

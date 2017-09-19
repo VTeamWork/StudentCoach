@@ -29,29 +29,18 @@
                                 </div>
                             </div>
 
-                           
-
-                           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                               <div class="input-group">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="input-group">
                                     <span class="input-group-addon">
-                                        <i class="material-icons">person</i>
+                                        <i class="material-icons">description</i>
                                     </span>
-                                   <label>Select Student</label>
-                                <div class="form-line">
-                                   
-                                    <asp:ListBox ID="lstStudents" SelectionMode="Multiple"  runat="server" CssClass="form-control show-tick">
-                                      
-
-                                
-                                    </asp:ListBox>
-                                      <asp:CustomValidator ID="CustomValidator1" runat="server" Display="Dynamic" ErrorMessage="Please select 5 students only." ClientValidationFunction="CustomValidator1_ClientValidate" > </asp:CustomValidator>
+                                    <div class="form-line">
+                                        <asp:TextBox runat="server" ID="txtDescription" CssClass="form-control" required="required" TextMode="MultiLine" placeholder="Team Description" />
                                     </div>
-                                   </div>
-
-
-
-
                                 </div>
+                            </div>
+
+                           
                                       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" style="padding:0px !important;margin:0px !important">
                                <div class="input-group">
                                     <span class="input-group-addon">
@@ -70,16 +59,27 @@
 
 
                                 </div>
-                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <div class="input-group">
+
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                               <div class="input-group">
                                     <span class="input-group-addon">
-                                        <i class="material-icons">description</i>
+                                        <i class="material-icons">person</i>
                                     </span>
-                                    <div class="form-line">
-                                        <asp:TextBox runat="server" ID="txtDescription" CssClass="form-control" required="required" TextMode="MultiLine" placeholder="Team Description" />
+                                   <label>Select Multiple Student</label>
+                                <div class="form-line">
+                                   
+                                    <asp:ListBox ID="lstStudents" SelectionMode="Multiple"  runat="server" CssClass="form-control show-tick">
+                                      
+
+                                
+                                    </asp:ListBox>
+                                      <asp:CustomValidator ID="CustomValidator1" runat="server" Display="Dynamic" ErrorMessage="Please select 5 students only." ClientValidationFunction="CustomValidator1_ClientValidate" > </asp:CustomValidator>
                                     </div>
+                                   </div>
                                 </div>
-                            </div>
+
+
+                        
 
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             
@@ -138,7 +138,7 @@ for( i = 0; i < listbox.options.length; i++ )
  if (listbox.options[i].selected) 
   {
    total ++; 
-    if (total >1) {
+    if (total >5) {
       args.IsValid = false;
       return;
   }

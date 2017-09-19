@@ -233,9 +233,9 @@ namespace VteamWork
         public List<Model.tbl_MODULE> GetViewStudent(int? TeamID = null)
         {
             if (TeamID == null)
-                return LoginHelper.db.tbl_MODULE.Where(c => c.PARENT_MODULE_ID == null).ToList();
+                return LoginHelper.db.tbl_MODULE.Where(c => c.PARENT_MODULE_ID == null).OrderBy(x => x.MODULE_NAME).ToList();
             else
-                return LoginHelper.db.tbl_TEAM_MODULE.Where(c => c.team_id == TeamID && c.tbl_MODULE.PARENT_MODULE_ID == null).Select(c => c.tbl_MODULE).ToList();
+                return LoginHelper.db.tbl_TEAM_MODULE.Where(c => c.team_id == TeamID && c.tbl_MODULE.PARENT_MODULE_ID == null).Select(c => c.tbl_MODULE).OrderBy(x => x.MODULE_NAME).ToList();
             //return LoginHelper.db.tbl_TEAM_MODULE.AsQueryable();
         }
 

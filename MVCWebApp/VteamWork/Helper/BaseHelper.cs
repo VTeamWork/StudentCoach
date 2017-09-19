@@ -7,6 +7,8 @@ using System.Reflection;
 using Model.DataResponse;
 using System.Net.Mail;
 using System.Net;
+using System.Web.UI;
+using System.Web.UI.WebControls;
 
 namespace VteamWork.Helper
 {
@@ -17,13 +19,13 @@ namespace VteamWork.Helper
         public static VTeamWorkDB db = new VTeamWorkDB();
 
 
-        
+
 
 
         public static object BindData<T>(Object Page)
         {
-           // Type objinput = typeof(T);
-            T objinput = (T)Activator.CreateInstance(typeof(T)); 
+            // Type objinput = typeof(T);
+            T objinput = (T)Activator.CreateInstance(typeof(T));
             //T objinput = T.GetType().;
             foreach (PropertyInfo oPropertyInfo in objinput.GetType().GetProperties())
             {
@@ -37,8 +39,8 @@ namespace VteamWork.Helper
                         //Update the properties on this object
                         var obj = Page.GetType().GetProperty(oPropertyInfo.Name).GetValue(Page, null);
                         //Page.GetType().GetProperty(oPropertyInfo.Name).GetValue(Page, null).GetType().GetProperty("Text").GetValue(Page.GetType().GetProperty(oPropertyInfo.Name).GetValue(Page, null), null)
-                        if(obj.GetType().GetProperty("Text")!=null)
-                            objinput.GetType().GetProperty(oPropertyInfo.Name).SetValue(objinput, obj.GetType().GetProperty("Text").GetValue(obj,null), null);
+                        if (obj.GetType().GetProperty("Text") != null)
+                            objinput.GetType().GetProperty(oPropertyInfo.Name).SetValue(objinput, obj.GetType().GetProperty("Text").GetValue(obj, null), null);
                         //else if (obj.GetType().GetProperty("checked") != null)
                         //        userinfo.GetType().GetProperty(oPropertyInfo.Name).SetValue(userinfo, obj.GetType().GetProperty("checked").GetValue(obj, null), null);
                         else if (obj.GetType().GetProperty("SelectedValue") != null)
@@ -50,11 +52,11 @@ namespace VteamWork.Helper
 
             return objinput;
         }
-     
-        public static void ShowAlert(Response resp,Object obj)
+
+        public static void ShowAlert(Response resp, Object obj)
         {
-      global::System.Web.UI.HtmlControls.HtmlGenericControl Alert = (global::System.Web.UI.HtmlControls.HtmlGenericControl)obj;
-            if (Alert!=null)
+            global::System.Web.UI.HtmlControls.HtmlGenericControl Alert = (global::System.Web.UI.HtmlControls.HtmlGenericControl)obj;
+            if (Alert != null)
             {
                 if (resp.IsError)
                 {
@@ -67,12 +69,12 @@ namespace VteamWork.Helper
 
                 }
             }
-           
-        }   
+
+        }
 
         public static Response Save(object obj)
         {
-            
+
             string class_name = obj.GetType().Name;
             object class_object = db.GetType().GetProperty(class_name).GetType();
             //MethodInfo method = class_object.GetType().GetMethod("Add");
@@ -88,7 +90,7 @@ namespace VteamWork.Helper
             db.tbl_USER.Add((tbl_USER)obj);
             db.SaveChanges();
 
-            return new Response() { IsError=false,Message="Success"};
+            return new Response() { IsError = false, Message = "Success" };
         }
 
 
@@ -103,6 +105,17 @@ namespace VteamWork.Helper
             smtpclient.Send(msgeme);
 
 
+        }
+
+        public static void EmptyTextBoxes(Control parent)
+        {
+            foreach (Control c in parent.Controls)
+            {
+                if (c.GetType() == typeof(TextBox))
+                {
+                    ((TextBox)(c)).Text = string.Empty;
+                }
+            }
         }
     }
 }

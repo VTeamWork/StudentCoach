@@ -41,7 +41,7 @@
                          <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
                             <div class="form-group">
                   
-                              <asp:CheckBox runat="server" ID="chkIs_Mendatory" ClientIDMode="Static" Text="Is Mendatory"/>
+                              <asp:CheckBox runat="server" ID="chkIs_Mendatory" ClientIDMode="Static" Text="Is Mandatory"/>
                                    
                             </div>
                         </div>
@@ -80,7 +80,7 @@
                         <HeaderStyle />
                         <Columns>
 
-                            <asp:DynamicField DataField="QUESTION_ID" HeaderText="ID" />
+                            <%--<asp:DynamicField DataField="QUESTION_ID" HeaderText="ID" />--%>
 
                             <asp:DynamicField DataField="QUESTION_NAME" HeaderText="Name" />
 
@@ -110,7 +110,7 @@
         function Add() {
 
             if (i == 0) {
-                $("#tblSeries tbody").append("<tr><th>Sub Module Name</th><th>Sub Module Desciption</th></tr>");
+                $("#tblSeries tbody").append("<tr><th>Question</th><th>Question Desciption</th><th>Is Mandatory</th> </tr>");
             }
             var mdlName = $("#<%=Name.ClientID%>").val();
             var mdlDesc = $("#<%=Description.ClientID%>").val();

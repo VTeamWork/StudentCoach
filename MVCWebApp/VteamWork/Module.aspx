@@ -69,7 +69,7 @@
                                 <HeaderStyle />
                                 <Columns>
 
-                                    <asp:DynamicField DataField="MODULE_ID" />
+                                    <%--<asp:DynamicField DataField="MODULE_ID" />--%>
 
                                     <asp:DynamicField DataField="MODULE_NAME" />
 

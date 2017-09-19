@@ -13,6 +13,15 @@ namespace VteamWork {
     public partial class Question {
         
         /// <summary>
+        /// subModule control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListBox subModule;
+        
+        /// <summary>
         /// ModuleList control.
         /// </summary>
         /// <remarks>

@@ -13,6 +13,16 @@
                 </div>
                 <div class="body">
                     <div class="row clearfix">
+                           <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12">
+                            <div class="form-group form-float" style="margin :0px !important">
+                                <label>Select Module</label>
+                                <div class="form-line">
+                                  <asp:ListBox ID="subModule" SelectionMode="Single"  runat="server" CssClass="form-control show-tick" OnSelectedIndexChanged="ModuleList_SelectedIndexChanged" AutoPostBack="true">
+                                      </asp:ListBox> 
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12">
                             <div class="form-group form-float" style="margin :0px !important">
                                 <label>Select Sub Module</label>
@@ -41,7 +51,7 @@
                          <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
                             <div class="form-group">
                   
-                              <asp:CheckBox runat="server" ID="chkIs_Mendatory" ClientIDMode="Static" Text="Is Mendatory"/>
+                              <asp:CheckBox runat="server" ID="chkIs_Mendatory" ClientIDMode="Static" Text="Is Mandatory"/>
                                    
                             </div>
                         </div>
@@ -80,7 +90,7 @@
                         <HeaderStyle />
                         <Columns>
 
-                            <asp:DynamicField DataField="QUESTION_ID" HeaderText="ID" />
+                            <%--<asp:DynamicField DataField="QUESTION_ID" HeaderText="ID" />--%>
 
                             <asp:DynamicField DataField="QUESTION_NAME" HeaderText="Name" />
 
@@ -110,7 +120,7 @@
         function Add() {
 
             if (i == 0) {
-                $("#tblSeries tbody").append("<tr><th>Question</th><th>Question Desciption</th><th>Is Mendatory</th> </tr>");
+                $("#tblSeries tbody").append("<tr><th>Question</th><th>Question Desciption</th><th>Is Mandatory</th> </tr>");
             }
             var mdlName = $("#<%=Name.ClientID%>").val();
             var mdlDesc = $("#<%=Description.ClientID%>").val();

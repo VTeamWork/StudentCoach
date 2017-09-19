@@ -43,7 +43,7 @@ namespace VteamWork
         {
             try
             {
-                var lst = LoginHelper.db.tbl_USER.Where(u => u.USER_TYPE_ID == 2).Select(s => s).ToList();
+                var lst = LoginHelper.db.tbl_USER.Where(u => u.USER_TYPE_ID == 2).Select(s => s).OrderBy(x => x.LOGIN_ID).ToList();
                 var lstQuery = lst.Select(p => new { USER_ID = p.USER_ID, DisplayText = p.LOGIN_ID.ToString() });
 
                 studentist.DataSource = lstQuery;
@@ -85,7 +85,7 @@ namespace VteamWork
 
             try
             {
-                TeamList.DataSource = LoginHelper.db.tbl_TEAM.Select(s => s).ToList();
+                TeamList.DataSource = LoginHelper.db.tbl_TEAM.Select(s => s).OrderBy(x => x.TEAM_NAME).ToList();
                 TeamList.DataTextField = "TEAM_NAME";
                 TeamList.DataValueField = "TEAM_ID";
                 TeamList.DataBind();
@@ -301,9 +301,9 @@ namespace VteamWork
         public List<Model.tbl_MODULE> GetViewCoach(int? TeamID = null)
         {
             if (TeamID == null)
-                return LoginHelper.db.tbl_MODULE.Where(c => c.PARENT_MODULE_ID == null).ToList();
+                return LoginHelper.db.tbl_MODULE.Where(c => c.PARENT_MODULE_ID == null).OrderBy(x => x.MODULE_NAME).ToList();
             else
-                return LoginHelper.db.tbl_TEAM_MODULE.Where(c => c.team_id == TeamID && c.tbl_MODULE.PARENT_MODULE_ID == null).Select(c => c.tbl_MODULE).ToList();
+                return LoginHelper.db.tbl_TEAM_MODULE.Where(c => c.team_id == TeamID && c.tbl_MODULE.PARENT_MODULE_ID == null).Select(c => c.tbl_MODULE).OrderBy(x => x.MODULE_NAME).ToList();
             //return LoginHelper.db.tbl_TEAM_MODULE.AsQueryable();
         }
 

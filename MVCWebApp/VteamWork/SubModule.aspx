@@ -21,11 +21,13 @@
          <div class="col-md-5 col-xs-12 col-sm-5">
         <label class="col-md-4 text-right">Select Module</label>
         <div class="col-md-8">
-   <asp:ListBox ID="ModuleList" SelectionMode="Single"  runat="server" CssClass="form-control show-tick">
+   <asp:ListBox ID="ModuleList" SelectionMode="Single"  runat="server" CssClass="form-control show-tick" >
          </asp:ListBox> 
         </div>
 
     </div>
+
+   
 
     <div class="col-md-5 col-xs-12 col-sm-5">
         <label class="col-md-4 text-right">Sub Module Name</label>
@@ -74,7 +76,7 @@
                                 <HeaderStyle />
                                 <Columns>
 
-                                    <asp:DynamicField DataField="MODULE_ID" />
+                                 <%--   <asp:DynamicField DataField="MODULE_ID" />--%>
 
                                     <asp:DynamicField DataField="MODULE_NAME" />
 

@@ -50,13 +50,13 @@
 
                                 <HeaderStyle />
                                 <Columns>
-
-                                    <asp:DynamicField DataField="USER_ID" />
                                     <asp:DynamicField DataField="USER_ID" />
 
                                     <asp:DynamicField DataField="FIRST_NAME" />
 
-                                    <asp:DynamicField DataField="MOBILE_NO" />
+                                    <asp:DynamicField DataField="LAST_NAME" />
+
+                                    
 
                                     <asp:TemplateField ItemStyle-Height="20px" HeaderText="Task Date" SortExpression="DATE" HeaderStyle-ForeColor="white">
                                         <ItemStyle Width="15%" HorizontalAlign="Left" CssClass=" gridRow" Wrap="false" />

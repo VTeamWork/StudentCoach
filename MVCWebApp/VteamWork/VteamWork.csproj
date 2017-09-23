@@ -2975,6 +2975,7 @@
     <Content Include="OldUser.aspx" />
     <Content Include="User.aspx" />
     <Content Include="ViewCoachQuestions.aspx" />
+    <Content Include="ViewDefaultStuQues.aspx" />
     <Content Include="ViewModelCoachQuestions.aspx" />
     <Content Include="ViewModelCoStQues.aspx" />
     <Content Include="ViewModelStudent.aspx" />
@@ -3141,6 +3142,13 @@
     </Compile>
     <Compile Include="ViewCoachQuestions.aspx.designer.cs">
       <DependentUpon>ViewCoachQuestions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewDefaultStuQues.aspx.cs">
+      <DependentUpon>ViewDefaultStuQues.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewDefaultStuQues.aspx.designer.cs">
+      <DependentUpon>ViewDefaultStuQues.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewModelCoachQuestions.aspx.cs">
       <DependentUpon>ViewModelCoachQuestions.aspx</DependentUpon>

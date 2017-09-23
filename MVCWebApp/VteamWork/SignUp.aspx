@@ -181,7 +181,7 @@
                         </span>
                         <div class="form-line">
 
-                            <asp:TextBox runat="server" ID="MOBILE_NO" CssClass="form-control" required="required" placeholder="Ex: +00 (000) 000-00-00"></asp:TextBox>
+                            <asp:TextBox TextMode="Number" runat="server" ID="MOBILE_NO" CssClass="form-control" required="required" placeholder="Ex: +003001234567"></asp:TextBox>
                             <%--  <input type="text" class="form-control mobile-phone-number" placeholder="Ex: +00 (000) 000-00-00">--%>
                         </div>
                     </div>

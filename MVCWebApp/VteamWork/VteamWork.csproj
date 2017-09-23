@@ -154,7 +154,6 @@
     <Content Include="css\themes\theme-teal.min.css" />
     <Content Include="css\themes\theme-yellow.css" />
     <Content Include="css\themes\theme-yellow.min.css" />
-    <Content Include="Default.aspx" />
     <Content Include="FrontPage.html" />
     <Content Include="images\animation-bg.jpg" />
     <Content Include="images\image-gallery\1.jpg" />
@@ -2975,7 +2974,7 @@
     <Content Include="OldUser.aspx" />
     <Content Include="User.aspx" />
     <Content Include="ViewCoachQuestions.aspx" />
-    <Content Include="ViewDefaultStuQues.aspx" />
+    <Content Include="Default.aspx" />
     <Content Include="ViewModelCoachQuestions.aspx" />
     <Content Include="ViewModelCoStQues.aspx" />
     <Content Include="ViewModelStudent.aspx" />
@@ -3057,13 +3056,6 @@
     <Compile Include="Question.aspx.designer.cs">
       <DependentUpon>Question.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Helper\BaseHelper.cs" />
     <Compile Include="Helper\LoginHelper.cs" />
     <Compile Include="Login.aspx.cs">
@@ -3143,12 +3135,12 @@
     <Compile Include="ViewCoachQuestions.aspx.designer.cs">
       <DependentUpon>ViewCoachQuestions.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ViewDefaultStuQues.aspx.cs">
-      <DependentUpon>ViewDefaultStuQues.aspx</DependentUpon>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ViewDefaultStuQues.aspx.designer.cs">
-      <DependentUpon>ViewDefaultStuQues.aspx</DependentUpon>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewModelCoachQuestions.aspx.cs">
       <DependentUpon>ViewModelCoachQuestions.aspx</DependentUpon>

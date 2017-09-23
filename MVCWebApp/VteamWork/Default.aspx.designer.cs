@@ -10,6 +10,15 @@
 namespace VteamWork {
     
     
-    public partial class Default1 {
+    public partial class ViewDefaultStuQues {
+        
+        /// <summary>
+        /// accordion_4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl accordion_4;
     }
 }

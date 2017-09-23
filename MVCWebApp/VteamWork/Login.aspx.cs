@@ -57,11 +57,14 @@ namespace VteamWork
                 }
                 else
                 {
-                    HttpCookie currentUserCookie = HttpContext.Current.Request.Cookies["userInfo"];
-                    HttpContext.Current.Response.Cookies.Remove("userInfo");
-                    currentUserCookie.Expires = DateTime.Now.AddDays(-10);
-                    currentUserCookie.Value = null;
-                    HttpContext.Current.Response.SetCookie(currentUserCookie);
+                    if (HttpContext.Current.Request.Cookies["userInfo"] != null)
+                    {
+                        HttpCookie currentUserCookie = HttpContext.Current.Request.Cookies["userInfo"];
+                        HttpContext.Current.Response.Cookies.Remove("userInfo");
+                        currentUserCookie.Expires = DateTime.Now.AddDays(-10);
+                        currentUserCookie.Value = null;
+                        HttpContext.Current.Response.SetCookie(currentUserCookie);
+                    }
                    
 
 

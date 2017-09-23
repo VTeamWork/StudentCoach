@@ -20,7 +20,7 @@ namespace VteamWork
 
         public IQueryable<Model.tbl_USER> GetUser()
         {
-            return LoginHelper.db.tbl_USER.Where(u => u.USER_TYPE_ID == 2).Select(s => s);
+            return LoginHelper.db.tbl_USER.Where(u => u.USER_TYPE_ID == 2 && u.IS_ACTIVE == "1").Select(s => s);
         }
 
         protected void Deactivate_Click(object sender, EventArgs e)

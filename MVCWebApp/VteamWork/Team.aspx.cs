@@ -42,7 +42,12 @@ namespace VteamWork
                 CoachList.SelectedValue = coachlist.USER_ID.ToString();
 
                 List<tbl_USER> studentLst = LoginHelper.db.tbl_USER.Where(u => u.TEAM_ID == ID && u.USER_TYPE_ID==2).Select(s => s).ToList();
-                foreach (tbl_USER item in studentLst)
+
+                foreach (ListItem item in lstStudents.Items)
+                {
+                    item.Selected = false;
+                }
+                    foreach (tbl_USER item in studentLst)
                 {
                     lstStudents.Items.FindByValue(item.USER_ID.ToString()).Selected=true;
                 }
@@ -74,7 +79,7 @@ namespace VteamWork
                     
                         LoginHelper.db.tbl_TEAM.Add(team);
             int CoachID = Convert.ToInt32(CoachList.SelectedValue);
-                    var user = LoginHelper.db.tbl_USER.FirstOrDefault(u => u.USER_TYPE_ID == 3 && u.TEAM_ID != null);
+                    var user = LoginHelper.db.tbl_USER.FirstOrDefault(u => u.USER_ID == CoachID && u.USER_TYPE_ID == 3 && u.TEAM_ID != null);
                     if(user==null)
                     {
                         var cuser = LoginHelper.db.tbl_USER.FirstOrDefault(u =>u.USER_ID==CoachID &&  u.USER_TYPE_ID == 3);
@@ -134,10 +139,15 @@ namespace VteamWork
                     LoginHelper.db.SaveChanges();
                     int teamID = Convert.ToInt32(TeamID.Value);
                                         int CoachID = Convert.ToInt32(CoachList.SelectedValue);
-                    var oldcoach = LoginHelper.db.tbl_USER.FirstOrDefault(u => u.USER_ID == CoachID && u.USER_TYPE_ID == 3 && u.TEAM_ID == teamID);
+                    var oldcoach = LoginHelper.db.tbl_USER.FirstOrDefault(u =>  u.USER_TYPE_ID == 3 && u.TEAM_ID == teamID);
+                    if(oldcoach==null || oldcoach.USER_ID!=CoachID)
+                    {
+                    if(oldcoach != null)
+                    { 
                     oldcoach.TEAM_ID = null;
                     LoginHelper.db.SaveChanges();
-                    var user = LoginHelper.db.tbl_USER.FirstOrDefault(u => u.USER_TYPE_ID == 3 && u.TEAM_ID != null);
+                     }
+                        var user = LoginHelper.db.tbl_USER.FirstOrDefault(u => u.USER_ID==CoachID && u.USER_TYPE_ID == 3 && u.TEAM_ID != null);
                     if (user == null)
                     {
                         var cuser = LoginHelper.db.tbl_USER.FirstOrDefault(u => u.USER_ID == CoachID && u.USER_TYPE_ID == 3);
@@ -151,8 +161,12 @@ namespace VteamWork
                         LoginHelper.db.SaveChanges();
                         Session["response"] = new Response() { IsError = true, Message = CoachList.SelectedItem.Text + " alredy assigned to another team!" };
                     }
+                    }
+else
+                    {
+                        Session["response"] = new Response() { IsError = false, Message = "Success" };
 
-
+                    }
                     if (!((Response)(Session["response"])).IsError)
                     {
                        
@@ -237,8 +251,8 @@ namespace VteamWork
 
                     //      ErrorMessage = "Error while saving data.";
                 }
-            
 
+                LoginHelper.db = new VTeamWorkDB();
             Session["response"] = Saveresp;
 
             }

@@ -22,18 +22,21 @@ namespace VteamWork
             }
             else
             {
-                int? teamID = null;
-                if (!string.IsNullOrEmpty(TeamList.SelectedValue))
+                if (studentist.SelectedValue != "")
                 {
-                    teamID = Convert.ToInt32(TeamList.SelectedValue);
-                    // teamID = ((Model.tbl_USER)Session["userinfo"]).TEAM_ID;
+                    int? teamID = null;
+                    if (!string.IsNullOrEmpty(TeamList.SelectedValue))
+                    {
+                        teamID = Convert.ToInt32(TeamList.SelectedValue);
+                        // teamID = ((Model.tbl_USER)Session["userinfo"]).TEAM_ID;
+                    }
+
+
+                    if (teamID == null)
+                        Binddata();
+                    else
+                        Binddata(teamID);
                 }
-
-
-                if (teamID == null)
-                    Binddata();
-                else
-                    Binddata(teamID);
 
 
             }
@@ -52,6 +55,8 @@ namespace VteamWork
                 studentist.DataTextField = "DisplayText";
                 studentist.DataValueField = "USER_ID";
                 studentist.DataBind();
+
+                studentist.Items.Insert(0, "Please Select");
             }
             catch (Exception ex)
             { }
@@ -90,6 +95,7 @@ namespace VteamWork
                 TeamList.DataTextField = "TEAM_NAME";
                 TeamList.DataValueField = "TEAM_ID";
                 TeamList.DataBind();
+                TeamList.Items.Insert(0, "Please Select");
             }
             catch (Exception ex)
             { }
@@ -373,6 +379,24 @@ namespace VteamWork
         protected void TeamList_SelectedIndexChanged(object sender, EventArgs e)
         {
             BindStudentList();
+
+        }
+
+        protected void studentist_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                int? teamID = null;
+                if (!string.IsNullOrEmpty(TeamList.SelectedValue))
+                {
+                    teamID = Convert.ToInt32(TeamList.SelectedValue);
+                    // teamID = ((Model.tbl_USER)Session["userinfo"]).TEAM_ID;
+                }
+
+
+                if (teamID != null)
+                    Binddata(teamID);
+            }
         }
     }
 }

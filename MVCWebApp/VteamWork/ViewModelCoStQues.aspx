@@ -35,7 +35,7 @@
                                         <div class="form-group form-float">
                                             <div class="form-line">
                                               
-                                      <asp:ListBox ID="studentist" SelectionMode="Single"  runat="server" CssClass="form-control">
+                                      <asp:ListBox ID="studentist" SelectionMode="Single"  runat="server" CssClass="form-control" AutoPostBack="true" OnSelectedIndexChanged="studentist_SelectedIndexChanged">
                                   <asp:ListItem></asp:ListItem>
                                     </asp:ListBox>                                                   </div>
                                         </div>

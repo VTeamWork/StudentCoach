@@ -25,7 +25,7 @@
                                         <label>Select Team</label>
                                         <div class="form-group form-float">
                                             <div class="form-line">
-                                                <asp:ListBox ID="TeamList" SelectionMode="Single"  runat="server" CssClass="form-control">    </asp:ListBox>  
+                                                <asp:ListBox ID="TeamList" SelectionMode="Single"  runat="server" CssClass="form-control" AutoPostBack="true" OnSelectedIndexChanged="TeamList_SelectedIndexChanged">    </asp:ListBox>  
                                             </div>
                                         </div>
                                     </div>

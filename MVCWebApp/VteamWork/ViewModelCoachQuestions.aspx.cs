@@ -16,7 +16,7 @@ namespace VteamWork
         {
             if (!IsPostBack)
             {
-                BindStudentList();
+                
                 BindTeamList();
             }
             else
@@ -367,5 +367,9 @@ namespace VteamWork
 
         }
 
+        protected void TeamList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            BindStudentList();
+        }
     }
 }

@@ -38,7 +38,7 @@
                             <asp:CheckBox runat="server" ID="rememberme" ClientIDMode="Static" Text="Remember me"/>
 
                             <%--<input type="checkbox" name="rememberme" id="rememberme" class="filled-in chk-col-pink">--%>
-                            <label for="rememberme">Remember Me</label>
+                         <%--   <label for="rememberme">Remember Me</label>--%>
                         </div>
                         <div class="col-xs-4">
                             <asp:Button OnClick="Login_Click" CssClass="btn btn-default waves-effect" runat="server" Text="Sign In" />

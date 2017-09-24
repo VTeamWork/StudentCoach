@@ -42,7 +42,8 @@ namespace VteamWork
         {
             try
             {
-                var lst = LoginHelper.db.tbl_USER.Where(u => u.USER_TYPE_ID == 2).Select(s => s).OrderBy(x => x.LOGIN_ID).ToList();
+                int teamid = Convert.ToInt32(TeamList.SelectedValue);
+                var lst = LoginHelper.db.tbl_USER.Where(u => u.USER_TYPE_ID == 2 && u.TEAM_ID==teamid).Select(s => s).OrderBy(x => x.LOGIN_ID).ToList();
                 var lstQuery = lst.Select(p => new { USER_ID= p.USER_ID, DisplayText = p.FIRST_NAME.ToString() });
 
                 studentist.DataSource = lstQuery;

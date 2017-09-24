@@ -16,7 +16,7 @@ namespace VteamWork
         protected void Page_Load(object sender, EventArgs e)
         {
             var user = (Model.tbl_USER)Session["userinfo"];
-            if (user.USER_TYPE_ID==2)
+            if (user!=null && user.USER_TYPE_ID!=null &&  user.USER_TYPE_ID==2)
             Binddata();
         }
 

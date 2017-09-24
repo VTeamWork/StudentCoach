@@ -125,6 +125,7 @@ namespace VteamWork
                 subModule.DataTextField = "DisplayText";
                 subModule.DataValueField = "MODULE_ID";
                 subModule.DataBind();
+                subModule.Items.Insert(0, "Please Select");
             }
             catch (Exception ex)
             { }

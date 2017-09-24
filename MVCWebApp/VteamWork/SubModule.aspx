@@ -133,10 +133,10 @@
                 return;
             }
 
-            if (mdlDesc == "") {
-                alert("Enter Module Description");
-                return;
-            }
+            //if (mdlDesc == "") {
+            //    alert("Enter Module Description");
+            //    return;
+            //}
 
             
             if (selectedrowid == null) {

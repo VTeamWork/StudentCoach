@@ -117,7 +117,7 @@ namespace VteamWork
         {
             try
             {
-                var lst = LoginHelper.db.tbl_MODULE.Where(u => u.PARENT_MODULE_ID == null).Select(s => s).OrderBy(x => x.MODULE_NAME).ToList();
+                var lst = LoginHelper.db.tbl_MODULE.Where(u => u.PARENT_MODULE_ID == null && u.IS_DEFAULT=="0").Select(s => s).OrderBy(x => x.MODULE_NAME).ToList();
                 var lstQuery = lst.Select(p => new { MODULE_ID = p.MODULE_ID, DisplayText = p.MODULE_NAME.ToString() + " " + p.MODULE_DESCRITION });
                 ModuleList.DataSource = lstQuery;
                 ModuleList.DataTextField = "DisplayText";

@@ -39,8 +39,8 @@ namespace Model
 
         public virtual tbl_MODULE tbl_MODULE { get; set; }
 
-        public virtual tbl_USER tbl_USER { get; set; }
-
         public virtual tbl_USER_TYPE tbl_USER_TYPE { get; set; }
+
+        public virtual tbl_USER tbl_USER { get; set; }
     }
 }

@@ -11,8 +11,9 @@ namespace Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public tbl_TEAM()
         {
-            tbl_USER = new HashSet<tbl_USER>();
+            CoachTeams = new HashSet<CoachTeam>();
             tbl_TEAM_MODULE = new HashSet<tbl_TEAM_MODULE>();
+            tbl_USER = new HashSet<tbl_USER>();
             TeamReviews = new HashSet<TeamReview>();
         }
 
@@ -38,10 +39,13 @@ namespace Model
         public DateTime? UPDATED_ON { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tbl_USER> tbl_USER { get; set; }
+        public virtual ICollection<CoachTeam> CoachTeams { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_TEAM_MODULE> tbl_TEAM_MODULE { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbl_USER> tbl_USER { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TeamReview> TeamReviews { get; set; }

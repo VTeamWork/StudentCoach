@@ -31,9 +31,7 @@ namespace VteamWork
                     }
 
 
-                    if (teamID == null)
-                        Binddata();
-                    else
+                    if (teamID != null)
                         Binddata(teamID);
                 }
 

@@ -22,7 +22,7 @@ namespace VteamWork
             }
             else
             {
-                if (studentist.SelectedValue != "")
+                if (studentist.SelectedValue != "Please Select")
                 {
                     int? teamID = null;
                     if (!string.IsNullOrEmpty(TeamList.SelectedValue))
@@ -32,9 +32,7 @@ namespace VteamWork
                     }
 
 
-                    if (teamID == null)
-                        Binddata();
-                    else
+                    if (teamID != null)
                         Binddata(teamID);
                 }
 
@@ -317,6 +315,8 @@ namespace VteamWork
 
         public string GetAnswer(int QuestionID, int UserID)
         {
+            if(studentist.SelectedValue!= "Please Select")
+            { 
             int studentID = Convert.ToInt32(studentist.SelectedValue);
             var answer = LoginHelper.db.tbl_ANSWER.FirstOrDefault(c => c.QUESTION_ID == QuestionID && c.USER_ID == studentID);
             if (answer != null)
@@ -328,6 +328,9 @@ namespace VteamWork
             {
                 return "";
             }
+            }
+            else
+            return "";
 
         }
         protected void SaveAnswer(object sender, EventArgs e)

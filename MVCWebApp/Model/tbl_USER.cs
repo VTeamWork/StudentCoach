@@ -11,10 +11,12 @@ namespace Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public tbl_USER()
         {
+            CoachTeams = new HashSet<CoachTeam>();
             tbl_ANSWER = new HashSet<tbl_ANSWER>();
             tbl_ANSWER1 = new HashSet<tbl_ANSWER>();
             tbl_QUESTION = new HashSet<tbl_QUESTION>();
             tbl_USER_ROLE = new HashSet<tbl_USER_ROLE>();
+            TeamReviews = new HashSet<TeamReview>();
         }
 
         [Key]
@@ -114,6 +116,9 @@ namespace Model
         public string SKYPE_ID { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CoachTeam> CoachTeams { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_ANSWER> tbl_ANSWER { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -128,5 +133,8 @@ namespace Model
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_USER_ROLE> tbl_USER_ROLE { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TeamReview> TeamReviews { get; set; }
     }
 }

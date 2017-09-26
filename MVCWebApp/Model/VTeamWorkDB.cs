@@ -12,6 +12,8 @@ namespace Model
         {
         }
 
+        public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
+        public virtual DbSet<CoachTeam> CoachTeams { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<tbl_ANSWER> tbl_ANSWER { get; set; }
         public virtual DbSet<tbl_APPLICATION> tbl_APPLICATION { get; set; }
@@ -125,11 +127,6 @@ namespace Model
                 .HasMany(e => e.tbl_TEAM_MODULE)
                 .WithRequired(e => e.tbl_MODULE)
                 .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<tbl_MODULE>()
-                .HasMany(e => e.TeamReviews)
-                .WithOptional(e => e.tbl_MODULE)
-                .HasForeignKey(e => e.CoachID);
 
             modelBuilder.Entity<tbl_PAGE>()
                 .Property(e => e.PAGE_NAME)
@@ -261,6 +258,11 @@ namespace Model
                 .IsUnicode(false);
 
             modelBuilder.Entity<tbl_TEAM>()
+                .HasMany(e => e.CoachTeams)
+                .WithRequired(e => e.tbl_TEAM)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<tbl_TEAM>()
                 .HasMany(e => e.tbl_TEAM_MODULE)
                 .WithRequired(e => e.tbl_TEAM)
                 .WillCascadeOnDelete(false);
@@ -374,6 +376,12 @@ namespace Model
                 .IsUnicode(false);
 
             modelBuilder.Entity<tbl_USER>()
+                .HasMany(e => e.CoachTeams)
+                .WithRequired(e => e.tbl_USER)
+                .HasForeignKey(e => e.Coach_ID)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<tbl_USER>()
                 .HasMany(e => e.tbl_ANSWER)
                 .WithOptional(e => e.tbl_USER)
                 .HasForeignKey(e => e.COACH_ID);
@@ -382,6 +390,11 @@ namespace Model
                 .HasMany(e => e.tbl_ANSWER1)
                 .WithOptional(e => e.tbl_USER1)
                 .HasForeignKey(e => e.USER_ID);
+
+            modelBuilder.Entity<tbl_USER>()
+                .HasMany(e => e.TeamReviews)
+                .WithOptional(e => e.tbl_USER)
+                .HasForeignKey(e => e.CoachID);
 
             modelBuilder.Entity<tbl_USER_ROLE>()
                 .Property(e => e.UPDATE_ID)
